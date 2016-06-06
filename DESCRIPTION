@@ -1,6 +1,6 @@
 Package: kwb.wtaq
 Maintainer: Hauke Sonnenberg <hauke.sonnenberg@kompetenz-wasser.de>
-Imports:
+Depends:
     lattice,
     hydroGOF,
     plotrix,

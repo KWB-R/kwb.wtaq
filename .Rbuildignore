@@ -1,0 +1,9 @@
+.travis.yml
+README.md
+kwb_wtaq.png
+kwb_wtaq.xcf
+kwb.wtaq.Rproj
+cran-comments.md
+^.*\.Rproj$
+^\.Rproj\.user$
+kwb.wtaq.Rproj

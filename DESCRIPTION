@@ -1,0 +1,16 @@
+Package: kwb.wtaq
+Maintainer: Hauke Sonnenberg <hauke.sonnenberg@kompetenz-wasser.de>
+Depends:
+    lattice,
+    hydroGOF,
+    plotrix,
+    reshape
+Remotes: github::KWB-R/kwb.utils
+Author: Hauke Sonnenberg
+Version: 0.2.99
+License: MIT + LICENSE
+Title: Interface to WTAQ Drawdown Model (http://water.usgs.gov/ogw/wtaq/)
+Description: Functions enabling the writing of WTAQ input files, running of WTAQ
+    and reading of WTAQ output files.
+RoxygenNote: 5.0.1
+VignetteBuilder: knitr

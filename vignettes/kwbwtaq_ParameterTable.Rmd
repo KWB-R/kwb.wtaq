@@ -1,0 +1,68 @@
+---
+title: "Parameters of configuration functions in kwb.wtaq"
+author: "Hauke Sonnenberg"
+date: "`r format(Sys.Date(),format='%B %d, %Y')`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Parameters of configuration functions in kwb.wtaq}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\usepackage[utf8]{inputenc}
+---
+
+
+```{r, echo = FALSE}
+parameterFile <- system.file("extdata", "parameterlist.txt", package = "kwb.wtaq")
+parameterInfo <- read.table(parameterFile, header = TRUE, sep="@", quote = "", 
+                            fill = TRUE, stringsAsFactors=FALSE)
+parameterInfo <- kwb.utils::hsRenameColumns(
+  parameterInfo, 
+  list(FunctionName = "Function", 
+       ParameterName = "Parameter", 
+       DefaultValue = "Default value"))
+
+parameterInfo$Function <- kwb.utils::hsTrim(parameterInfo$Function)
+
+printFunctionTable <- function(parameterInfo, functionName) {
+  caption <- paste("Parameters with their default value and a description ",
+                    "for the function `kwb.wtaq::", functionName, "`", sep = "")
+  knitr::kable(
+    parameterInfo[parameterInfo$Function == functionName, -1], 
+    row.names = FALSE,
+    caption = caption)
+}
+```
+
+#General settings
+```{r, echo = FALSE, results = 'asis'}
+printFunctionTable(parameterInfo, "wtConfigureGeneral")
+```
+
+#Aquifer settings
+```{r, echo = FALSE, results = 'asis'}
+printFunctionTable(parameterInfo, "wtConfigureAquifer")
+```
+
+#Drainage settings
+```{r, echo = FALSE, results = 'asis'}
+printFunctionTable(parameterInfo, "wtConfigureDrainage")
+```
+
+#Time settings
+```{r, echo = FALSE, results = 'asis'}
+printFunctionTable(parameterInfo, "wtConfigureTimes")
+```
+
+#Solver settings
+```{r, echo = FALSE, results = 'asis'}
+printFunctionTable(parameterInfo, "wtConfigureSolution")
+```
+
+#Pumping well settings
+```{r, echo = FALSE, results = 'asis'}
+printFunctionTable(parameterInfo, "wtConfigurePumpwell")
+```
+
+#Observation well settings
+```{r, echo = FALSE, results = 'asis'}
+printFunctionTable(parameterInfo, "wtConfigureObservationWell")
+```

@@ -1,10 +1,11 @@
 Package: kwb.wtaq
 Maintainer: Hauke Sonnenberg <hauke.sonnenberg@kompetenz-wasser.de>
-Depends:
+Imports:
     lattice,
     hydroGOF,
     plotrix,
-    reshape
+    reshape,
+	knitr
 Remotes: github::KWB-R/kwb.utils
 Author: Hauke Sonnenberg
 Version: 0.2.99

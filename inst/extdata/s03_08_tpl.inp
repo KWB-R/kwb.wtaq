@@ -1,0 +1,19 @@
+Sensitivity analysis: hypothetic case study (units: seconds, meters).
+DIMENSIONAL                                  FORMAT
+WATER TABLE                                  AQTYPE
+%BB% %HKR% %HKZ% %SS% %SY%		             BB HKR HKZ SS SY
+0 0                                          IDRA NALPHA
+1.0E9    									 
+0 0                                          ITS IMEAS
+1.0E6 6 5		                             TLAST NLC NOX
+1											 ISOLN 
+1.0E-09 0  0  30  8 	                     RERRNR RERRSUM NMAX NTMS NS
+1 0 1                                        IPWS IPWD IPUMP
+2.08E-02 0.0005 0.0 0E0 10E0 0  			 QQ RW RC ZPD ZPL SW
+3                                            NOBWC
+OW1 1 0                                      OBNAME IOWS IDPR                                      
+50  0.0  10.0  0.0E0  0 0		             OW1: R Z1 Z2 ZP RP XLL
+OW2 1 0                                      OBNAME IOWS IDPR                                      
+100  0.0  10.0  0.0E0  0 0		             OW2: R Z1 Z2 ZP RP XLL
+OW3 1 0                                      OBNAME IOWS IDPR                                      
+500  0.0  10.0  0.0E0  0 0		             OW3: R Z1 Z2 ZP RP XLL

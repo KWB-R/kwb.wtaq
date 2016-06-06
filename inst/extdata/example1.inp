@@ -1,0 +1,16 @@
+Test well field with one pumping well and one observation well (units: seconds, meters).
+DIMENSIONAL                                  	FORMAT
+WATER TABLE                                  	AQTYPE
+10 8.0E-03 1.0E-04 1.E-05 0.10 		     	BB HKR HKZ SS SY
+0 0						IDRA NALPHA
+1.0E9    									 
+0 0                                          	ITS IMEAS
+1.0E6 6 5		                     	TLAST NLC NOX
+1					     	ISOLN 
+1.0E-09 0  0  30  8 	                     	RERRNR RERRSUM NMAX NTMS NS
+0 1 1                                        	IPWS IPWD IPUMP
+0.0869 1.5 1.5 0.4  7.8 0			QQ RW RC ZPD ZPL SW
+1                                          	NOBWC
+OW4 0 1                                      	OBNAME IOWS IDPR                                      
+100  1.8  7.5  0.0D0  1.5 5.7		        OW1: R Z1 Z2 ZP RP XLL
+                                

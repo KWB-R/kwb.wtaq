@@ -5,7 +5,8 @@ Imports:
     hydroGOF,
     plotrix,
     reshape,
-	knitr
+	knitr,
+	rmarkdown
 Remotes: github::KWB-R/kwb.utils
 Author: Hauke Sonnenberg
 Version: 0.2.99

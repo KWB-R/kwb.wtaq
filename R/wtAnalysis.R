@@ -496,10 +496,17 @@ wtRunInputFile <- function # Run WTAQ with given input file
   
   # cmd command line string for calling WTAQ with files read from arguments file
   #Windows command
-  if (.Platform$OS.type ==  "windows") cmd <- sprintf("cmd /C \"%s\" < \"%s\"", wtaq.exe, argumentsFile)
-  
-  ## Unix command
-  if (.Platform$OS.type ==  "unix") cmd <-sprintf("'%s' < '%s'", wtaq.exe, argumentsFile)
+  platform <- .Platform$OS.type
+
+  if (platform == "windows") {
+    cmd <- sprintf("cmd /C \"%s\" < \"%s\"", wtaq.exe, argumentsFile)
+  }
+  else if (platform ==  "unix") {
+    cmd <- sprintf("'%s' < '%s'", wtaq.exe, argumentsFile)
+  }
+  else {
+    stop("Platform '", platform, "' not supported (only windows, unix)!")
+  }
   
   # Save current working directory, set working directory to targetDirectory
   # and reset working directory on exit
@@ -516,22 +523,23 @@ wtRunInputFile <- function # Run WTAQ with given input file
   # Run WTAQ
   if(batchRun==FALSE)
   {
-   kwb.utils::catIf(dbg, sprintf("WTAQ command run (OS: %s):\n", os))
-   if (.Platform$OS.type ==  "windows") shell(cmd) ### not supported under Linux
-   if (.Platform$OS.type ==  "unix") system(cmd)
+   kwb.utils::catIf(dbg, sprintf("WTAQ command run (OS: %s):\n", platform))
+   if (platform ==  "windows") shell(cmd) ### not supported under Linux
+   if (platform ==  "unix") system(cmd)
   } else {
     # Create batch file
-    if (.Platform$OS.type ==  "windows") 
+    if (platform ==  "windows") 
     {
-      kwb.utils::catIf(dbg, sprintf("WTAQ command run (OS: %s, WTAQ path: %s):\n", os, wtaq.exe))
+      kwb.utils::catIf(dbg, sprintf("WTAQ command run (OS: %s, WTAQ path: %s):\n", platform, wtaq.exe))
+      batchFile <- file.path(targetDirectory, sprintf("%sRun.bat", file.base))
       write(paste("@ECHO OFF", cmd, "pause", sep = "\n"), batchFile)
     }
-    if (.Platform$OS.type ==  "unix") 
+    if (platform ==  "unix") 
     {
       batchFile <- file.path(targetDirectory, sprintf("%sRun.sh", file.base))
       write(paste("#!/bin/bash", "# init", cmd , " ", sep = "\n"), batchFile)
     }
-    kwb.utils::catIf(dbg, sprintf("WTAQ batch run (OS: %s, path: %s):\n", os, wtaq.exe))
+    kwb.utils::catIf(dbg, sprintf("WTAQ batch run (OS: %s, path: %s):\n", platform, wtaq.exe))
     system(batchFile)
   }
   kwb.utils::catIf(dbg, sprintf("Write results in target folder: %s\n", targetDirectory))

@@ -2,12 +2,12 @@
 \alias{wtRunConfiguration}
 \title{Run WTAQ with given configuration}
 \description{Run a WTAQ simulation with the given configuration}
-\usage{wtRunConfiguration(configuration, wtaq.exe = system.file("extdata", 
-    "wtaq.2.1.exe", package = "kwb.wtaq"), targetDirectory = tempdir(), 
+\usage{wtRunConfiguration(configuration, wtaq.exe = .wtaq_path(), targetDirectory = tempdir(), 
     show.results = FALSE, fileExtension = "", dbg = FALSE, ...)}
 \arguments{
   \item{configuration}{WTAQ configuration, as retrieved by \code{\link{wtConfigure}}.}
-  \item{wtaq.exe}{full path to WTAQ executable \dQuote{wtaq.2.1.exe}}
+  \item{wtaq.exe}{full path to WTAQ executable (default: compiled executable in package
+subfolder "extdata" as defined in helper function .wtaq_path() )}
   \item{targetDirectory}{optional. Target directory. If no target directory is given, a temporary
 directory will be used.}
   \item{show.results}{if TRUE, the content of the results file will be shown in the R console.

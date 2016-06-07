@@ -17,10 +17,6 @@
 ## ---- warning = FALSE, message = TRUE------------------------------------
 library(kwb.wtaq)
 
-# ### Download WTAQ 2.1 from USGS
-# download.file("https://water.usgs.gov/ogw/wtaq/WTAQ_2.1.exe", 
-#               destfile =  system.file("extdata/wtaq.2.1.exe", 
-#                                       package = "kwb.wtaq"))
 
 
 ## ------------------------------------------------------------------------
@@ -43,7 +39,7 @@ str(drawdowns)
 drawdowns[["W5"]]
 
 ## ----invisible = TRUE, asis = TRUE---------------------------------------
-xyplot(W1 + W2 + W3 + W4 + W5 ~ time.in.seconds, 
+lattice::xyplot(W1 + W2 + W3 + W4 + W5 ~ time.in.seconds, 
        data = drawdowns[["W5"]], 
        type = c("b", "g"), # (b)oth, dots and lines, and a (g)rid
        auto.key = list(columns = 5), # legend arranged in five columns
@@ -172,6 +168,10 @@ wtPlotResult(result,
              main="Pumping test W5: model results without calibration")
 
 ## ---- eval=TRUE----------------------------------------------------------
+
+### Package for gof function
+library(hydroGOF)
+
 # modelFitness(): called by function modelFitnessAggregated()
 modelFitness <- function
 (
@@ -182,7 +182,7 @@ modelFitness <- function
   subResult <- wtaqResult[grep(pattern = wellPattern, wtaqResult$WELL),]
   
   
-  fitness <- t(gof(sim = subResult$MEASDD, obs = subResult$CALCDD, digits = 3))
+  fitness <- t(hydroGOF::gof(sim = subResult$MEASDD, obs = subResult$CALCDD, digits = 3))
   
   colnames(fitness) <- sub(" %", "", colnames(fitness))
   
@@ -422,10 +422,15 @@ plotWellInterference <- function(wellName, Q=NULL)
                          CALCDD=drawdownsWithWellInterference[,wellName])
   
   res <- rbind(drawdown, drawdownWithInterference)
-  print(xyplot(CALCDD ~ TIME, groups =  SCENARIO, ylim=rev(extendrange(res$CALCDD)),
-               ylab = "Drawdown (m)",
-               xlab = "Time in seconds since start of pumping (s)",
-         type="b", auto.key=list(columns=2), data=res, main=label))
+  print(lattice::xyplot(CALCDD ~ TIME, 
+                        groups =  SCENARIO, 
+                        ylim=rev(extendrange(res$CALCDD)),
+                        ylab = "Drawdown (m)",
+                        xlab = "Time in seconds since start of pumping (s)",
+                        type="b", 
+                        auto.key = list(columns=2), 
+                        data=res, 
+                        main = label))
 }
 
 for (wellName in owWellfieldConf$wellName)

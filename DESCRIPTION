@@ -4,15 +4,22 @@ Description: Functions enabling the writing of WTAQ input files, running of WTAQ
     and reading of WTAQ output files.
 Author: Hauke Sonnenberg
 Maintainer: Hauke Sonnenberg <hauke.sonnenberg@kompetenz-wasser.de>
-Depends:
-    lattice,
-    hydroGOF,
-    plotrix,
-    reshape,
-	knitr,
-	rmarkdown
+Depends: R (>= 3.0.0)
+Imports: 
+	kwb.utils,
+	lattice,
+	hydroGOF,
+	plotrix,
+    reshape
+Suggests: 
+	rmarkdown,
+	knitr
 Remotes: github::KWB-R/kwb.utils
+BinaryFiles: 
+	wtaq.2.1.exe,
+	wtaq.2.1_linux32bit.exe,
+	wtaq.2.1_linux64bit.exe
 Version: 0.2.99
-License: MIT + LICENSE
+License: MIT + file LICENSE
 RoxygenNote: 5.0.1
 VignetteBuilder: knitr

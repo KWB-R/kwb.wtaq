@@ -41,16 +41,16 @@ dat2 <- wtReadPlotFile(pfile[2])
 dat3 <- wtReadPlotFile(pfile[3])
 
 ### Plot HDPW + HDOB1 + HDOB2 + HDOB3 + HDOB4 over dimensionless time (TDRDSQ)
-tr1 <- xyplot(PW + OB1 + OB2 + OB3 + OB4 ~ TDRDSQ, 
+tr1 <- lattice::xyplot(PW + OB1 + OB2 + OB3 + OB4 ~ TDRDSQ, 
               data = dat1, type = "l", auto.key = list(columns = 5), 
               main = "Example 1")    
 
 ### Plot CALCDD over TIME
-tr2 <- xyplot(CALCDD ~ TIME, groups = WELL, 
+tr2 <- lattice::xyplot(CALCDD ~ TIME, groups = WELL, 
               data = dat2, type = "l", auto.key = list(columns = 5),
               main = "Example 2")
 
-tr3 <- xyplot(CALCDD ~ TIME, groups = WELL, 
+tr3 <- lattice::xyplot(CALCDD ~ TIME, groups = WELL, 
               data = dat3, type = "l", auto.key = list(columns = 5),
               main = "Example 3")
 print(tr1)

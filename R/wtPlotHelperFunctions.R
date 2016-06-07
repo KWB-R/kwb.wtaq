@@ -352,7 +352,7 @@
   cols <- rainbow(length(times))
   
   # Plot the drawdown over time at the pumped well
-  trellisObject <- xyplot(
+  trellisObject <- lattice::xyplot(
     wtaqConfiguration$aquifer$bb - DD ~ x, 
     groups = as.factor(wtaqResultAndX$TIME), 
     data = wtaqResultAndX,  
@@ -387,7 +387,7 @@
   
   ylim <- .defaultYlimIfNull(ylim, wtaqResult, meas)
   
-  trellisObject <- xyplot(
+  trellisObject <- lattice::xyplot(
     as.formula(sprintf(
       "CALCDD %s~ %s", ifelse (meas, "+ MEASDD ", ""), timeColumn)), 
     data = wtaqResult, 
@@ -472,7 +472,7 @@
   
   frm <- sprintf("%s ~ %s | WELL", ifelse(meas, "DD", "CALCDD"), timeColumn)
 
-  trellisObject <- xyplot(
+  trellisObject <- lattice::xyplot(
     as.formula(frm), 
     data = mdata, 
     groups = groups,

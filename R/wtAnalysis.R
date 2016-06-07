@@ -61,9 +61,9 @@ wtSetParameter <- function # set parameter in WTAQ configuration
   }
   else {
     accepted.text <-paste(
-      paste("Aquifer-parameters:", commaCollapsed(hsQuoteChr(accepted.aquifer))),
-      paste("Drainage-parameters:", commaCollapsed(hsQuoteChr(accepted.drainage))),
-      paste("Pumpwell-parameters:", commaCollapsed(hsQuoteChr(accepted.pumpwell))),
+      paste("Aquifer-parameters:", kwb.utils::commaCollapsed(kwb.utils::hsQuoteChr(accepted.aquifer))),
+      paste("Drainage-parameters:", kwb.utils::commaCollapsed(kwb.utils::hsQuoteChr(accepted.drainage))),
+      paste("Pumpwell-parameters:", kwb.utils::commaCollapsed(kwb.utils::hsQuoteChr(accepted.pumpwell))),
       sep = "\n")
     
     errorMessage <- sprintf(
@@ -265,6 +265,7 @@ wtInputFileLines <- function # text lines for WTAQ input file
   ### Separator to be placed between parameter values and parameter names.
   ### Default: two tab characters.  
   dbg = FALSE
+  ### if TRUE, debug message are shown, else not. Default: FALSE
 ) 
 {
   ##seealso<< \code{\link{wtReadInputFile}}
@@ -629,9 +630,7 @@ function # Run different scenarios based on input template
   ### marker delimiter character. Default: percent sign
 ) 
 { 
-  .chmod_wtaq(wtaq.exe) 
-  
-  
+
   # Read input file template
   tpl.lines <- readLines(templateFile)
   
@@ -697,7 +696,7 @@ function # Run different scenarios based on input template
   }
   
   # Plot results
-  print(xyplot(PW + OB1 + OB2 + OB3 ~ TIME | src, data = alldat, 
+  print(lattice::xyplot(PW + OB1 + OB2 + OB3 ~ TIME | src, data = alldat, 
                type = "b", auto.key = list(columns = 4)))
 })
 
@@ -777,16 +776,16 @@ ex = function()
   dat3 <- wtReadPlotFile(pfile[3])
   
   ### Plot HDPW + HDOB1 + HDOB2 + HDOB3 + HDOB4 over dimensionless time (TDRDSQ)
-  tr1 <- xyplot(PW + OB1 + OB2 + OB3 + OB4 ~ TDRDSQ, 
+  tr1 <- lattice::xyplot(PW + OB1 + OB2 + OB3 + OB4 ~ TDRDSQ, 
                 data = dat1, type = "l", auto.key = list(columns = 5), 
                 main = "Example 1")    
   
   ### Plot CALCDD over TIME
-  tr2 <- xyplot(CALCDD ~ TIME, groups = WELL, 
+  tr2 <- lattice::xyplot(CALCDD ~ TIME, groups = WELL, 
                 data = dat2, type = "l", auto.key = list(columns = 5),
                 main = "Example 2")
   
-  tr3 <- xyplot(CALCDD ~ TIME, groups = WELL, 
+  tr3 <- lattice::xyplot(CALCDD ~ TIME, groups = WELL, 
                 data = dat3, type = "l", auto.key = list(columns = 5),
                 main = "Example 3")
   print(tr1)

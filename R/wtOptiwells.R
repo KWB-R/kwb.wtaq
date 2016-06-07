@@ -626,7 +626,7 @@ owGetDrawdowns <- function # Drawdowns for Optiwells configuration and pump disc
                             colNameVal = "CALCDD")
   yrng <- range(dat$CALCDD)
 
-  tro <- xyplot(CALCDD ~ TIME | PW,                   
+  tro <- lattice::xyplot(CALCDD ~ TIME | PW,                   
                 data = dat,
                 groups = dat$WELL,
                 ylim = rev(yrng + c(-1,1) * 0.04 * diff(yrng)),

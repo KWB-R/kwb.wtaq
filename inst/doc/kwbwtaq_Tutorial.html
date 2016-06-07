@@ -11,6 +11,7 @@
 
 <meta name="author" content="Hauke Sonnenberg &amp; Michael Rustler (Kompetenzzentrum Wasser Berlin gGmbH)" />
 
+<meta name="date" content="2016-06-07" />
 
 <title>Tutorial for R package kwb.wtaq</title>
 
@@ -213,7 +214,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Tutorial for R package kwb.wtaq</h1>
 <h4 class="author"><em>Hauke Sonnenberg &amp; Michael Rustler (Kompetenzzentrum Wasser Berlin gGmbH)</em></h4>
-<h4 class="date"><em>Juni 06, 2016</em></h4>
+<h4 class="date"><em>June 07, 2016</em></h4>
 
 </div>
 
@@ -286,12 +287,7 @@ div.tocify {
 <h3>Loading the package</h3>
 <p>Once you have installed all the requied packages you are almost ready to use the functions contained in the package <em>kwb.wtaq</em>.</p>
 <p>As a last step you need to explicitly load the package into your current R session by running the following R command:</p>
-<pre class="r"><code>library(kwb.wtaq)
-
-# ### Download WTAQ 2.1 from USGS
-# download.file(&quot;https://water.usgs.gov/ogw/wtaq/WTAQ_2.1.exe&quot;, 
-#               destfile =  system.file(&quot;extdata/wtaq.2.1.exe&quot;, 
-#                                       package = &quot;kwb.wtaq&quot;))</code></pre>
+<pre class="r"><code>library(kwb.wtaq)</code></pre>
 <p>You will see messages stating the progress of loading not only the package <em>kwb.wtaq</em> but also of all the packages that it depends on.</p>
 <p>You may see warnings that the packages have been built under R in a higher version compared to the version that you are using:</p>
 <pre class="r"><code>## Warning: package 'kwb.utils' was built under R version 3.0.3</code></pre>
@@ -372,7 +368,7 @@ help(kwb.wtaq::wtConfigure)</code></pre>
 ## 14           90600 0.95 0.08 0.08 0.14 0.21
 ## 15          129600 0.96 0.09 0.09 0.15 0.23</code></pre>
 <p>It seems as if the drawdowns reach a steady-state after a certain time. This can be judged better by a diagram that can be produced in R by using the xyplot function from the R-package “lattice”:</p>
-<pre class="r"><code>xyplot(W1 + W2 + W3 + W4 + W5 ~ time.in.seconds, 
+<pre class="r"><code>lattice::xyplot(W1 + W2 + W3 + W4 + W5 ~ time.in.seconds, 
        data = drawdowns[[&quot;W5&quot;]], 
        type = c(&quot;b&quot;, &quot;g&quot;), # (b)oth, dots and lines, and a (g)rid
        auto.key = list(columns = 5), # legend arranged in five columns
@@ -681,7 +677,10 @@ wtaqConfiguration2 &lt;- wtReadInputFile(inputFile)</code></pre>
 <li><p><code>parameterRange</code>: allowed value range for calibration parameter (e.g. <code>c(0.0001, 0.1)</code> for parameter <code>hkr</code>)</p></li>
 </ul>
 <p>Firstly this function - and its three dependent helper functions <code>modelFitness()</code>, <code>modelFitnessAggregated</code> and <code>fitnessAdaptedModelConfiguration()</code> - need to be loaded in R by running the following code:</p>
-<pre class="r"><code># modelFitness(): called by function modelFitnessAggregated()
+<pre class="r"><code>### Package for gof function
+library(hydroGOF)
+
+# modelFitness(): called by function modelFitnessAggregated()
 modelFitness &lt;- function
 (
   wtaqResult, 
@@ -691,7 +690,7 @@ modelFitness &lt;- function
   subResult &lt;- wtaqResult[grep(pattern = wellPattern, wtaqResult$WELL),]
   
   
-  fitness &lt;- t(gof(sim = subResult$MEASDD, obs = subResult$CALCDD, digits = 3))
+  fitness &lt;- t(hydroGOF::gof(sim = subResult$MEASDD, obs = subResult$CALCDD, digits = 3))
   
   colnames(fitness) &lt;- sub(&quot; %&quot;, &quot;&quot;, colnames(fitness))
   
@@ -1003,10 +1002,15 @@ data.frame(time.in.seconds=drawdownsWithWellInterference[,1],
                          CALCDD=drawdownsWithWellInterference[,wellName])
   
   res &lt;- rbind(drawdown, drawdownWithInterference)
-  print(xyplot(CALCDD ~ TIME, groups =  SCENARIO, ylim=rev(extendrange(res$CALCDD)),
-               ylab = &quot;Drawdown (m)&quot;,
-               xlab = &quot;Time in seconds since start of pumping (s)&quot;,
-         type=&quot;b&quot;, auto.key=list(columns=2), data=res, main=label))
+  print(lattice::xyplot(CALCDD ~ TIME, 
+                        groups =  SCENARIO, 
+                        ylim=rev(extendrange(res$CALCDD)),
+                        ylab = &quot;Drawdown (m)&quot;,
+                        xlab = &quot;Time in seconds since start of pumping (s)&quot;,
+                        type=&quot;b&quot;, 
+                        auto.key = list(columns=2), 
+                        data=res, 
+                        main = label))
 }
 
 for (wellName in owWellfieldConf$wellName)

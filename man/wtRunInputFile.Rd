@@ -2,12 +2,13 @@
 \alias{wtRunInputFile}
 \title{Run WTAQ with given input file}
 \description{Run a WTAQ simulation with the given input file}
-\usage{wtRunInputFile(inputFile, wtaq.exe = system.file("extdata", "wtaq.2.1.exe", 
-    package = "kwb.wtaq"), targetDirectory = tempdir(), show.results = FALSE, 
-    copyToTarget = TRUE, configuration = NULL, dbg = FALSE)}
+\usage{wtRunInputFile(inputFile, wtaq.exe = .wtaq_path(), targetDirectory = tempdir(), 
+    show.results = FALSE, copyToTarget = TRUE, configuration = NULL, 
+    batchRun = FALSE, dbg = FALSE)}
 \arguments{
   \item{inputFile}{Existing WTAQ input file}
-  \item{wtaq.exe}{full path to WTAQ executable \dQuote{wtaq.2.1.exe}}
+  \item{wtaq.exe}{full path to WTAQ executable (default: compiled executable in package
+subfolder "extdata" as defined in helper function .wtaq_path() )}
   \item{targetDirectory}{optional. Target directory. If no target directory is given, a temporary
 directory will be used.}
   \item{show.results}{if TRUE, the content of the results file will be shown in the R console.
@@ -17,6 +18,7 @@ argument to FALSE if the input file already is in the target directory
 and does not need to be copied again.}
   \item{configuration}{WTAQ configuration object as retrieved by \code{\link{wtConfigure}}. If
 not given (default), it will be constructed from the input file}
+  \item{batchRun}{if TRUE batch run (may require admin rights!), else using direct command, default: FALSE}
   \item{dbg}{if TRUE, debug messages are shown, else not. Default: FALSE}
 }
 

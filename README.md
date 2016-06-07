@@ -11,3 +11,6 @@
 if(!require("devtools")) { install.packages("devtools") }
 devtools::install_github(repo = "KWB-R/kwb.wtaq", dependencies = TRUE)
 ```
+
+##[2. Tutorial website](http://kwb-r.github.io/kwb.wtaq/)
+

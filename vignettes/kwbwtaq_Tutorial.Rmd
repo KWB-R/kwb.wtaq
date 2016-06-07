@@ -87,24 +87,18 @@ Before you can start using the functions provided in the package you need to
 Since the package *kwb.wtaq* depends on a number of other packages, not only
 *kwb.wtaq* but also all the packages that it depends on need to be installed.
 
-In order to simplify the package installation we provide an R script 
-*installPackages.R* that helps to install all the required packages. 
-To run the installation script you need to:
+In order to simplify the package installation run the following code: 
+```{r eval=FALSE}
+if(!require("devtools")) { install.packages("devtools") }
+devtools::install_github(repo = "KWB-R/kwb.wtaq", dependencies = TRUE)
+```
 
-1. Open the **installation** folder, which is a subfolder of the folder 
-**kwb.wtaq_Tutorial** that we sent to you in the Windows Explorer.
-
-2. Doubleclick on the R script file *installPackages.R*. 
-This will open the file in RStudio (supposing that the file extension ".R" is 
-linked to the RStudio application on your Windows system).
-
-3. Click the `Source` button or press `Ctrl` + `Shift` + `S` in RStudio. 
-This will run the complete installation script that will install 
+This will download and install the package **[kwb.wtaq](https://github.com/KWB-R/kwb.wtaq)** with all required 
+dependencies, i.e.:
   
   - publicly available packages from the Comprehensive R Archive Network (CRAN) and 
   
-  - the packages developed at KWB from the folder "packages" in the installation
-folder.
+  - the KWB Github package [kwb.utils](https://github.com/KWB-R/kwb.utils)
 
 If the installation succeeds the messages generated should read like these:
 ```{r}
@@ -116,13 +110,6 @@ If the installation succeeds the messages generated should read like these:
 ## The downloaded binary packages are in
 ##  C:\Dokumente und Einstellungen\Key Hauke\Lokale Einstellungen\Temp\RtmpctBYMz\downloaded_packages
 ## package 'kwb.utils' successfully unpacked and MD5 sums checked
-```
-
-```{r echo = FALSE}
-#currentWorkingDirectory <- getwd()
-#setwd("installation")
-#source(file.path("installPackages.R"))
-#setwd(currentWorkingDirectory)
 ```
 
 The installation needs to be done only once. The packages keep installed 

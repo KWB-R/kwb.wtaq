@@ -262,15 +262,13 @@ div.tocify {
 <div id="installation-of-required-r-packages" class="section level3">
 <h3>Installation of required R packages</h3>
 <p>Since the package <em>kwb.wtaq</em> depends on a number of other packages, not only <em>kwb.wtaq</em> but also all the packages that it depends on need to be installed.</p>
-<p>In order to simplify the package installation we provide an R script <em>installPackages.R</em> that helps to install all the required packages. To run the installation script you need to:</p>
-<ol style="list-style-type: decimal">
-<li><p>Open the <strong>installation</strong> folder, which is a subfolder of the folder <strong>kwb.wtaq_Tutorial</strong> that we sent to you in the Windows Explorer.</p></li>
-<li><p>Doubleclick on the R script file <em>installPackages.R</em>. This will open the file in RStudio (supposing that the file extension “.R” is linked to the RStudio application on your Windows system).</p></li>
-<li><p>Click the <code>Source</code> button or press <code>Ctrl</code> + <code>Shift</code> + <code>S</code> in RStudio. This will run the complete installation script that will install</p></li>
-</ol>
+<p>In order to simplify the package installation run the following code:</p>
+<pre class="r"><code>if(!require(&quot;devtools&quot;)) { install.packages(&quot;devtools&quot;) }
+devtools::install_github(repo = &quot;KWB-R/kwb.wtaq&quot;, dependencies = TRUE)</code></pre>
+<p>This will download and install the package <strong><a href="https://github.com/KWB-R/kwb.wtaq">kwb.wtaq</a></strong> with all required dependencies, i.e.:</p>
 <ul>
 <li><p>publicly available packages from the Comprehensive R Archive Network (CRAN) and</p></li>
-<li><p>the packages developed at KWB from the folder “packages” in the installation folder.</p></li>
+<li><p>the KWB Github package <a href="https://github.com/KWB-R/kwb.utils">kwb.utils</a></p></li>
 </ul>
 <p>If the installation succeeds the messages generated should read like these:</p>
 <pre class="r"><code>## package 'zoo' successfully unpacked and MD5 sums checked

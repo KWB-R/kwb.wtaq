@@ -1,3 +1,7 @@
+## ----eval=FALSE----------------------------------------------------------
+#  if(!require("devtools")) { install.packages("devtools") }
+#  devtools::install_github(repo = "KWB-R/kwb.wtaq", dependencies = TRUE)
+
 ## ------------------------------------------------------------------------
 ## package 'zoo' successfully unpacked and MD5 sums checked
 ## package 'hydroGOF' successfully unpacked and MD5 sums checked
@@ -7,12 +11,6 @@
 ## The downloaded binary packages are in
 ##  C:\Dokumente und Einstellungen\Key Hauke\Lokale Einstellungen\Temp\RtmpctBYMz\downloaded_packages
 ## package 'kwb.utils' successfully unpacked and MD5 sums checked
-
-## ----echo = FALSE--------------------------------------------------------
-#currentWorkingDirectory <- getwd()
-#setwd("installation")
-#source(file.path("installPackages.R"))
-#setwd(currentWorkingDirectory)
 
 ## ---- warning = FALSE, message = TRUE------------------------------------
 library(kwb.wtaq)

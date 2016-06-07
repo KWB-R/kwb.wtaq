@@ -1,3 +1,12 @@
+
+.chmod_wtaq <- function(wtaq_exe_path) {
+  if (.Platform$OS.type == "unix") {
+    if (file.access(wtaq_exe_path , mode = 1) == -1) {
+      Sys.chmod(wtaq_exe_path, mode = "0777", use_umask = TRUE)
+    }
+  }
+}
+
 # .wtaq_path--------------------------------------------------------------------
 .wtaq_path <- function() {
   
@@ -19,7 +28,7 @@
                       .Platform$OS.type))}
 
   system.file("extdata", wtaq_name, package = "kwb.wtaq")
-  
+
 }
 
 # .lineSplitAtSpace ------------------------------------------------------------

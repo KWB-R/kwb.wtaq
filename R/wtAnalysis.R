@@ -475,6 +475,9 @@ wtRunInputFile <- function # Run WTAQ with given input file
   if (! file.exists(wtaq.exe)) {
     stop("Could not find path to WTAQ executable: ", wtaq.exe)
   }
+  
+  ### Change permission on unix so that wtaq.exe is executable
+  .chmod_wtaq(wtaq.exe)
 
   # Copy the file to the target directory unless this option is suppressed
   if (copyToTarget) {
@@ -521,7 +524,7 @@ wtRunInputFile <- function # Run WTAQ with given input file
   kwb.utils::catIf(dbg, "\n*** Running WTAQ in", targetDirectory, "...\n")
   
   # Run WTAQ
-  if(batchRun==FALSE)
+  if(batchRun == FALSE)
   {
    kwb.utils::catIf(dbg, sprintf("WTAQ command run (OS: %s):\n", platform))
    if (platform ==  "windows") shell(cmd) ### not supported under Linux
@@ -617,7 +620,7 @@ function # Run different scenarios based on input template
   targetDirectory, 
   ### target directory in which input files are created and output files 
   ### produced by WTAQ will be written.
-  wtaq.exe = system.file("extdata", "wtaq.2.1.exe", package = "kwb.wtaq"), 
+  wtaq.exe = .wtaq_path(), 
   ### full path to WTAQ executable file
   scenarioNames = names(parameterValues),
   ### character vector representing the names of scenarios to be evaluated.
@@ -625,7 +628,10 @@ function # Run different scenarios based on input template
   markerDelimiter = "%" 
   ### marker delimiter character. Default: percent sign
 ) 
-{  
+{ 
+  .chmod_wtaq(wtaq.exe) 
+  
+  
   # Read input file template
   tpl.lines <- readLines(templateFile)
   
@@ -652,9 +658,9 @@ function # Run different scenarios based on input template
   targetDirectory <- tempdir()
   cat("\n*** Files are written to", targetDirectory, "\n")
   
-  ### Path to WTAQ executable
-  wtaq.exe <- system.file("extdata", "wtaq.2.1.exe", package = "kwb.wtaq")
-  
+   ### Change permission on unix so that wtaq.exe is executable
+  .chmod_wtaq(wtaq.exe)   
+
   ### Define scenarios with different parameter settings
   parameterValues = list(s03 = list(bb=10, hkr=1.0E-03, hkz=1.0E-02, ss=1.E-05, sy=0.1),
                s04 = list(bb=10, hkr=1.0E-03, hkz=1.0E-05, ss=1.E-05, sy=0.1),

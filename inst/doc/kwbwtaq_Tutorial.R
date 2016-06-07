@@ -332,7 +332,7 @@ distanceMatrix <- round(dist(owWellfieldConf[,c("x","y")],
                              method="euclidian", 
                              upper=TRUE,),
                         1)
-attr(distanceMatrix, "Labels") <- owWellfieldConf$wellName
+attr(distanceMatrix, "Labels") <- owWellfieldConf$wellNamee
 cat("Well distance matrix table:")
 cat("")
 distanceMatrix
@@ -387,9 +387,9 @@ data.frame(time.in.seconds=drawdownsWithWellInterference[,1],
       additionalDrawdown.due.to.wellInterference.in.meter=diffDrawdown)
 
 ## ---- echo=TRUE----------------------------------------------------------
-for (wellName in owWellfieldConf$wellName)
+for (wellName in owWellfieldConf$wellNamee)
 {
-  index <- which(owWellfieldConf$wellNam==wellName)
+  index <- which(owWellfieldConf$wellName==wellName)
  wellQ <- pumpingRates[index]
  if (wellQ > 0)
  {
@@ -431,9 +431,9 @@ plotWellInterference <- function(wellName, Q=NULL)
                         main = label))
 }
 
-for (wellName in owWellfieldConf$wellName)
+for (wellName in owWellfieldConf$wellNamee)
 {
-  index <- which(owWellfieldConf$wellNam==wellName)
+  index <- which(owWellfieldConf$wellName==wellName)
  wellQ <- pumpingRates[index]
  plotWellInterference(wellName = wellName, Q = wellQ)
 }

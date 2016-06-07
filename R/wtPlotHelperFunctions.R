@@ -356,15 +356,17 @@
     wtaqConfiguration$aquifer$bb - DD ~ x, 
     groups = as.factor(wtaqResultAndX$TIME), 
     data = wtaqResultAndX,  
-                type = "b",
-                col = cols, distribute.col = TRUE, 
-                xlab = "Distance from pumping well",
-                ylab = "Drawdown", 
-                main = "Evolution of drawdown over time",
-                legend = list(right = list(fun = draw.colorkey, 
-                                           args = list(key = list(
-                                             col = cols, 
-                                             at = log(times, 10))))))
+    type = "b",
+    col = cols, distribute.col = TRUE, 
+    xlab = "Distance from pumping well",
+    ylab = "Drawdown", 
+    main = "Evolution of drawdown over time",
+    legend = list(right = list(
+      fun = lattice::draw.colorkey, 
+      args = list(key = list(
+        col = cols, 
+        at = log(times, 10)))
+    )))
   
   print(trellisObject)
 }

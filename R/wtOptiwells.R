@@ -631,7 +631,7 @@ owGetDrawdowns <- function # Drawdowns for Optiwells configuration and pump disc
                 groups = dat$WELL,
                 ylim = rev(yrng + c(-1,1) * 0.04 * diff(yrng)),
                 type = c("b", "g"), 
-                strip = strip.custom(
+                strip = lattice::strip.custom(
                   factor.levels = 
                     sprintf("Pumping well: %s", 
                             attributes(drawdownList)$oconf$wellfield$wellName)),

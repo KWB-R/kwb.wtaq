@@ -676,9 +676,14 @@ wtaqConfiguration2 &lt;- wtReadInputFile(inputFile)</code></pre>
 </ul>
 <p>Firstly this function - and its three dependent helper functions <code>modelFitness()</code>, <code>modelFitnessAggregated</code> and <code>fitnessAdaptedModelConfiguration()</code> - need to be loaded in R by running the following code:</p>
 <pre class="r"><code>### Package for gof function
-library(hydroGOF)
-
-# modelFitness(): called by function modelFitnessAggregated()
+library(hydroGOF)</code></pre>
+<pre><code>## Loading required package: zoo</code></pre>
+<pre><code>## 
+## Attaching package: 'zoo'</code></pre>
+<pre><code>## The following objects are masked from 'package:base':
+## 
+##     as.Date, as.Date.numeric</code></pre>
+<pre class="r"><code># modelFitness(): called by function modelFitnessAggregated()
 modelFitness &lt;- function
 (
   wtaqResult, 

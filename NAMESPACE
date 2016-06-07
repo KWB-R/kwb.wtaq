@@ -1,5 +1,5 @@
 import(kwb.utils)
-importFrom("lattice","xyplot")
+importFrom("lattice","xyplot", "strip.custom", "draw.colorkey")
 importFrom("hydroGOF","gof")
 import(plotrix)
 import(reshape)
@@ -8,4 +8,5 @@ importFrom("graphics", "abline", "legend", "lines", "par", "plot",
            "points", "rect", "segments", "text")
 importFrom("stats", "as.formula", "rnorm")
 importFrom("utils", "read.table", "type.convert")
+S3method(print, wtaqConfiguration)
 exportPattern(".*")

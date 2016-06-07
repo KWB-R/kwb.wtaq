@@ -1,3 +1,27 @@
+# .wtaq_path--------------------------------------------------------------------
+.wtaq_path <- function() {
+  
+  wtaq_name <- ""
+  
+  if (.Platform$OS.type ==  "windows") {
+    wtaq_name <- "wtaq.2.1.exe"
+  } 
+  else if (.Platform$OS.type == "unix") {
+    
+        if (R.version$arch == "i386") {
+          wtaq_name <- "wtaq.2.1_linux32bit.exe"} 
+        else if (R.version$arch == "x86_64") {
+           wtaq_name <- "wtaq.2.1_linux64bit.exe"} 
+        else { stop(sprintf("Error, no WTAQ executable for %s %s available", 
+                    .Platform$OS.type, 
+                    R.version$arch))}}
+  else { stop(sprintf("Error, no WTAQ executable for platform %s vailable", 
+                      .Platform$OS.type))}
+
+  system.file("extdata", wtaq_name, package = "kwb.wtaq")
+  
+}
+
 # .lineSplitAtSpace ------------------------------------------------------------
 .lineSplitAtSpace <- function # split text line at spaces
 (
@@ -54,7 +78,7 @@
       }
     }
 
-    catIf(dbg, "para: ", para, ", format: ", fmt, ", value: ", myval, "\n")
+    kwb.utils::catIf(dbg, "para: ", para, ", format: ", fmt, ", value: ", myval, "\n")
 
     part <- sprintf(fmt, myval)
     # if format contains "E", replace "E" with "D" (for use in Fortran)
@@ -251,7 +275,7 @@
     ### Default: FALSE
   ) 
   {  
-    catIf(dbg, "Reading", plotfile, "...")
+    kwb.utils::catIf(dbg, "Reading", plotfile, "...")
     
     # Read file
     tdat <- read.table(plotfile, header = FALSE, fill = TRUE, 
@@ -291,7 +315,7 @@
       dat[[i]] <- as.numeric(dat[[i]])
     }
     
-    catIf(dbg, "ok.\n")
+    kwb.utils::catIf(dbg, "ok.\n")
     
     # Return data frame
     class(dat) <- c("wtaqResult", class(dat))

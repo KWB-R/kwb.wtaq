@@ -206,7 +206,7 @@ wtReadInputFile <- function # Read WTAQ configuration from input file
   # loop through observation wells
   for (i in seq(1, by = 1, length.out=nobwc)) {
     
-    catIf(dbg, "observation well #", i, ", starting at row ", crow+1, "\n")
+    kwb.utils::catIf(dbg, "observation well #", i, ", starting at row ", crow+1, "\n")
     
     strs <- .lineSplitAtSpace(txt[crow+1])
     v <- as.numeric(strs[2:3])
@@ -385,8 +385,9 @@ wtRunConfiguration <- function # Run WTAQ with given configuration
 (
   configuration,
   ### WTAQ configuration, as retrieved by \code{\link{wtConfigure}}.
-  wtaq.exe = system.file("extdata", "wtaq.2.1.exe", package = "kwb.wtaq"),
-  ### full path to WTAQ executable \dQuote{wtaq.2.1.exe}
+  wtaq.exe = .wtaq_path(),
+  ### full path to WTAQ executable (default: compiled executable in package
+  ### subfolder "extdata" as defined in helper function .wtaq_path() )
   targetDirectory = tempdir(),
   ### optional. Target directory. If no target directory is given, a temporary
   ### directory will be used.
@@ -411,9 +412,8 @@ wtRunConfiguration <- function # Run WTAQ with given configuration
   inpLines = wtInputFileLines(configuration, dbg = dbg)
   
   # Create path to input file  
-  inputFile <- file.path(
-    targetDirectory, 
-    sprintf("wtaqByR%s.%s", fileExtension, "inp"), fsep = "\\")
+  
+  inputFile <- file.path(targetDirectory, "wtaqByR.inp")
   
   # Write input file
   write(inpLines, inputFile)
@@ -442,8 +442,9 @@ wtRunInputFile <- function # Run WTAQ with given input file
 (
   inputFile,
   ### Existing WTAQ input file
-  wtaq.exe = system.file("extdata", "wtaq.2.1.exe", package = "kwb.wtaq"),
-  ### full path to WTAQ executable \dQuote{wtaq.2.1.exe}
+  wtaq.exe = .wtaq_path(),
+  ### full path to WTAQ executable (default: compiled executable in package
+  ### subfolder "extdata" as defined in helper function .wtaq_path() )
   targetDirectory = tempdir(),
   ### optional. Target directory. If no target directory is given, a temporary
   ### directory will be used.
@@ -457,12 +458,15 @@ wtRunInputFile <- function # Run WTAQ with given input file
   configuration = NULL,
   ### WTAQ configuration object as retrieved by \code{\link{wtConfigure}}. If
   ### not given (default), it will be constructed from the input file
+  batchRun = FALSE, 
+  ### if TRUE batch run (may require admin rights!), else using direct command, default: FALSE
   dbg = FALSE
   ### if TRUE, debug messages are shown, else not. Default: FALSE
 )
 {
   ##seealso<< \code{\link{wtInputFileLines}, \link{wtReadInputFile},
   ##\link{wtRunConfiguration}}
+  
   
   if (! file.exists(inputFile)) {
     stop("WTAQ input file does not exist: ", inputFile)
@@ -474,23 +478,28 @@ wtRunInputFile <- function # Run WTAQ with given input file
 
   # Copy the file to the target directory unless this option is suppressed
   if (copyToTarget) {
-    catIf(dbg, sprintf("*** Copying %s to %s... ", inputFile, targetDirectory))
+    kwb.utils::catIf(dbg, sprintf("*** Copying %s to %s... ", inputFile, targetDirectory))
     file.copy(inputFile, targetDirectory)
-    catIf(dbg, "ok.\n")
+    kwb.utils::catIf(dbg, "ok.\n")
   }  
 
   # Get filename of input file without extension
   parts <- strsplit(basename(inputFile), "\\.")[[1]]  
   file.base <- paste(parts[-length(parts)], collapse=".")
   
+
   # Arguments file
-  argumentsFile <- file.path(targetDirectory, sprintf("%sArgs.txt", file.base), fsep = "\\")
+  argumentsFile <- file.path(targetDirectory, sprintf("%sArgs.txt", file.base))
   
   # File names: 1. <file.base>.inp, 2. <file.base>.out, 3. <file.base>.plot
   fileNames <- c(basename(inputFile), sprintf("%s.%s", file.base, c("out", "plot")))
   
   # cmd command line string for calling WTAQ with files read from arguments file
-  cmd <- sprintf("cmd /C \"%s\" < \"%s\"", wtaq.exe, argumentsFile)
+  #Windows command
+  if (.Platform$OS.type ==  "windows") cmd <- sprintf("cmd /C \"%s\" < \"%s\"", wtaq.exe, argumentsFile)
+  
+  ## Unix command
+  if (.Platform$OS.type ==  "unix") cmd <-sprintf("'%s' < '%s'", wtaq.exe, argumentsFile)
   
   # Save current working directory, set working directory to targetDirectory
   # and reset working directory on exit
@@ -501,16 +510,33 @@ wtRunInputFile <- function # Run WTAQ with given input file
   # Rewrite arguments file
   write(fileNames, argumentsFile)
   
-  # Create batch file
-  batchFile <- file.path(targetDirectory, sprintf("%sRun.bat", file.base))
-  write(paste("@ECHO OFF", cmd, "pause", sep = "\n"), batchFile)
-  
-  catIf(dbg, "\n*** Running WTAQ in", targetDirectory, "...\n")
 
-  # Run WTAQ
-  shell(cmd)
+  kwb.utils::catIf(dbg, "\n*** Running WTAQ in", targetDirectory, "...\n")
   
-  # Read output file
+  # Run WTAQ
+  if(batchRun==FALSE)
+  {
+   kwb.utils::catIf(dbg, sprintf("WTAQ command run (OS: %s):\n", os))
+   if (.Platform$OS.type ==  "windows") shell(cmd) ### not supported under Linux
+   if (.Platform$OS.type ==  "unix") system(cmd)
+  } else {
+    # Create batch file
+    if (.Platform$OS.type ==  "windows") 
+    {
+      kwb.utils::catIf(dbg, sprintf("WTAQ command run (OS: %s, WTAQ path: %s):\n", os, wtaq.exe))
+      write(paste("@ECHO OFF", cmd, "pause", sep = "\n"), batchFile)
+    }
+    if (.Platform$OS.type ==  "unix") 
+    {
+      batchFile <- file.path(targetDirectory, sprintf("%sRun.sh", file.base))
+      write(paste("#!/bin/bash", "# init", cmd , " ", sep = "\n"), batchFile)
+    }
+    kwb.utils::catIf(dbg, sprintf("WTAQ batch run (OS: %s, path: %s):\n", os, wtaq.exe))
+    system(batchFile)
+  }
+  kwb.utils::catIf(dbg, sprintf("Write results in target folder: %s\n", targetDirectory))
+  
+   # Read output file
   out <- readLines(file.path(targetDirectory, fileNames[2]))
   
   # Did WTAQ fail?

@@ -404,21 +404,21 @@ wtCheckConfiguration <- structure(
       # loop through part names (excluding "complete")
       for (p in parts[-1]) {
         
-        catIf(dbg, sprintf('Checking "%s" configuration... ', p))
+        kwb.utils::catIf(dbg, sprintf('Checking "%s" configuration... ', p))
         
         if (p == "obswell") {
           
           # loop through observation wells
           for (i in seq(1, by = 1, length.out=length(configuration$obswells))) {
             
-            catIf(dbg, sprintf('\n- Checking config of observation well %i...', i))
+            kwb.utils::catIf(dbg, sprintf('\n- Checking config of observation well %i...', i))
             
             msg <- wtCheckConfiguration(configuration$obswells[[i]], p)
             if (msg != "") {
               return(msg)
             } 
             
-            catIf(dbg, "ok.")
+            kwb.utils::catIf(dbg, "ok.")
           }
         }
         else {
@@ -428,7 +428,7 @@ wtCheckConfiguration <- structure(
           return(msg)
         }
         
-        catIf(dbg, "ok.\n")              
+        kwb.utils::catIf(dbg, "ok.\n")              
       }
     }
     
@@ -597,7 +597,7 @@ wtRepairConfiguration <- function # repair configuration
 {
   setUnlessEquals <- function(x, x.name, mustBeValue, reason) {
     if (x != mustBeValue) {
-      catIf(dbg, sprintf("%s was set to %s since %s.\n", x.name, mustBeValue, reason))
+      kwb.utils::catIf(dbg, sprintf("%s was set to %s since %s.\n", x.name, mustBeValue, reason))
     }
     mustBeValue
   }
@@ -608,7 +608,7 @@ wtRepairConfiguration <- function # repair configuration
   
   if (configuration$general$format != dimensional) {
     configuration$general$format <- dimensional
-    catIf("configuration$general$format was set to \"DIMENSIONAL\".\n")
+    kwb.utils::catIf("configuration$general$format was set to \"DIMENSIONAL\".\n")
   }
   
   if (configuration$aquifer$aqtype == confined) {
@@ -645,7 +645,7 @@ wtRepairConfiguration <- function # repair configuration
       
       configuration$drainage$alpha <- c()
       
-      catIf(dbg, sprintf("%s was set to an empty vector since %s.\n", 
+      kwb.utils::catIf(dbg, sprintf("%s was set to an empty vector since %s.\n", 
                           "configuration$drainage$alpha", 
                           "configuration$drainage$idra is 0 or 2."))      
     }
@@ -660,7 +660,7 @@ wtRepairConfiguration <- function # repair configuration
     
     configuration$drainage$alpha <- configuration$drainage$alpha[1:5]
     
-    catIf(dbg, sprintf("%s was reduced to its first five elements.\n", 
+    kwb.utils::catIf(dbg, sprintf("%s was reduced to its first five elements.\n", 
                         "configuration$drainage$alpha"))
   }
   

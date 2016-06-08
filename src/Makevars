@@ -1,0 +1,19 @@
+PKG_FFLAGS = -fno-range-check
+
+OBJECTS = \
+        subs.besselmb.o \
+        subs.inverse.o \
+        subs.io.o \
+        wtaq.v2.o
+		
+all: wtaq2_1
+
+wtaq2_1: $(OBJECTS)
+	-$(FC) $(ALL_FFLAGS) -o wtaq2_1 $(OBJECTS)
+
+wtaq2_1.o: wtaq2_1.f
+	$(FC) $(ALL_FFLAGS) -c wtaq2_1.f
+
+clean:
+	$(RM) *.o *.mod
+

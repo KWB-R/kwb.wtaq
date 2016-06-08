@@ -1,0 +1,688 @@
+#Example sessions  
+
+##Level 1: One pumping well
+
+### Pumping test data 
+We have provided an example dataset "drawdowns" containing four different pumping 
+tests with measured drawdown time-series in five different wells (production well 
+and four observation wells). You can load the dataset by running:
+
+```{r}
+data("drawdowns", package = "kwb.wtaq")
+```
+Let's have a short look to the dataset. It is a list of four data frames as 
+the R command "str" reveals:
+
+```{r}
+str(drawdowns)
+```
+
+The four list elements represent four different pumping tests (in "W1", "W2", "W4" 
+and "W5". The resulting drawdowns of each pumping test are stored in a data frame 
+of six columns. Column "time.in.seconds" contains the time in seconds since the 
+start of a pumping test. The columns "W1" through "W5" contain the water table 
+drawdowns measured in the corresponding wells "W1" to "W5",in meters below the 
+initial water table. 
+
+For example, the fourth pumping test, during which a discharge of Q = 313 m3/h
+was measured in Well W5, resulted in the following drawdowns:
+```{r}
+drawdowns[["W5"]]
+```
+It seems as if the drawdowns reach a steady-state after a certain time. This can
+be judged better by a diagram that can be produced in R by using the xyplot
+function from the R-package "lattice":
+
+```{r invisible = TRUE, asis = TRUE}
+lattice::xyplot(W1 + W2 + W3 + W4 + W5 ~ time.in.seconds, 
+       data = drawdowns[["W5"]], 
+       type = c("b", "g"), # (b)oth, dots and lines, and a (g)rid
+       auto.key = list(columns = 5), # legend arranged in five columns
+       ylim=c(1,-0.1),
+       ylab= "Drawdown (m)", # label of y-Axis
+       xlab= "Time in seconds since start of pumping in W5 (s)") # label of y-Axis
+```
+
+###Model parameterisation  
+  
+In a first step a WTAQ input file needs to be defined. This can be realised with
+two different functions:
+
+* `wtConfigure()`: definition of WTAQ configuration within R 
+
+* `wtReadInputFile()`: importing of WTAQ configuration from existing WTAQ input 
+text file into R
+
+
+The WTAQ input file can be directly defined in R using the function `wtConfigure()` 
+and saved in the R object `wtaqConfiguration` (for a full description of all the 
+parameters that are accepted by the configuration functions, see: 
+[Parameter tables](kwbwtaq_ParameterTable.html)). 
+ 
+```{r}
+
+generalConfiguration <- wtConfigureGeneral(
+  ### title of the project (max. length 70 characters)
+  title="Example well field, long-term pumping test of well 5"
+  )
+
+aquiferConfiguration <- wtConfigureAquifer(    
+  aqtype = "WATER TABLE", # aquifer type
+  bb = 10,                # saturated aquifer thickness
+  hkr = 1E-03,            # horizontal hydraulic conductivity
+  hkz = 3.5E-05,          # vertical hydraulic conductivity
+  ss = 1E-05,             # specific storage
+  sy = 0.05               # specific yield
+)
+
+drainageConfiguration <- wtConfigureDrainage(
+  idra = 0 # = instantaneous drainage in unsaturated zone
+)
+
+timesConfiguration <- wtConfigureTimes(
+  its = 1 # = user-specified time-steps
+)
+```
+
+In the following we will configure one pumping well and two observation wells
+(for simplifying the tutorial we restrict ourselves to two instead of four 
+observation wells four which drawdown time series are available).  
+  
+Since WTAQ allows to define time-series of measured drawdowns for each well,
+the corresponding functions `wtConfigurePumpwell()` and `wtConfigureObservationWell()`,
+that are described in the following, also allow to specify these measured drawdown 
+values. For this example, we want to use the drawdowns of the fourth pumping test,
+provided in the example dataset `drawdowns`. We store it in a separate variable
+`drawdowns5`:
+
+```{r}
+drawdowns5 <- drawdowns[["W5"]]
+```
+
+Now we prepare some data frames (a table-like structure in R, defined by rows
+and columns, see `?data.frame`) representing three drawdown time series, which 
+are measured at : 
+
+- the pumping well "PW" and
+
+- two different observation wells "OW1" and "OW4".
+
+
+By doing this we simplify the programmig code that is used later on:
+
+```{r}
+# the times of observations are the same for all wells:
+times <- drawdowns5$time.in.seconds
+
+# observed drawdowns at the pumping well
+observed.PW  <- data.frame(t = times, dd = drawdowns5$W5)
+
+# observed drawdowns at the observation wells
+observed.OW1 <- data.frame(t = times, dd = drawdowns5$W1)
+observed.OW4 <- data.frame(t = times, dd = drawdowns5$W4)
+```
+
+
+Let's start with the configuration of the pumping well:
+```{r}
+pumpwellConfiguration <- wtConfigurePumpwell(
+  ### partially penetrating pumped well
+  ipws = 0,
+  ### finite diameter well
+  ipwd = 1, 
+  ### pumping rate of production well in (here: m3/s)
+  qq = 0.0869, 
+  ### radius of pumped well-screen (here: meter) 
+  rw = 1.5, 
+  ### top of filter screen below initial water table (here: meter)
+  zpd = 0.4, 
+  ### bottom of filter screen below initial water table (here: meter)
+  zpl = 7.8, 
+  ### well-bore skin parameter (dimensionless)
+  sw = 0, 
+  ### data.frame with times and measured drawdown data in pumping well
+  tspw = observed.PW 
+)
+```
+
+Now, let's define our first observation well:
+```{r}
+observationWell1 <- wtConfigureObservationWell(
+  ### name of observation well
+  obname = "OW1", 
+  ### distance from pumping well (here: meters)
+  r = 309.5, 
+  ### partially penetrating observation well
+  iows = 0, 
+  ### delayed response
+  idpr = 1, 
+  ### top of filter screen below initial water table (here: meters)
+  z1 = 1.8, 
+  ### bottom of filter screen below initial water table (here: meters)
+  z2 = 7.5, 
+  ### inside radius of the observation well (here: meters)
+  rp = 1.5, 
+  ### data.frame with times and measured drawdown data in OW1
+  tsobs= observed.OW1 
+)
+```
+
+In the same way, we define a second observation well "OW4" 
+(in a formally more compact way to save some space here):
+```{r}
+observationWell4 <- wtConfigureObservationWell(obname = "OW4", r = 86.6,
+  iows = 0, idpr = 1, z1 = 1.8, z2 = 7.5, rp = 1.5, tsobs = observed.OW4)
+```
+
+Out of these parts of configuration we can build one complete configuration by
+using the function `wtConfigure()`. It returns a R list structure that represents
+a model configuration containing all the necessary information that WTAQ 
+requires to perform a model run. 
+This information is saved in the R object `wtaqConfiguration` and will be
+used for the following chapters of this tutorial. 
+
+```{r}
+wtaqConfiguration <- wtConfigure(
+  general = generalConfiguration,
+  aquifer = aquiferConfiguration, 
+  drainage = drainageConfiguration, 
+  times = timesConfiguration, 
+  solution = wtConfigureSolution(),
+  pumpwell = pumpwellConfiguration,
+  obswells = list(observationWell4, 
+                  observationWell1)
+)
+```
+
+```{block,  type='rmdtip'}
+*Alternatively it is possible to load WTAQ input text files diretly into R with 
+the function `wtReadInputFile()` from an already existing WTAQ input text file, 
+e.g.:*
+```
+```{r, echo=TRUE}
+inputFile <- system.file("extdata", "example1.inp", package = "kwb.wtaq")
+wtaqConfiguration2 <- wtReadInputFile(inputFile)
+```
+*However, in this tutorial we just focus on the example that is stored in the R
+object `wtaqConfiguration`.*  
+
+For checking this model parameterisation it can be printed: 
+```{r, echo=TRUE}
+wtaqConfiguration
+```
+
+and also graphically visualised with the function `wtPlotConfiguration()`, e.g.: 
+```{r, eval=TRUE}
+wtPlotConfiguration(wtaqConfiguration, asp = NA)
+```
+
+###Model run  
+For running WTAQ and saving the results in the R object `result` we just have do
+use the function `wtRunConfiguration()` with our above defined model parameterisation
+`wtaqConfiguration`:
+```{r, eval=TRUE}
+result <- wtRunConfiguration(wtaqConfiguration)
+```
+
+
+###Analysing results  
+  
+To print the results of the model run, that are stored in the object `result` 
+in the **RStudio** console we simply need to enter: 
+```{r, eval=TRUE}
+result
+```
+
+For plotting the results we can either use the function `wtPlotResult()` with
+the parameter `plottype = "w"` to plot for each well measured (MEASDD) and 
+calculated (CALCDD) drawdowns in one plot:  
+
+```{r, eval=TRUE}
+wtPlotResult(result, 
+             plottype = "w", 
+             main="Pumping test W5: model results without calibration")
+```
+
+or produce a plot that contains measured and calculated drawdowns for all wells
+in two separate plots by setting the parameter `plottype = "s"`:  
+
+```{r, eval=TRUE}
+wtPlotResult(result, 
+             plottype = "s",
+             main="Pumping test W5: model results without calibration")
+```
+
+###Model calibration  
+  
+For this tutorial calibration is realised by using an automatised one-dimensional 
+optimisation approach for the following two model parameters, because these were 
+identified to be the most sensitive ones:
+
+* [1. Step: Horizontal hydraulic aquifer conductivity (hkr): for calibrating the drawdown in the observation well](#aquifer-characteristics-horizontal-hydraulic-conductivity-step-1)
+
+* [2. Step: Well-skin parameter: for calibrating production well drawdown](#well-characteristics-well-bore-skin-parameter-of-production-well-step-2)
+
+The approach is valid because the calibration of the well-skin parameter (during 
+Step 2) has no impact on the observation well drawdowns (Step 1). However, it 
+needs to be stated that conditions could occur, where a better model fit could 
+be possible (especially if the mid-term drawdown data are not fitting well) in 
+case that both, vertical `hkz` and horizontal `hkr` hydraulic aquifer conductivity
+are varied in tandem.   
+  
+Within this tutorial we solve this one-dimensional optimisation problem by using:  
+
+* the build-in R function `optimise()` and 
+
+* the Root-Mean-Square-Error (RMSE) as the only performance criteria for 
+evaluating the model fitness (i.e. comparision of calculated and measured drawdowns).
+
+For solving this optimisation (or: calibration) problem we define the R function 
+`calibrateModel()` which requires the following four input parameters:  
+
+* `configuration`: a valid WTAQ input parameterisation (here: `wtaqConfiguration`)
+
+* `wellPattern`: a regular expression or the well(s) names to be used for the 
+model fit evaluation  (here: `OW4` or `PW`)
+
+* `parameterName`: name of the WTAQ parameter that should be calibrated (here: `hkr` or `sw`)
+
+* `parameterRange`: allowed value range for calibration parameter (e.g. 
+`c(0.0001, 0.1)` for parameter `hkr`)
+
+Firstly this function - and its three dependent helper functions `modelFitness()`, 
+`modelFitnessAggregated` and `fitnessAdaptedModelConfiguration()` - need to be 
+loaded in R by running the following code:
+```{r, eval=TRUE}
+
+### Package for gof function
+library(hydroGOF)
+
+# modelFitness(): called by function modelFitnessAggregated()
+modelFitness <- function
+(
+  wtaqResult, 
+  wellPattern
+  )
+  {
+  subResult <- wtaqResult[grep(pattern = wellPattern, wtaqResult$WELL),]
+  
+  
+  fitness <- t(hydroGOF::gof(sim = subResult$MEASDD, obs = subResult$CALCDD, digits = 3))
+  
+  colnames(fitness) <- sub(" %", "", colnames(fitness))
+  
+  ### data.frame with plenty of performance indicators: e.g. RMSE, NSE, R2
+  as.data.frame(fitness)
+  }
+
+# modelFitnessAggregated: called by function fitnessAdaptedModelConfiguration()
+modelFitnessAggregated <- function 
+(
+  wtaqResult, 
+  wellPattern
+  )
+  {
+  fitness <- modelFitness(wtaqResult, wellPattern)
+  
+  ### Objective function for the performance criteria that is minimised, here:
+  fitness$RMSE 
+  }
+
+# fitnessAdaptedModelConfiguration: called by function calibrateModel()
+fitnessAdaptedModelConfiguration <- function 
+(
+  parameterValue, parameterName, configuration, wellPattern 
+  ) 
+  {
+  configuration <- wtSetParameter(configuration, parameterName, parameterValue)
+  
+  wtaqResult <- wtRunConfiguration(configuration)
+  
+  modelFitnessAggregated(wtaqResult, wellPattern)
+  }
+
+#calibrateModel()
+calibrateModel <- function (
+    ### WTAQ parameterisation, e.g. as retrieved by wtConfigure()
+    configuration,
+    ### regular expression or name of well(s) to be used for calibration: e.g. "OW4"
+    wellPattern,
+    ### name of ONE WTAQ parameter to be calibrated: e.g. `hkr`, `sw`
+    parameterName,
+    ### min/max range of possible calibration parameter values 
+    parameterRange 
+    ) 
+    {
+    optResults <- optimise(
+      f = fitnessAdaptedModelConfiguration, 
+      interval = parameterRange,
+      parameterName = parameterName, 
+      configuration = configuration, 
+      wellPattern = wellPattern )
+    
+    ### Save calibrated WTAQ configuration: 
+    wtaqConfigurationCalibrated <- wtSetParameter(
+      configuration = configuration, 
+      parameterName = parameterName, 
+      parameterValue = optResults$minimum)
+    
+    ### Save optimisation results in list
+    list(parameterName=parameterName, 
+         wellPattern=wellPattern,
+         optimalParameterValue=optResults$minimum, 
+         minimalPerformanceValue=optResults$objective,
+         wtaqConfig=wtaqConfigurationCalibrated
+         )
+    
+    }
+```
+
+####Aquifer characteristics: horizontal hydraulic conductivity (Step 1)
+```{r, eval=TRUE}
+# 1.Step: Calibrate aquifer characteristics 'hkr' for OW4-------------------------------
+
+calibratedAquifer <- calibrateModel(
+  ### reference wtaq configuration
+  configuration = wtaqConfiguration, 
+  ### calibrate hydraulic aquifer conductivity
+  parameterName = "hkr",  
+  ### 'hkr' is within 0.0001 - 0.1 m/s
+  parameterRange = c(0.0001, 0.1), 
+  ### only use drawdown time-series of OW4 for calibration 
+  wellPattern = "OW4" 
+  )
+
+
+### Plot the drawdowns with calibrated aquifer characteristics:
+wtPlotResult(wtaqResult = wtRunConfiguration(
+  configuration = calibratedAquifer$wtaqConfig),
+  
+  main = sprintf("Optimal value of parameter '%s' for %s: %0.4f m/s", 
+                 calibratedAquifer$parameterName, 
+                 calibratedAquifer$wellPattern, 
+                 calibratedAquifer$optimalParameterValue),
+  plottype = "w")
+```
+After this step observed and measured drawdowns fit nearly perfectly for the 
+calibrated observation well "OW4" only by setting the **hkr** to **`r calibratedAquifer$optimalParameterValue`** (m/s) , but still the drawdown in the production well
+"PW" is underestimated (because it is still assumed that here are no "well losses"). 
+
+Thus the production well characteristics (i.e. the well-skin parameter `sw`) need to be 
+calibrated in a next step.
+
+####Well characteristics: well-bore skin parameter of production well (Step 2)
+```{r, eval=TRUE}
+#2.Step: Calibrate well-bore skin parameter 'sw' for PW-------------------------------
+calibratedAquiferAndWellSkin <- calibrateModel(
+  #### WTAQ configuration with calibrated aquifer (Step1)
+  configuration = calibratedAquifer$wtaqConfig,
+  ### calibrate well-bore skin parameter
+  parameterName = "sw", 
+  ### 'sw' within 0 - 100 (dimensionless)
+  parameterRange = c(0, 100), 
+  ### only use drawdown time-series of PW for calibration 
+  wellPattern = "PW"  
+  )
+
+### Plot the drawdowns with calibrated aquifer & well-bore skin characteristics:
+wtPlotResult(wtaqResult = wtRunConfiguration(
+  configuration = calibratedAquiferAndWellSkin$wtaqConfig,
+  ),
+  
+  main = sprintf("Optimal value of parameter '%s' for %s: %2.4f (dimensionless)", 
+                 calibratedAquiferAndWellSkin$parameterName, 
+                 calibratedAquiferAndWellSkin$wellPattern, 
+                 calibratedAquiferAndWellSkin$optimalParameterValue),
+  plottype = "w")
+
+```
+
+By calibrating the well-skin parameter **sw** to **`r calibratedAquiferAndWellSkin$optimalParameterValue`** the  drawdown in the production well "PW" now also fits nearly perfectly the 
+observed drawdown values, without impacting the fit for the observation wells. 
+
+```{block,  type='rmdimportant'}
+*There might be cases where the calibration results by following the methodology 
+defined above is not satisfying. This can be possibly solved by calibrating 
+multiple parameters in parallel (e.g. horizontal `hkr` and vertical hydraulic 
+aquifer conductivity `hkz`). For this a more complex algorithm (e.g. build-in R 
+function `optim()`), which is able to solve multi-dimenional optimisation problems, 
+might be usefull. However, this goes beyond the scope of this tutorial.*
+```
+
+##Level 2: Multiple pumping wells
+
+```{block,  type='rmdwarning'}
+*For performing this example session it is required to perform all steps of the 
+[Level 1: one pumping well](#level-1-one-pumping-well) example session first, 
+because this example session requires some data of the [Level 1: one pumping well](#level-1-one-pumping-well) example*
+```
+
+One challenge of using WTAQ for multiple wells is that the drawdown simulation 
+for each model run is limited to: 
+
+* one active production well and 
+
+* up to 25 observation wells
+
+This means that the model parameterisation for the pumping (e.g. pumping rate) 
+and observation wells (e.g. distance to pumping well) needs to be 
+adapted for each model run manually by using the **Level 1** function (see: [Level 1: one pumping well](#level-1-one-pumping-well) example).  
+
+For avoiding such time consuming task additional **Level 2** functions were developed 
+and included in the *kwb.wtaq* package that simplify using WTAQ on the well-field scale. 
+The usage of these functions is described in the following:
+
+### Model parameterisation
+#### Well field
+In a first step the well field is defined, by creating a R object `owWellfieldConf`
+that contains the following properties for each well, i.e.:
+
+* Location `x`, `y`, 
+
+* Well diameter `r`,
+
+* Depth of filter screen top `z1` and bottom `z2` below initial groundwater level
+
+* Well-skin parameter `sw`
+
+For **all** production wells the well-skin parameter `sw` is set to `wellSkin`, 
+because this value achieved the best-model fit during [calibration for W5](#well-characteristics-well-bore-skin-parameter-of-production-well-step-2)
+
+```{r, echo=TRUE}
+### Well-skin parameter from calibration of W5 for all wells of the well field 
+wellSkin <- calibratedAquiferAndWellSkin$optimalParameterValue
+sprintf("Well-skin parameter value: %2.6f (dimensionless)", wellSkin)
+
+# Example well field configuration with 5 wells
+owWellfieldConf <- rbind(  
+  
+  owConfigureWell(
+    wellName = "W1", x = 807679.64, y = 2091015.29, 
+    r = 1.5, z1 = 2, z2 = 4, sw = wellSkin),  
+  
+  owConfigureWell(
+    wellName = "W2", x = 807608.66, y = 2091018.51, 
+    r = 1.7, z1 = 4.2, z2 = 7, sw = wellSkin),
+  
+  owConfigureWell(
+    wellName = "W3", x = 807558.27, y = 2091090.30, 
+    r = 1.5, z1 = 1.8, z2 = 8, sw = wellSkin),
+  
+  owConfigureWell(
+    wellName = "W4", x = 807509.29, y =  2091161.80, 
+    r = 1.5, z1 = 1.8, z2 = 7.5, sw = wellSkin),
+  
+  owConfigureWell(
+    wellName = "W5", x = 807458.95, y =  2091232.26, 
+    r = 1.5, z1 = 0.4, z2 = 7.8, sw = wellSkin))
+```
+
+rmdimportant  
+
+*On the **Level 2** function level it is now not necessary to define well distances 
+(this was required in the [Level 1: one pumping well example](#model-parameterisation). 
+The well distances will be set later automatically for each model run based on 
+both, the `x` `y` coordinates:*
+```{r, echo=FALSE}
+distanceMatrix <- round(dist(owWellfieldConf[,c("x","y")],
+                             method="euclidian", 
+                             upper=TRUE,),
+                        1)
+attr(distanceMatrix, "Labels") <- owWellfieldConf$wellName
+cat("Well distance matrix table:")
+cat("")
+distanceMatrix
+```
+*and on the information which well is operating. For example column "W2" is used
+if the pumping Well is "W2"*
+
+
+
+####Basic model parameterisation
+In a next step we define we use the **Level 2** function `owConfigure()` to
+prepare the constant parts of the WTAQ configuration parameterisation (`wellfield`, 
+`aquifer` and `drainage`) and store them in the object `owConf`:
+
+```{r, echo=TRUE}
+# Create constant components of WTAQ configuration
+owConf <- owConfigure(wellfield = owWellfieldConf,
+                      aquifer = calibratedAquiferAndWellSkin$wtaqConfig$aquifer,
+                      drainage = wtConfigureDrainage(idra = 0)
+                     )
+```
+
+```{block,  type='rmdtip'}
+*For the parameter `aquifer` we simply use the calibrated parameter setting, that 
+we obtained after the [Level 1 model calibration](#model-calibration), which is 
+stored in the R object:*
+```
+```{r, echo=TRUE}
+calibratedAquiferAndWellSkin$wtaqConfig$aquifer
+```
+
+
+The well field configuration can be plotted with the function `owPlotConfiguration()`
+(top view & side view). By setting the parameter `referenceWell=1` the Well 1 
+is selected as reference well for plotting:
+```{r, echo=TRUE, fig.height=7, fig.width=10}
+owPlotConfiguration(owConf,  referenceWell = 1)
+```
+
+#### Time-varying model parameteristion 
+The time-variant model parameterisation contains: 
+
+* the pumping rates (`pumpingRates`) of each well (here: defined in `owWellfieldConf`) and 
+
+* the times for which the drawdowns should be calculated (`timesForDDcalculation`)
+
+These are defined in the following code:
+```{r, echo=TRUE}
+# pumping rates of well W1 to W5
+pumpingRates <- c(0.069, 0.089, 0.088, 0.087, 0.086) 
+
+### user-specified times
+timesForDDcalculation <- c(1,5,10,30,60,600,1200, 2400,3600, 
+                           10000, 50000, 100000, 300000) 
+````
+
+###Model run
+Now we have all parts for parameterising WTAQ and calulating the drawdowns easily
+on the well field scale (i.e. running WTAQ multiple times in the background). 
+
+For this we use the function `owGetDrawdowns()` with the following parameters: 
+
+```{r, echo=TRUE}
+ddlist <- owGetDrawdowns(
+  owConf=owConf, 
+  Q = pumpingRates, 
+  times = timesForDDcalculation,
+  ### required for using the function wtPlotResults()
+  to.matrix=FALSE 
+  )
+
+ddmatrix<- owGetDrawdowns(
+  owConf=owConf, 
+  Q = pumpingRates, 
+  times = timesForDDcalculation,
+  ### saves results in "matrix" format: required for function owSuperposeDrawdowns()
+  to.matrix=TRUE 
+  )
+```
+The switch `to.matrix=TRUE` is required in case one would like to calculate the 
+total drawdown in each well including well interference with the function `owSuperposeDrawdowns()`:
+```{r echo=TRUE}
+drawdownsWithWellInterference <- owSuperposeDrawdowns(drawdownList = ddmatrix)
+```
+
+### Analysing results 
+
+**Quantifying the impact of well interference**  
+  
+Finally the modelling results can be analysed. For example it is possible to 
+quantify the additional drawdown due to well interference, e.g. for "W1":
+```{r echo=TRUE}
+myWell <- "W1"
+DD_inProductionWell_withInterference <- drawdownsWithWellInterference[,myWell] 
+DD_inProductionWell_withoutInterference <- ddmatrix[[myWell]][,myWell]
+diffDrawdown <- DD_inProductionWell_withInterference-DD_inProductionWell_withoutInterference
+data.frame(time.in.seconds=drawdownsWithWellInterference[,1],
+      additionalDrawdown.due.to.wellInterference.in.meter=diffDrawdown)
+```
+  
+  
+**Plotting of well drawdowns (without well interference):**
+
+```{r, echo=TRUE}
+for (wellName in owWellfieldConf$wellName)
+{
+  index <- which(owWellfieldConf$wellName==wellName)
+ wellQ <- pumpingRates[index]
+ if (wellQ > 0)
+ {
+  wtPlotResult(wtaqResult = ddlist[[wellName]], 
+               plottype = "s", 
+               ylab = "Drawdown (m)",
+               xlab = "Time in seconds since start of pumping (s)",
+               main = sprintf("Pumping well: %s (Q: %3.1f m3/h)", 
+                              wellName,                                   
+                              wellQ*3600))
+ }
+}
+```
+
+**Plotting of well drawdowns (with well interference):**
+```{r, echo=TRUE}
+plotWellInterference <- function(wellName, Q=NULL)
+{
+  if (is.null(Q)) {
+    label <- sprintf("%s ",wellName)
+    } else {
+      label <- sprintf("%s (%3.1f m3/h) ",wellName, Q*3600)
+    }
+  
+  drawdown <- data.frame(SCENARIO="no well interference", 
+                         TIME=ddmatrix[[wellName]][,"TIME"], 
+                         CALCDD=ddmatrix[[wellName]][,wellName])
+  drawdownWithInterference <- data.frame("SCENARIO"="with well interference", 
+                         TIME=drawdownsWithWellInterference[,"TIME"], 
+                         CALCDD=drawdownsWithWellInterference[,wellName])
+  
+  res <- rbind(drawdown, drawdownWithInterference)
+  print(lattice::xyplot(CALCDD ~ TIME, 
+                        groups =  SCENARIO, 
+                        ylim=rev(extendrange(res$CALCDD)),
+                        ylab = "Drawdown (m)",
+                        xlab = "Time in seconds since start of pumping (s)",
+                        type="b", 
+                        auto.key = list(columns=2), 
+                        data=res, 
+                        main = label))
+}
+
+for (wellName in owWellfieldConf$wellName)
+{
+  index <- which(owWellfieldConf$wellName==wellName)
+ wellQ <- pumpingRates[index]
+ plotWellInterference(wellName = wellName, Q = wellQ)
+}
+````

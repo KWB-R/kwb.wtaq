@@ -1,0 +1,32 @@
+--- 
+title: "Tutorial for R package kwb.wtaq"
+author: "Hauke Sonnenberg & Michael Rustler (Kompetenzzentrum Wasser Berlin gGmbH)"
+date: "`r format(Sys.Date(),format='%B %d, %Y')`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: KWB-R/kwb.wtaq
+description: "This is a tutorial of using the kwb.wtaq package"
+---
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'kwb.wtaq'
+), 'packages.bib')
+```
+
+# Prerequisites
+
+This is a tutorial for using the [kwb.wtaq](https://github.com/KWB-R/kwb.wtaq) package [@R-kwb.wtaq]. It is written using the bookdown package [@R-bookdown].
+
+For now, you have to install the development versions of **[kwb.wtaq](https://github.com/KWB-R/kwb.wtaq)** from Github:
+
+```{r eval=FALSE}
+devtools::install_github("KWB-R/kwb.wtaq")
+```
+

@@ -6,4 +6,5 @@ kwb.wtaq.Rproj
 cran-comments.md
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^\bookdown\.$
 kwb.wtaq.Rproj

@@ -7,25 +7,53 @@
   }
 }
 
-# .wtaq_path--------------------------------------------------------------------
+# .wtaq_path (use for binary files compile from /src)---------------------------
+# currently not used because machine constants are hard-coded in FORTRAN code
+# .wtaq_path <- function() {
+#   
+#   wtaq_name <- ""
+#   
+#   if (.Platform$OS.type ==  "windows") {
+#     wtaq_name <- "wtaq2_1.exe"
+#   } else {
+#     wtaq_name <- "wtaq2_1"
+#   }
+#   
+#   
+#   if (!(.Platform$OS.type == "unix" | .Platform$OS.type ==  "windows")) { 
+#     stop(sprintf("Error, no WTAQ executable for platform %s available", 
+#                       .Platform$OS.type))}
+# 
+#   system.file("bin", .Platform$r_arch, wtaq_name, package = "kwb.wtaq")
+# 
+# }
+
+# .wtaq_path (used for binary files)--------------------------------------------
 .wtaq_path <- function() {
   
   wtaq_name <- ""
   
   if (.Platform$OS.type ==  "windows") {
-    wtaq_name <- "wtaq2_1.exe"
-  } else {
-    wtaq_name <- "wtaq2_1"
-  }
-  
-  
-  if (!(.Platform$OS.type == "unix" | .Platform$OS.type ==  "windows")) { 
-    stop(sprintf("Error, no WTAQ executable for platform %s available", 
+    wtaq_name <- "wtaq.2.1.exe"
+  } 
+  else if (.Platform$OS.type == "unix") {
+    
+    if (R.version$arch == "i386") {
+      wtaq_name <- "wtaq.2.1_linux32bit.exe"} 
+    else if (R.version$arch == "x86_64") {
+      wtaq_name <- "wtaq.2.1_linux64bit.exe"} 
+    else { stop(sprintf("Error, no WTAQ executable for %s %s available", 
+                        .Platform$OS.type, 
+                        R.version$arch))}}
+  else { stop(sprintf("Error, no WTAQ executable for platform %s vailable", 
                       .Platform$OS.type))}
-
-  system.file("bin", .Platform$r_arch, wtaq_name, package = "kwb.wtaq")
-
+  
+  system.file("extdata", wtaq_name, package = "kwb.wtaq")
+  
 }
+
+
+
 
 # .lineSplitAtSpace ------------------------------------------------------------
 .lineSplitAtSpace <- function # split text line at spaces

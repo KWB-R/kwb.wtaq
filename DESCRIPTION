@@ -16,6 +16,10 @@ Suggests:
 	knitr
 Remotes: github::KWB-R/kwb.utils
 Biarch: TRUE
+BinaryFiles: 
+	wtaq.2.1.exe,
+	wtaq.2.1_linux32bit.exe,
+	wtaq.2.1_linux64bit.exe
 Version: 0.2.99
 License: MIT + file LICENSE
 RoxygenNote: 5.0.1

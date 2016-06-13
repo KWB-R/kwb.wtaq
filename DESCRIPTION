@@ -15,6 +15,7 @@ Suggests:
 	rmarkdown,
 	knitr
 Remotes: github::KWB-R/kwb.utils
+Biarch: TRUE
 BinaryFiles: 
 	wtaq.2.1.exe,
 	wtaq.2.1_linux32bit.exe,

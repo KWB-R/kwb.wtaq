@@ -1,6 +1,6 @@
 Package: kwb.wtaq
 Title: Interface to WTAQ Drawdown Model (http://water.usgs.gov/ogw/wtaq/)
-Version: 0.2.99
+Version: 0.2.1
 Authors@R: c(person("Hauke", "Sonnenberg", role = c("aut", "cre"),
 		     email = "hauke.sonnenberg@kompetenz-wasser.de"),
 	      person("Michael", "Rustler", role = "ctb", 

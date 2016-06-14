@@ -1,6 +1,17 @@
-Changes in kwb.wtaq 0.1.99
+Changes in kwb.wtaq 0.2.99
 ==========================
-Current version, not under version control!
+Current development version
+
+Changes in kwb.wtaq 0.2.1
+==========================
+* First Github release
+* added /src files for WTAQ-2 from 
+* added test for WTAQ2 calculation results on Windows
+
+
+Changes in kwb.wtaq 0.2.0
+==========================
+* developed within project OPTIWELLS-2 (internal SVN repo rev1268)
 
 Changes in kwb.wtaq 0.1.3
 =========================

@@ -5,6 +5,8 @@ Authors@R: c(person("Hauke", "Sonnenberg", role = c("aut", "cre"),
 		     email = "hauke.sonnenberg@kompetenz-wasser.de"),
 	      person("Michael", "Rustler", role = "ctb", 
 		  email = "michael.rustler@kompetenz-wasser.de"))
+Author: Hauke Sonnenberg [aut, cre], Michael Rustler [ctb]
+Maintainer: Hauke Sonnenberg <hauke.sonnenberg@kompetenz-wasser.de>
 Description: Functions enabling the writing of WTAQ input files, running of WTAQ
     and reading of WTAQ output files.
 Depends: R (>= 3.0.0)
@@ -24,3 +26,6 @@ BinaryFiles: extdata/wtaq.2.1.exe
 License: MIT + file LICENSE
 RoxygenNote: 5.0.1
 VignetteBuilder: knitr
+LazyLoad: yes
+URL: http://kwb-r.github.io/kwb.wtaq
+BugReports: https://github.com/KWB-R/kwb.wtaq/issues

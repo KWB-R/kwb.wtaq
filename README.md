@@ -4,6 +4,8 @@
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/kwb.wtaq)](http://cran.r-project.org/package=kwb.wtaq)
 
+**Cite as:** [![DOI](https://zenodo.org/badge/23293/KWB-R/kwb.wtaq.svg)](https://zenodo.org/badge/latestdoi/23293/KWB-R/kwb.wtaq)
+
 The R package **kwb.wtaq** provides a programmatic interface to the well drawdown model [WTAQ version 2.1](https://water.usgs.gov/ogw/wtaq/) (developed by the U.S. Geological Survey). The WTAQ 2.1 model 
 engine is included in the package, but also available for download as [self-extracting win-zip file from the USGS](https://water.usgs.gov/ogw/wtaq/WTAQ_2.1.exe]) . 
 

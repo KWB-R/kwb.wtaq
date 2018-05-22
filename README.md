@@ -1,7 +1,7 @@
 <img src="kwb_wtaq.png" alt="kwb.wtaq" />
-  
+ 
+[![Appveyor build status](https://ci.appveyor.com/api/projects/status/7pkw4r01xttq2h6h/branch/master?svg=true)](https://ci.appveyor.com/project/KWB-R/kwb-wtaq/branch/master)
 [![Build Status](https://travis-ci.org/KWB-R/kwb.wtaq.svg?branch=master)](https://travis-ci.org/KWB-R/kwb.wtaq)
-
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/kwb.wtaq)](http://cran.r-project.org/package=kwb.wtaq)
 
 **Cite as:** [![DOI](https://zenodo.org/badge/23293/KWB-R/kwb.wtaq.svg)](https://zenodo.org/badge/latestdoi/23293/KWB-R/kwb.wtaq)

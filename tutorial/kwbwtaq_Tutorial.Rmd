@@ -223,7 +223,7 @@ lattice::xyplot(W1 + W2 + W3 + W4 + W5 ~ time.in.seconds,
        xlab= "Time in seconds since start of pumping in W5 (s)") # label of y-Axis
 ```
 
-###Model parameterisation  
+### Model parameterisation  
   
 In a first step a WTAQ input file needs to be defined. This can be realised with
 two different functions:
@@ -395,7 +395,7 @@ and also graphically visualised with the function `wtPlotConfiguration()`, e.g.:
 wtPlotConfiguration(wtaqConfiguration, asp = NA)
 ```
 
-###Model run  
+### Model run  
 For running WTAQ and saving the results in the R object `result` we just have do
 use the function `wtRunConfiguration()` with our above defined model parameterisation
 `wtaqConfiguration`:
@@ -404,7 +404,7 @@ result <- wtRunConfiguration(wtaqConfiguration)
 ```
 
 
-###Analysing results  
+### Analysing results  
   
 To print the results of the model run, that are stored in the object `result` 
 in the **RStudio** console we simply need to enter: 
@@ -431,7 +431,7 @@ wtPlotResult(result,
              main="Pumping test W5: model results without calibration")
 ```
 
-###Model calibration  
+### Model calibration  
   
 For this tutorial calibration is realised by using an automatised one-dimensional 
 optimisation approach for the following two model parameters, because these were 
@@ -556,7 +556,7 @@ calibrateModel <- function (
     }
 ```
 
-####Aquifer characteristics: horizontal hydraulic conductivity (Step 1)
+#### Aquifer characteristics: horizontal hydraulic conductivity (Step 1)
 ```{r, eval=TRUE}
 # 1.Step: Calibrate aquifer characteristics 'hkr' for OW4-------------------------------
 
@@ -627,7 +627,7 @@ aquifer conductivity `hkz`). For this a more complex algorithm (e.g. build-in R
 function `optim()`), which is able to solve multi-dimenional optimisation problems, 
 might be usefull. However, this goes beyond the scope of this tutorial.*
 
-##Level 2: Multiple pumping wells
+## Level 2: Multiple pumping wells
 
 **Note:**
 *For performing this example session it is required to perform all steps of the 
@@ -714,7 +714,7 @@ if the pumping Well is "W2"*
 
 
 
-####Basic model parameterisation
+#### Basic model parameterisation
 In a next step we define we use the **Level 2** function `owConfigure()` to
 prepare the constant parts of the WTAQ configuration parameterisation (`wellfield`, 
 `aquifer` and `drainage`) and store them in the object `owConf`:
@@ -760,7 +760,7 @@ timesForDDcalculation <- c(1,5,10,30,60,600,1200, 2400,3600,
                            10000, 50000, 100000, 300000) 
 ````
 
-###Model run
+### Model run
 Now we have all parts for parameterising WTAQ and calulating the drawdowns easily
 on the well field scale (i.e. running WTAQ multiple times in the background). 
 

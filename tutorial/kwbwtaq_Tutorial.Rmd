@@ -14,7 +14,7 @@ vignette: >
   %\usepackage[utf8]{inputenc}
 ---
 
-#Introduction
+# Introduction
 **Background**
 
 Within the OPTIWELLS-2 project, sponsored by Veolia Water, a detailed study was 
@@ -61,7 +61,7 @@ read the resulting groundwater drawdowns from the output files that are generate
 the WTAQ model software.  
   
   
-##Preparation  
+## Preparation  
 
 In order to use the R package you need to have the **R programming environment
 (in version 3.0 or higher)** installed on your computer. You can download it 
@@ -174,13 +174,13 @@ In addition, we also provide a [full description](kwbwtaq_ParameterTable.html)
 of all the parameters that are accepted by the configuration functions, which 
 are descriped later in this tutorial.  
   
-#Example sessions  
+# Example sessions  
   
 ```{r echo = FALSE}
 #Als Grundlage w?re ein gutes Beispielmodell mit guten Beispieldaten (Messdaten #f?r Kalibrierung) wichtig, das wir durchg?ngig verwenden k?nnen und das wir mit #in das Paket packen mit Zugriffsfunktionen, z.B. getTutorialData(), getTutorial#Model()
 ```
 
-##Level 1: One pumping well
+## Level 1: One pumping well
 
 ### Pumping test data 
 We have provided an example dataset "drawdowns" containing four different pumping 

@@ -43,3 +43,8 @@ artifacts:
 
   - path: '\*_*.zip'
     name: Bits
+    
+branches:
+  except:
+    - binder # You can use Regular expression to match multiple branch name(s)
+    

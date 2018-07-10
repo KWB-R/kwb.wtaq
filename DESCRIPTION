@@ -1,10 +1,13 @@
 Package: kwb.wtaq
 Title: Interface to WTAQ Drawdown Model (http://water.usgs.gov/ogw/wtaq/)
 Version: 0.2.1
-Authors@R: c(person("Hauke", "Sonnenberg", role = c("aut", "cre"),
-		     email = "hauke.sonnenberg@kompetenz-wasser.de"),
-	      person("Michael", "Rustler", role = "ctb", 
-		  email = "michael.rustler@kompetenz-wasser.de"))
+Authors@R: c(
+    person("Hauke", "Sonnenberg", role = c("aut", "cre"),
+           email = "hauke.sonnenberg@kompetenz-wasser.de",
+           comment = c(ORCID = "0000-0001-9134-2871")),
+    person("Michael", "Rustler", role = "ctb", 
+           email = "michael.rustler@kompetenz-wasser.de",
+           comment = c(ORCID = "0000-0003-0647-7726")))
 Author: Hauke Sonnenberg [aut, cre], Michael Rustler [ctb]
 Maintainer: Hauke Sonnenberg <hauke.sonnenberg@kompetenz-wasser.de>
 Description: Functions enabling the writing of WTAQ input files, running of WTAQ

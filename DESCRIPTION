@@ -16,11 +16,11 @@ Imports:
 	lattice,
 	hydroGOF,
 	plotrix,
-    reshape
+  reshape
 Suggests:
 	rmarkdown,
 	knitr,
-    testthat
+  testthat
 Remotes: github::KWB-R/kwb.utils
 Biarch: TRUE
 BinaryFiles: extdata/wtaq.2.1.exe
@@ -28,5 +28,5 @@ License: MIT + file LICENSE
 RoxygenNote: 6.0.1
 VignetteBuilder: knitr
 LazyLoad: yes
-URL: http://kwb-r.github.io/kwb.wtaq
+URL: https://github.com/KWB-R/kwb.wtaq
 BugReports: https://github.com/KWB-R/kwb.wtaq/issues

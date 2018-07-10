@@ -32,37 +32,37 @@ printFunctionTable <- function(parameterInfo, functionName) {
 }
 ```
 
-#General settings
+# General settings
 ```{r, echo = FALSE, results = 'asis'}
 printFunctionTable(parameterInfo, "wtConfigureGeneral")
 ```
 
-#Aquifer settings
+# Aquifer settings
 ```{r, echo = FALSE, results = 'asis'}
 printFunctionTable(parameterInfo, "wtConfigureAquifer")
 ```
 
-#Drainage settings
+# Drainage settings
 ```{r, echo = FALSE, results = 'asis'}
 printFunctionTable(parameterInfo, "wtConfigureDrainage")
 ```
 
-#Time settings
+# Time settings
 ```{r, echo = FALSE, results = 'asis'}
 printFunctionTable(parameterInfo, "wtConfigureTimes")
 ```
 
-#Solver settings
+# Solver settings
 ```{r, echo = FALSE, results = 'asis'}
 printFunctionTable(parameterInfo, "wtConfigureSolution")
 ```
 
-#Pumping well settings
+# Pumping well settings
 ```{r, echo = FALSE, results = 'asis'}
 printFunctionTable(parameterInfo, "wtConfigurePumpwell")
 ```
 
-#Observation well settings
+# Observation well settings
 ```{r, echo = FALSE, results = 'asis'}
 printFunctionTable(parameterInfo, "wtConfigureObservationWell")
 ```

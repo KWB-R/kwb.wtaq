@@ -6,8 +6,12 @@ bookdown::gitbook:
         <li><a href="./">WTAQ tutorial</a></li>
       after: |
         <li><a href="https://github.com/KWB-R" target="blank">Published by KWB</a></li>
+    download: ["pdf", "epub"]
     edit:
       link: https://github.com/KWB-R/kwb.wtaq/edit/master/bookdown/%s
+    sharing:
+      github: yes
+      facebook: no
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex

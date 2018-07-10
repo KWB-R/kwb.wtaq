@@ -11,8 +11,8 @@
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
@@ -21,9 +21,11 @@
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
 
 
@@ -32,6 +34,7 @@
 
 <meta property="og:description" content="Define parameter values for WTAQ model run" />
 <meta name="twitter:card" content="summary" />
+
 
 
 <!-- mathjax -->
@@ -65,13 +68,10 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
-     
-  </a>
+  <a href="../index.html">Home</a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../tutorial/index.html">Workflow</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -81,12 +81,18 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/kwbwtaq_ParameterTable.html">Parameters of configuration functions in kwb.wtaq</a>
+      <a href="../articles/kwbwtaq_Tutorial.html">Workflow Short</a>
     </li>
     <li>
-      <a href="../articles/kwbwtaq_Tutorial.html">Tutorial for R package kwb.wtaq</a>
+      <a href="../articles/kwbwtaq_ParameterTable.html">Parameter Table</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="../reference/index.html">Reference</a>
+</li>
+<li>
+  <a href="../news/index.html">News</a>
 </li>
       </ul>
       
@@ -116,17 +122,9 @@
     </div>
 
     <pre class="usage"><span class='fu'>wtConfigure</span>(<span class='kw'>general</span> <span class='kw'>=</span> <span class='fu'><a href='wtConfigureGeneral.html'>wtConfigureGeneral</a></span>(), <span class='kw'>aquifer</span> <span class='kw'>=</span> <span class='fu'><a href='wtConfigureAquifer.html'>wtConfigureAquifer</a></span>(),
-
-
     <span class='kw'>drainage</span> <span class='kw'>=</span> <span class='fu'><a href='wtConfigureDrainage.html'>wtConfigureDrainage</a></span>(), <span class='kw'>times</span> <span class='kw'>=</span> <span class='fu'><a href='wtConfigureTimes.html'>wtConfigureTimes</a></span>(),
-
-
     <span class='kw'>solution</span> <span class='kw'>=</span> <span class='fu'><a href='wtConfigureSolution.html'>wtConfigureSolution</a></span>(), <span class='kw'>pumpwell</span> <span class='kw'>=</span> <span class='fu'><a href='wtConfigurePumpwell.html'>wtConfigurePumpwell</a></span>(),
-
-
     <span class='kw'>obswells</span> <span class='kw'>=</span> <span class='fu'>list</span>(<span class='fu'><a href='wtConfigureObservationWell.html'>wtConfigureObservationWell</a></span>(<span class='kw'>obname</span> <span class='kw'>=</span> <span class='st'>"obs1"</span>),
-
-
         <span class='fu'><a href='wtConfigureObservationWell.html'>wtConfigureObservationWell</a></span>(<span class='kw'>obname</span> <span class='kw'>=</span> <span class='st'>"obs2"</span>, <span class='kw'>r</span> <span class='kw'>=</span> <span class='fl'>50</span>)))</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -158,21 +156,17 @@
     </tr>
     <tr>
       <th>obswells</th>
-      <td><p>List of lists of observation well parameters each of which can be</p>
-
-<p>retrieved by <code><a href='wtConfigureObservationWell.html'>wtConfigureObservationWell</a></code>.</p></td>
+      <td><p>List of lists of observation well parameters each of which can be 
+retrieved by <code><a href='wtConfigureObservationWell.html'>wtConfigureObservationWell</a></code>.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>list with elements <em>general</em>, <em>aquifer</em>, <em>drainage</em>,</p>
-
-<p><em>times</em>, <em>solution</em>, <em>pumpwell</em>, <em>obswells</em>,</p>
-
-<p>representing a full WTAQ configuration. For the different elements see the</p>
-
-<p>descriptions in the Arguments section.</p>
+    <p>list with elements <em>general</em>, <em>aquifer</em>, <em>drainage</em>,
+<em>times</em>, <em>solution</em>, <em>pumpwell</em>, <em>obswells</em>,
+representing a full WTAQ configuration. For the different elements see the
+descriptions in the Arguments section.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 

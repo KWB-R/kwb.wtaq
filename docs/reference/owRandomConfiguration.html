@@ -11,8 +11,8 @@
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
@@ -21,19 +21,21 @@
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
 
 
 
 <meta property="og:title" content="Random Optiwells well field configuration — owRandomConfiguration" />
 
-<meta property="og:description" content="Returns a random Optiwells configuration on which e.g." />
-
-<meta property="og:description" content="owGetDrawdowns can be run." />
+<meta property="og:description" content="Returns a random Optiwells configuration on which e.g.
+owGetDrawdowns can be run." />
 <meta name="twitter:card" content="summary" />
+
 
 
 <!-- mathjax -->
@@ -67,13 +69,10 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
-     
-  </a>
+  <a href="../index.html">Home</a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../tutorial/index.html">Workflow</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -83,12 +82,18 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/kwbwtaq_ParameterTable.html">Parameters of configuration functions in kwb.wtaq</a>
+      <a href="../articles/kwbwtaq_Tutorial.html">Workflow Short</a>
     </li>
     <li>
-      <a href="../articles/kwbwtaq_Tutorial.html">Tutorial for R package kwb.wtaq</a>
+      <a href="../articles/kwbwtaq_ParameterTable.html">Parameter Table</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="../reference/index.html">Reference</a>
+</li>
+<li>
+  <a href="../news/index.html">News</a>
 </li>
       </ul>
       
@@ -113,9 +118,8 @@
 
     <div class="ref-description">
     
-    <p>Returns a random Optiwells configuration on which e.g.</p>
-
-    <p><code><a href='owGetDrawdowns.html'>owGetDrawdowns</a></code> can be run.</p>
+    <p>Returns a random Optiwells configuration on which e.g.
+<code><a href='owGetDrawdowns.html'>owGetDrawdowns</a></code> can be run.</p>
     
     </div>
 
@@ -130,31 +134,24 @@
     </tr>
     <tr>
       <th>bb</th>
-      <td><p>Thickness or saturated thickness of aquifer at beginning of simulation,</p>
-
-<p>in units of length.</p></td>
+      <td><p>Thickness or saturated thickness of aquifer at beginning of simulation, 
+in units of length.</p></td>
     </tr>
     <tr>
       <th>&#8230;</th>
-      <td><p>additional arguments that are passed to owRandomWellfield, such as:</p>
-
-<p><em>rmean</em>, <em>z1mean</em>, <em>z2mean</em>, <em>swmean</em>, <em>rsd</em>,</p>
-
-<p><em>z1sd</em>, <em>z2sd</em>, <em>swsd</em>, <em>digits</em>, see</p>
-
-<p><code><a href='owRandomWellfield.html'>owRandomWellfield</a></code></p></td>
+      <td><p>additional arguments that are passed to owRandomWellfield, such as: 
+<em>rmean</em>, <em>z1mean</em>, <em>z2mean</em>, <em>swmean</em>, <em>rsd</em>,
+<em>z1sd</em>, <em>z2sd</em>, <em>swsd</em>, <em>digits</em>, see
+<code><a href='owRandomWellfield.html'>owRandomWellfield</a></code></p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>list with elements <em>wellfield</em> (configuration of well</p>
-
-<p>characteristics), <em>aquifer</em> (WTAQ aquifer configuration) and</p>
-
-<p><em>drainage</em> (WTAQ drainage configuration), just as created by</p>
-
-<p><code><a href='owConfigure.html'>owConfigure</a></code></p>
+    <p>list with elements <em>wellfield</em> (configuration of well
+characteristics), <em>aquifer</em> (WTAQ aquifer configuration) and
+<em>drainage</em> (WTAQ drainage configuration), just as created by
+<code><a href='owConfigure.html'>owConfigure</a></code></p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 

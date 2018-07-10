@@ -11,8 +11,8 @@
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
@@ -21,9 +21,11 @@
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
 
 
@@ -32,6 +34,7 @@
 
 <meta property="og:description" content="Define WTAQ parameters related to the pumped well" />
 <meta name="twitter:card" content="summary" />
+
 
 
 <!-- mathjax -->
@@ -65,13 +68,10 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
-     
-  </a>
+  <a href="../index.html">Home</a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../tutorial/index.html">Workflow</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -81,12 +81,18 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/kwbwtaq_ParameterTable.html">Parameters of configuration functions in kwb.wtaq</a>
+      <a href="../articles/kwbwtaq_Tutorial.html">Workflow Short</a>
     </li>
     <li>
-      <a href="../articles/kwbwtaq_Tutorial.html">Tutorial for R package kwb.wtaq</a>
+      <a href="../articles/kwbwtaq_ParameterTable.html">Parameter Table</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="../reference/index.html">Reference</a>
+</li>
+<li>
+  <a href="../news/index.html">News</a>
 </li>
       </ul>
       
@@ -116,14 +122,8 @@
     </div>
 
     <pre class="usage"><span class='fu'>wtConfigurePumpwell</span>(<span class='kw'>ipws</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>ipwd</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>rw</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>rc</span> <span class='kw'>=</span> <span class='fu'>ifelse</span>(<span class='no'>ipwd</span> <span class='kw'>==</span>
-
-
     <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='no'>rw</span>), <span class='kw'>zpd</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>zpl</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>sw</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>qq</span> <span class='kw'>=</span> <span class='fl'>0.05</span>, <span class='kw'>tspw</span> <span class='kw'>=</span> <span class='fu'>data.frame</span>(<span class='kw'>t</span> <span class='kw'>=</span> <span class='fl'>60</span> *
-
-
     <span class='fl'>1</span>:<span class='fl'>3</span>, <span class='kw'>dd</span> <span class='kw'>=</span> <span class='fl'>2</span> * <span class='fu'>c</span>(<span class='fl'>0.4</span>, <span class='fl'>0.6</span>, <span class='fl'>0.7</span>)), <span class='kw'>pwname</span> <span class='kw'>=</span> <span class='st'>"PW"</span>, <span class='kw'>ipump</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-
-
     <span class='kw'>irun</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -131,19 +131,15 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>ipws</th>
-      <td><p>Type of pumped well:</p>
-
-<p>IPWS = 0: Partially penetrating pumped well.</p>
-
-<p>IPWS = 1: Fully penetrating pumped well. Default: 0</p></td>
+      <td><p>Type of pumped well:
+IPWS = 0: Partially penetrating pumped well.
+IPWS = 1: Fully penetrating pumped well. Default: 0</p></td>
     </tr>
     <tr>
       <th>ipwd</th>
-      <td><p>Type of diameter of pumped well:</p>
-
-<p>IPWD = 0: Infinitesimal diameter (line-source theory).</p>
-
-<p>IPWD = 1: Finite diameter. Default: 1</p></td>
+      <td><p>Type of diameter of pumped well:
+IPWD = 0: Infinitesimal diameter (line-source theory).
+IPWD = 1: Finite diameter. Default: 1</p></td>
     </tr>
     <tr>
       <th>rw</th>
@@ -151,23 +147,19 @@
     </tr>
     <tr>
       <th>rc</th>
-      <td><p>Inside radius of pumped well in the interval where water levels are</p>
-
-<p>changing during pumping, in units of length. Must be 0 if IPWD = 0.</p>
-
-<p>Default: value of rw, but 0 if ipwd = 0.</p></td>
+      <td><p>Inside radius of pumped well in the interval where water levels are 
+changing during pumping, in units of length. Must be 0 if IPWD = 0.
+Default: value of rw, but 0 if ipwd = 0.</p></td>
     </tr>
     <tr>
       <th>zpd</th>
-      <td><p>Depth below top of aquifer or initial water table to the top of the</p>
-
-<p>screened interval of the pumped well, in units of length. Default: 5.0</p></td>
+      <td><p>Depth below top of aquifer or initial water table to the top of the 
+screened interval of the pumped well, in units of length. Default: 5.0</p></td>
     </tr>
     <tr>
       <th>zpl</th>
-      <td><p>Depth below top of aquifer or initial water table to the bottom of the</p>
-
-<p>screened interval of the pumped well, in units of length. Default: 10.0</p></td>
+      <td><p>Depth below top of aquifer or initial water table to the bottom of the 
+screened interval of the pumped well, in units of length. Default: 10.0</p></td>
     </tr>
     <tr>
       <th>sw</th>
@@ -179,59 +171,42 @@
     </tr>
     <tr>
       <th>tspw</th>
-      <td><p>data.frame with column <em>t</em> containing the user-specified times for</p>
-
-<p>which drawdown at the pumped well will be calculated. If the data.frame</p>
-
-<p>has no rows, no drawdowns are calculated for the pumped well. The</p>
-
-<p>data.frame can (optionally) contain the drawdowns that have been measured</p>
-
-<p>for the pumped well at the corresponding times in an additional column</p>
-
-<p><em>dd</em>.</p></td>
+      <td><p>data.frame with column <em>t</em> containing the user-specified times for 
+which drawdown at the pumped well will be calculated. If the data.frame
+has no rows, no drawdowns are calculated for the pumped well. The 
+data.frame can (optionally) contain the drawdowns that have been measured
+for the pumped well at the corresponding times in an additional column 
+<em>dd</em>.</p></td>
     </tr>
     <tr>
       <th>pwname</th>
-      <td><p>Name of pumping well. This parameter is not evaluated by WTAQ but will be</p>
-
-<p>used in the result data frame returned by</p>
-
-<p><code><a href='wtRunConfiguration.html'>wtRunConfiguration</a></code>. We introduce it in order to be able to</p>
-
-<p>identify the well within a wellfield. Default: "PW"</p></td>
+      <td><p>Name of pumping well. This parameter is not evaluated by WTAQ but will be 
+used in the result data frame returned by
+<code><a href='wtRunConfiguration.html'>wtRunConfiguration</a></code>. We introduce it in order to be able to
+identify the well within a wellfield. Default: "PW"</p></td>
     </tr>
     <tr>
       <th>ipump</th>
-      <td><p>Option to suppress calculations of drawdown at pumped well:</p>
-
-<p>IPUMP = 0: Drawdown is not calculated at pumped well.</p>
-
-<p>IPUMP = 1: Drawdown is calculated at pumped well.</p></td>
+      <td><p>Option to suppress calculations of drawdown at pumped well:
+IPUMP = 0: Drawdown is not calculated at pumped well.
+IPUMP = 1: Drawdown is calculated at pumped well.</p></td>
     </tr>
     <tr>
       <th>irun</th>
-      <td><p>Option to suppress drawdown calculations for the pumped well. Allows user</p>
-
-<p>to specify time-drawdown data, but those data are ignored during the</p>
-
-<p>simulation. Options are:</p>
-
-<p>IRUN = 0: Drawdowns not calculated.</p>
-
-<p>IRUN = 1: Drawdowns calculated.</p></td>
+      <td><p>Option to suppress drawdown calculations for the pumped well. Allows user 
+to specify time-drawdown data, but those data are ignored during the 
+simulation. Options are:
+IRUN = 0: Drawdowns not calculated.
+IRUN = 1: Drawdowns calculated.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>list with elements <em>irun</em>, <em>ipws</em>, <em>ipwd</em>, <em>ipump</em>,</p>
-
-<p><em>qq</em>, <em>rw</em>, <em>rc</em>, <em>zpd</em>, <em>zpl</em>, <em>sw</em>,</p>
-
-<p><em>tspw</em>, representing WTAQ parameters related to the pumped well. See</p>
-
-<p>descriptions in Arguments section.</p>
+    <p>list with elements <em>irun</em>, <em>ipws</em>, <em>ipwd</em>, <em>ipump</em>, 
+<em>qq</em>, <em>rw</em>, <em>rc</em>, <em>zpd</em>, <em>zpl</em>, <em>sw</em>,
+<em>tspw</em>, representing WTAQ parameters related to the pumped well. See
+descriptions in Arguments section.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 

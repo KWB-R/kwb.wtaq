@@ -1,6 +1,6 @@
-#Introduction {#intro}
+# Introduction {#intro}
 
-##Background
+## Background
 
 Within the OPTIWELLS-2 project, sponsored by Veolia Water, a detailed study was 
 performed for screening available models that: 
@@ -38,7 +38,7 @@ In the following we will simply use "WTAQ" when referring to the software
 WTAQ-2.
   
   
-##Objective  
+## Objective  
 
 The objective of this tutorial is to demonstrate how the functions from the
 R-package *kwb.wtaq* can be used to configure and run a WTAQ model setup and to 
@@ -46,7 +46,7 @@ read the resulting groundwater drawdowns from the output files that are generate
 the WTAQ model software.  
   
   
-##Preparation  
+## Preparation  
 
 In order to use the R package you need to have the **R programming environment
 (in version 3.0 or higher)** installed on your computer. You can download it 
@@ -67,7 +67,7 @@ Before you can start using the functions provided in the package you need to
 
 2. Load the package into your current R session.
 
-###Installation of required R packages  
+### Installation of required R packages  
   
 Since the package *kwb.wtaq* depends on a number of other packages, not only
 *kwb.wtaq* but also all the packages that it depends on need to be installed.
@@ -102,7 +102,7 @@ until you decide to uninstall them. Uninstalling a package in RStudio can
 be done by clicking on the `Remove package` button right to the
 package name on the "Packages" tab. 
 
-###Loading the package  
+### Loading the package  
   
 Once you have installed all the requied packages you are almost ready to use
 the functions contained in the package *kwb.wtaq*.
@@ -137,7 +137,7 @@ If you write an R script that uses the functions from *kwb.wtaq* then
 it would be a good practice to put `library(kwb.wtaq)` as one of the first
 lines of your script.
 
-##Using the package help  
+## Using the package help  
   
 A detailed description of the WTAQ model parameters is available in the [WTAQ documentation](http://pubs.usgs.gov/tm/tm3b9/pdf/tm3-b9_barlow_wtaqv2_report.pdf). However, within 'RStudio' is not always necessary to consult this manual, because the parameter description is  integrated in the **kwb.wtaq** package help. These information can be accessed by pressing `Ctrl` and `Space` simultaneously, if the cursor is located within a function, e.g. `wtConfGeneral()`: 
 

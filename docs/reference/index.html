@@ -11,8 +11,8 @@
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
@@ -21,14 +21,17 @@
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
 
 
 
 <meta property="og:title" content="Function reference" />
+
 
 
 <!-- mathjax -->
@@ -62,13 +65,10 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
-     
-  </a>
+  <a href="../index.html">Home</a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../tutorial/index.html">Workflow</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -78,12 +78,18 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/kwbwtaq_ParameterTable.html">Parameters of configuration functions in kwb.wtaq</a>
+      <a href="../articles/kwbwtaq_Tutorial.html">Workflow Short</a>
     </li>
     <li>
-      <a href="../articles/kwbwtaq_Tutorial.html">Tutorial for R package kwb.wtaq</a>
+      <a href="../articles/kwbwtaq_ParameterTable.html">Parameter Table</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="../reference/index.html">Reference</a>
+</li>
+<li>
+  <a href="../news/index.html">News</a>
 </li>
       </ul>
       
@@ -107,6 +113,7 @@
     <table class="ref-index">
 
     <colgroup>
+      
       <col class="alias" />
       <col class="title" />
     </colgroup>
@@ -119,259 +126,259 @@
         </th>
       </tr>
       <tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="checkModelFit.html">checkModelFit()</a></code> </p>
         </td>
         <td><p>Calibration of aquifer parameter "hkr"</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="drawdowns.html">drawdowns</a></code> </p>
         </td>
         <td><p>Example data of measured drawdowns in a drinking water well field</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="fitnessAquifer.html">fitnessAquifer()</a></code> </p>
         </td>
         <td><p>fitnessAquifer</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="modelFitness.html">modelFitness()</a></code> </p>
         </td>
         <td><p>modelFitness</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="modelFitnessAggregated.html">modelFitnessAggregated()</a></code> </p>
         </td>
         <td><p>modelFitnessAggregated</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="owConfigurationToWtConfiguration.html">owConfigurationToWtConfiguration()</a></code> </p>
         </td>
         <td><p>WTAQ configuration from Optiwells configuration</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="owConfigure.html">owConfigure()</a></code> </p>
         </td>
         <td><p>Definition of an Optiwells well field configuration</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="owConfigureWell.html">owConfigureWell()</a></code> </p>
         </td>
         <td><p>Configure well(s) for Optiwells configuration</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="owGetDrawdowns.html">owGetDrawdowns()</a></code> </p>
         </td>
         <td><p>Drawdowns for Optiwells configuration and pump discharges</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="owPlotConfiguration.html">owPlotConfiguration()</a></code> </p>
         </td>
         <td><p>Plot Optiwells configuration</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="owPlotDrawdowns.html">owPlotDrawdowns()</a></code> </p>
         </td>
         <td><p>plot drawdown (under construction!)</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="owRandomConfiguration.html">owRandomConfiguration()</a></code> </p>
         </td>
         <td><p>Random Optiwells well field configuration</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="owRandomWellfield.html">owRandomWellfield()</a></code> </p>
         </td>
         <td><p>Generation of a random wellfield</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="owSuperposeDrawdowns.html">owSuperposeDrawdowns()</a></code> </p>
         </td>
         <td><p>superpose drawdowns</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="owWellDistances.html">owWellDistances()</a></code> </p>
         </td>
         <td><p>Distances between wells</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="print.wtaqConfiguration.html">print(<i>&lt;wtaqConfiguration&gt;</i>)</a></code> </p>
         </td>
         <td><p>Print WTAQ configuration</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="wtCalibrate.html">wtCalibrate()</a></code> </p>
         </td>
         <td><p>Simple calibration procedure</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="wtCheckConfiguration.html">wtCheckConfiguration()</a></code> </p>
         </td>
         <td><p>check WTAQ configuration</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="wtConfigurationExample2.html">wtConfigurationExample2()</a></code> </p>
         </td>
         <td><p>WTAQ configuration representing WTAQ example 2</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="wtConfigurationExample3.html">wtConfigurationExample3()</a></code> </p>
         </td>
         <td><p>WTAQ configuration representing WTAQ example 3</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="wtConfigurationToOwConfiguration.html">wtConfigurationToOwConfiguration()</a></code> </p>
         </td>
         <td><p>wtConfigurationToOwConfiguration</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="wtConfigure.html">wtConfigure()</a></code> </p>
         </td>
         <td><p>Define parameter values for WTAQ model run</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="wtConfigureAquifer.html">wtConfigureAquifer()</a></code> </p>
         </td>
         <td><p>Aquifer parameter values</p></td>
       </tr><tr>
-        <!--  -->
-        <td>
-          <p><code><a href="wtConfigureDrainage.html">wtConfigureDrainage()</a></code> </p>
-        </td>
-        <td><p>Drainage parameter values</p></td>
-      </tr><tr>
-        <!--  -->
-        <td>
-          <p><code><a href="wtConfigureGeneral.html">wtConfigureGeneral()</a></code> </p>
-        </td>
-        <td><p>General parameter values</p></td>
-      </tr><tr>
-        <!--  -->
-        <td>
-          <p><code><a href="wtConfigureObservationWell.html">wtConfigureObservationWell()</a></code> </p>
-        </td>
-        <td><p>Observation well parameter values</p></td>
-      </tr><tr>
-        <!--  -->
-        <td>
-          <p><code><a href="wtConfigurePumpwell.html">wtConfigurePumpwell()</a></code> </p>
-        </td>
-        <td><p>Pumped well parameter values</p></td>
-      </tr><tr>
-        <!--  -->
-        <td>
-          <p><code><a href="wtConfigureSolution.html">wtConfigureSolution()</a></code> </p>
-        </td>
-        <td><p>Solver-related parameter values</p></td>
-      </tr><tr>
-        <!--  -->
-        <td>
-          <p><code><a href="wtConfigureTimes.html">wtConfigureTimes()</a></code> </p>
-        </td>
-        <td><p>Simulation time parameter values</p></td>
-      </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="wtConfiguredDistances.html">wtConfiguredDistances()</a></code> </p>
         </td>
         <td><p>distances of observation wells</p></td>
       </tr><tr>
-        <!--  -->
+        
+        <td>
+          <p><code><a href="wtConfigureDrainage.html">wtConfigureDrainage()</a></code> </p>
+        </td>
+        <td><p>Drainage parameter values</p></td>
+      </tr><tr>
+        
         <td>
           <p><code><a href="wtConfiguredWellnames.html">wtConfiguredWellnames()</a></code> </p>
         </td>
         <td><p>wtConfiguredWellnames</p></td>
       </tr><tr>
-        <!--  -->
+        
+        <td>
+          <p><code><a href="wtConfigureGeneral.html">wtConfigureGeneral()</a></code> </p>
+        </td>
+        <td><p>General parameter values</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="wtConfigureObservationWell.html">wtConfigureObservationWell()</a></code> </p>
+        </td>
+        <td><p>Observation well parameter values</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="wtConfigurePumpwell.html">wtConfigurePumpwell()</a></code> </p>
+        </td>
+        <td><p>Pumped well parameter values</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="wtConfigureSolution.html">wtConfigureSolution()</a></code> </p>
+        </td>
+        <td><p>Solver-related parameter values</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="wtConfigureTimes.html">wtConfigureTimes()</a></code> </p>
+        </td>
+        <td><p>Simulation time parameter values</p></td>
+      </tr><tr>
+        
         <td>
           <p><code><a href="wtDefaultConfiguration.html">wtDefaultConfiguration()</a></code> </p>
         </td>
         <td><p>Default WTAQ configuration</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="wtDefaultConfigurationSolution.html">wtDefaultConfigurationSolution()</a></code> </p>
         </td>
         <td><p>default WTAQ solver configuration</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="wtInputFileLines.html">wtInputFileLines()</a></code> </p>
         </td>
         <td><p>text lines for WTAQ input file</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="wtPlotConfiguration.html">wtPlotConfiguration()</a></code> </p>
         </td>
         <td><p>plot wellfield profile</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="wtPlotResult.html">wtPlotResult()</a></code> </p>
         </td>
         <td><p>Plot WTAQ results</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="wtReadInputFile.html">wtReadInputFile()</a></code> </p>
         </td>
         <td><p>Read WTAQ configuration from input file</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="wtReadPlotFile.html">wtReadPlotFile()</a></code> </p>
         </td>
         <td><p>Read WTAQ plot file</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="wtRepairConfiguration.html">wtRepairConfiguration()</a></code> </p>
         </td>
         <td><p>repair configuration</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="wtRunConfiguration.html">wtRunConfiguration()</a></code> </p>
         </td>
         <td><p>Run WTAQ with given configuration</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="wtRunInputFile.html">wtRunInputFile()</a></code> </p>
         </td>
         <td><p>Run WTAQ with given input file</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="wtSetParameter.html">wtSetParameter()</a></code> </p>
         </td>
         <td><p>set parameter in WTAQ configuration</p></td>
       </tr><tr>
-        <!--  -->
+        
         <td>
           <p><code><a href="wtSetParameters.html">wtSetParameters()</a></code> </p>
         </td>

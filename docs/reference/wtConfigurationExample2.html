@@ -11,8 +11,8 @@
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
@@ -21,9 +21,11 @@
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
 
 
@@ -32,6 +34,7 @@
 
 <meta property="og:description" content="WTAQ configuration corresponding to sample problem 2 of WTAQ distribution" />
 <meta name="twitter:card" content="summary" />
+
 
 
 <!-- mathjax -->
@@ -65,13 +68,10 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
-     
-  </a>
+  <a href="../index.html">Home</a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../tutorial/index.html">Workflow</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -81,12 +81,18 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/kwbwtaq_ParameterTable.html">Parameters of configuration functions in kwb.wtaq</a>
+      <a href="../articles/kwbwtaq_Tutorial.html">Workflow Short</a>
     </li>
     <li>
-      <a href="../articles/kwbwtaq_Tutorial.html">Tutorial for R package kwb.wtaq</a>
+      <a href="../articles/kwbwtaq_ParameterTable.html">Parameter Table</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="../reference/index.html">Reference</a>
+</li>
+<li>
+  <a href="../news/index.html">News</a>
 </li>
       </ul>
       
@@ -119,11 +125,9 @@
         
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>list with elements <em>general</em>, <em>aquifer</em>, <em>drainage</em>,</p>
-
-<p><em>times</em>, <em>solution</em>, <em>pumpwell</em>, <em>obswells</em>,</p>
-
-<p>representing a full WTAQ configuration.</p>
+    <p>list with elements <em>general</em>, <em>aquifer</em>, <em>drainage</em>,
+<em>times</em>, <em>solution</em>, <em>pumpwell</em>, <em>obswells</em>,
+representing a full WTAQ configuration.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
@@ -131,20 +135,10 @@
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-
-<span class='co'># Get configuration of sample problem 2 of WTAQ distribution</span>
-
-
+    <pre class="examples"><div class='input'><span class='co'># Get configuration of sample problem 2 of WTAQ distribution</span>
 <span class='no'>cnf</span> <span class='kw'>&lt;-</span> <span class='fu'>wtConfigurationExample2</span>()
 
-
-
-
-
 <span class='co'># Print formatted output of configuration</span>
-
-
 <span class='fu'>print</span>(<span class='no'>cnf</span>)</div><div class='output co'>#&gt; General
 #&gt; - Title:  Sample problem 2, using dimensional format (seconds, meters). 
 #&gt; - Format: DIMENSIONAL 
@@ -292,16 +286,8 @@
 #&gt; 12 4.31e+04 0.0380
 #&gt; 13 9.28e+04 0.0840
 #&gt; 14 2.00e+05 0.1620</div><div class='input'>
-
-
-
-
 <span class='co'># Plot wellfield profile of configuration</span>
-
-
-<span class='fu'><a href='wtPlotConfiguration.html'>wtPlotConfiguration</a></span>(<span class='no'>cnf</span>)</div><div class='img'><img src='wtConfigurationExample2-1.png' alt='' width='700' height='433' /></div><div class='input'>
-
-</div></pre>
+<span class='fu'><a href='wtPlotConfiguration.html'>wtPlotConfiguration</a></span>(<span class='no'>cnf</span>)</div><div class='img'><img src='wtConfigurationExample2-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

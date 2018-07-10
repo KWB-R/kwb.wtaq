@@ -11,5 +11,7 @@ kwb.wtaq.Rproj
 WTAQ2_Readme.txt
 WTAQ2_Summary.txt
 appveyor.yml
-travis-tool.sh.cmd
 codecov.yml
+^docs\.*
+README.Rmd
+^.gitlab-ci\.yml$

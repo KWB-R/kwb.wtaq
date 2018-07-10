@@ -11,8 +11,8 @@
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
@@ -21,9 +21,11 @@
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
 
 
@@ -32,6 +34,7 @@
 
 <meta property="og:description" content="Plot Optiwells configuration" />
 <meta name="twitter:card" content="summary" />
+
 
 
 <!-- mathjax -->
@@ -65,13 +68,10 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
-     
-  </a>
+  <a href="../index.html">Home</a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../tutorial/index.html">Workflow</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -81,12 +81,18 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/kwbwtaq_ParameterTable.html">Parameters of configuration functions in kwb.wtaq</a>
+      <a href="../articles/kwbwtaq_Tutorial.html">Workflow Short</a>
     </li>
     <li>
-      <a href="../articles/kwbwtaq_Tutorial.html">Tutorial for R package kwb.wtaq</a>
+      <a href="../articles/kwbwtaq_ParameterTable.html">Parameter Table</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="../reference/index.html">Reference</a>
+</li>
+<li>
+  <a href="../news/index.html">News</a>
 </li>
       </ul>
       
@@ -116,11 +122,7 @@
     </div>
 
     <pre class="usage"><span class='fu'>owPlotConfiguration</span>(<span class='no'>owConfiguration</span>, <span class='kw'>referenceWell</span> <span class='kw'>=</span> -<span class='fl'>1</span>, <span class='kw'>view</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"top"</span>,
-
-
     <span class='st'>"side"</span>), <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'>rainbow</span>(<span class='fu'>nrow</span>(<span class='no'>owConfiguration</span>$<span class='no'>wellfield</span>)),
-
-
     <span class='kw'>onePage</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -132,19 +134,15 @@
     </tr>
     <tr>
       <th>referenceWell</th>
-      <td><p>Number of reference well (according to row number in</p>
-
-<p>owConfiguration$wellfield or -1 (no reference well). If a reference well</p>
-
-<p>is specified, it will be plotted on the left-hand side of the sideview and</p>
-
-<p>the top view will be centered around that well.</p></td>
+      <td><p>Number of reference well (according to row number in
+owConfiguration$wellfield or -1 (no reference well). If a reference well
+is specified, it will be plotted on the left-hand side of the sideview and
+the top view will be centered around that well.</p></td>
     </tr>
     <tr>
       <th>view</th>
-      <td><p>vector of c("top", "side"). Determines whether to plot top view or side</p>
-
-<p>view or both.</p></td>
+      <td><p>vector of c("top", "side"). Determines whether to plot top view or side
+view or both.</p></td>
     </tr>
     <tr>
       <th>col</th>
@@ -152,15 +150,12 @@
     </tr>
     <tr>
       <th>onePage</th>
-      <td><p>if TRUE, top view and side view appear below each other on one and the</p>
-
-<p>same page</p></td>
+      <td><p>if TRUE, top view and side view appear below each other on one and the
+same page</p></td>
     </tr>
     <tr>
       <th>&#8230;</th>
       <td>
-
-
 </td>
     </tr>
     </table>

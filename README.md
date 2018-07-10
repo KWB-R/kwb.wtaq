@@ -5,26 +5,30 @@
 [![codecov](https://codecov.io/github/KWB-R/kwb.wtaq/branch/master/graphs/badge.svg)](https://codecov.io/github/KWB-R/kwb.wtaq)
 [![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/kwb.wtaq)](http://cran.r-project.org/package=kwb.wtaq)
-[[![Binder](http://mybinder.org/badge.svg)]](https://mybinder.org/v2/gh/kwb-r/kwb.wtaq/binder?urlpath=rstudio)
+[![Binder](http://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/kwb-r/kwb.wtaq/binder?urlpath=rstudio)
 
 **Cite as:** [![DOI](https://zenodo.org/badge/23293/KWB-R/kwb.wtaq.svg)](https://zenodo.org/badge/latestdoi/23293/KWB-R/kwb.wtaq)
 
 **Launch tutorial in cloud RStudio session** (and install kwb.wtaq from master 
-branch): [[![Binder](http://mybinder.org/badge.svg)]](https://mybinder.org/v2/gh/kwb-r/kwb.wtaq/binder?urlpath=rstudio)
+branch): [![Binder](http://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/kwb-r/kwb.wtaq/binder?urlpath=rstudio)
 
 The R package **kwb.wtaq** provides a programmatic interface to the well drawdown model [WTAQ version 2.1](https://water.usgs.gov/ogw/wtaq/) (developed by the U.S. Geological Survey). The WTAQ 2.1 model 
 engine is included in the package, but also available for download as [self-extracting win-zip file from the USGS](https://water.usgs.gov/ogw/wtaq/WTAQ_2.1.exe]) . 
 
-##1. Install from GitHub 
+## 1. Install from GitHub 
 
 ```r
 if(!require("devtools")) { install.packages("devtools") }
 devtools::install_github(repo = "KWB-R/kwb.wtaq", dependencies = TRUE)
 ```
 
-##[2. Tutorial website](http://kwb-r.github.io/kwb.wtaq/)
+## 2. Documentation
 
-##3. Known issues
+Release: [https://kwb-r.github.io/kwb.wtaq)](https://kwb-r.github.io/kwb.wtaq)
+
+Development: [https://kwb-r.github.io/kwb.wtaq)/dev](https://kwb-r.github.io/kwb.wtaq/dev)
+
+## 3. Known issues
 
 Compilation of the WTAQ-2.1 source code (/src) throws the following **messages**:
 

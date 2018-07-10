@@ -6,10 +6,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tutorial for R package kwb.wtaq • kwb.wtaq</title>
-<!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script><script src="../pkgdown.js"></script><meta property="og:title" content="Tutorial for R package kwb.wtaq">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Tutorial for R package kwb.wtaq">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
@@ -36,13 +36,10 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
-     
-  </a>
+  <a href="../index.html">Home</a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../tutorial/index.html">Workflow</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -52,12 +49,18 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/kwbwtaq_ParameterTable.html">Parameters of configuration functions in kwb.wtaq</a>
+      <a href="../articles/kwbwtaq_Tutorial.html">Workflow Short</a>
     </li>
     <li>
-      <a href="../articles/kwbwtaq_Tutorial.html">Tutorial for R package kwb.wtaq</a>
+      <a href="../articles/kwbwtaq_ParameterTable.html">Parameter Table</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="../reference/index.html">Reference</a>
+</li>
+<li>
+  <a href="../news/index.html">News</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right"></ul>
@@ -75,7 +78,7 @@
       <h1>Tutorial for R package kwb.wtaq</h1>
                         <h4 class="author">Hauke Sonnenberg &amp; Michael Rustler (Kompetenzzentrum Wasser Berlin gGmbH)</h4>
             
-            <h4 class="date">Juli 10, 2018</h4>
+            <h4 class="date">July 10, 2018</h4>
       
       
       <div class="hidden name"><code>kwbwtaq_Tutorial.Rmd</code></div>
@@ -131,22 +134,22 @@
 <a href="#installation-of-required-r-packages" class="anchor"></a>Installation of required R packages</h3>
 <p>Since the package <em>kwb.wtaq</em> depends on a number of other packages, not only <em>kwb.wtaq</em> but also all the packages that it depends on need to be installed.</p>
 <p>In order to simplify the package installation run the following code:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(<span class="st">"devtools"</span>)) { <span class="kw">install.packages</span>(<span class="st">"devtools"</span>) }
-devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="dt">repo =</span> <span class="st">"KWB-R/kwb.wtaq"</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(<span class="st">"devtools"</span>)) { <span class="kw">install.packages</span>(<span class="st">"devtools"</span>) }</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="dt">repo =</span> <span class="st">"KWB-R/kwb.wtaq"</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p>This will download and install the package <strong><a href="https://github.com/KWB-R/kwb.wtaq">kwb.wtaq</a></strong> with all required dependencies, i.e.:</p>
 <ul>
 <li><p>publicly available packages from the Comprehensive R Archive Network (CRAN) and</p></li>
 <li><p>the KWB Github package <a href="https://github.com/KWB-R/kwb.utils">kwb.utils</a></p></li>
 </ul>
 <p>If the installation succeeds the messages generated should read like these:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## package 'zoo' successfully unpacked and MD5 sums checked
-## package 'hydroGOF' successfully unpacked and MD5 sums checked
-## package 'lattice' successfully unpacked and MD5 sums checked
-## package 'plotrix' successfully unpacked and MD5 sums checked
-## 
-## The downloaded binary packages are in
-##  C:\Dokumente und Einstellungen\Key Hauke\Lokale Einstellungen\Temp\RtmpctBYMz\downloaded_packages
-## package 'kwb.utils' successfully unpacked and MD5 sums checked</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">## package 'zoo' successfully unpacked and MD5 sums checked</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">## package 'hydroGOF' successfully unpacked and MD5 sums checked</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">## package 'lattice' successfully unpacked and MD5 sums checked</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">## package 'plotrix' successfully unpacked and MD5 sums checked</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">## </a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">## The downloaded binary packages are in</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">##  C:\Dokumente und Einstellungen\Key Hauke\Lokale Einstellungen\Temp\RtmpctBYMz\downloaded_packages</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">## package 'kwb.utils' successfully unpacked and MD5 sums checked</a></code></pre></div>
 <p>The installation needs to be done only once. The packages keep installed until you decide to uninstall them. Uninstalling a package in RStudio can be done by clicking on the <code>Remove package</code> button right to the package name on the “Packages” tab.</p>
 </div>
 <div id="loading-the-package" class="section level3">
@@ -154,10 +157,10 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <a href="#loading-the-package" class="anchor"></a>Loading the package</h3>
 <p>Once you have installed all the requied packages you are almost ready to use the functions contained in the package <em>kwb.wtaq</em>.</p>
 <p>As a last step you need to explicitly load the package into your current R session by running the following R command:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(kwb.wtaq)</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">library</span>(kwb.wtaq)</a></code></pre></div>
 <p>You will see messages stating the progress of loading not only the package <em>kwb.wtaq</em> but also of all the packages that it depends on.</p>
 <p>You may see warnings that the packages have been built under R in a higher version compared to the version that you are using:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Warning: package 'kwb.utils' was built under R version 3.0.3</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">## Warning: package 'kwb.utils' was built under R version 3.0.3</a></code></pre></div>
 <p>Unless you are using R in a version prior to 3.0 these messages do not indicate a problem and can be ignored.</p>
 <p>Please note that the functions provided in the <em>kwb.wtaq</em> package can only be used when the package is loaded with <code>library(kwb.wtaq)</code> as shown here. This needs to be done each time you start a new R session or each time you open RStudio. If you write an R script that uses the functions from <em>kwb.wtaq</em> then it would be a good practice to put <code>library(kwb.wtaq)</code> as one of the first lines of your script.</p>
 </div>
@@ -169,9 +172,9 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <div class="figure">
 <img src="pictures/ontheflyhelp.jpg" alt="On the fly help in RStudio"><p class="caption">On the fly help in RStudio</p>
 </div>
-<p>The help file for each R function in <code>RStudio</code> can be accessed by using the R command <code><a href="http://www.rdocumentation.org/packages/devtools/topics/help">help(functionname)</a></code> or using <code>?</code> before the functionname, e.g.:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?kwb.wtaq<span class="op">::</span>wtConfigure
-<span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/help">help</a></span>(kwb.wtaq<span class="op">::</span>wtConfigure)</code></pre></div>
+<p>The help file for each R function in <code>RStudio</code> can be accessed by using the R command <code>help(functionname)</code> or using <code>?</code> before the functionname, e.g.:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">?kwb.wtaq<span class="op">::</span>wtConfigure</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">help</span>(kwb.wtaq<span class="op">::</span>wtConfigure)</a></code></pre></div>
 <p><strong>Note:</strong> <em>Typing <code>kwb.wtaq::</code> before the function name is only needed if you haven’t loaded the package into your R session with <code>library(kwb.wtaq)</code> (see <a href="#loading-the-package">Loading the package</a>)</em></p>
 <p>In addition, we also provide a <a href="kwbwtaq_ParameterTable.html">full description</a> of all the parameters that are accepted by the configuration functions, which are descriped later in this tutorial.</p>
 </div>
@@ -186,9 +189,9 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <h3 class="hasAnchor">
 <a href="#pumping-test-data" class="anchor"></a>Pumping test data</h3>
 <p>We have provided an example dataset “drawdowns” containing four different pumping tests with measured drawdown time-series in five different wells (production well and four observation wells). You can load the dataset by running:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(<span class="st">"drawdowns"</span>, <span class="dt">package =</span> <span class="st">"kwb.wtaq"</span>)</code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">data</span>(<span class="st">"drawdowns"</span>, <span class="dt">package =</span> <span class="st">"kwb.wtaq"</span>)</a></code></pre></div>
 <p>Let’s have a short look to the dataset. It is a list of four data frames as the R command “str” reveals:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(drawdowns)</code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">str</span>(drawdowns)</a></code></pre></div>
 <pre><code>## List of 4
 ##  $ W1:'data.frame':  15 obs. of  6 variables:
 ##   ..$ time.in.seconds: num [1:15] 420 1020 1620 2820 4020 ...
@@ -220,7 +223,7 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 ##   ..$ W4             : num [1:15] 0.04 0.04 0.06 0.06 0.07 ...</code></pre>
 <p>The four list elements represent four different pumping tests (in “W1”, “W2”, “W4” and “W5”. The resulting drawdowns of each pumping test are stored in a data frame of six columns. Column “time.in.seconds” contains the time in seconds since the start of a pumping test. The columns “W1” through “W5” contain the water table drawdowns measured in the corresponding wells “W1” to “W5”,in meters below the initial water table.</p>
 <p>For example, the fourth pumping test, during which a discharge of Q = 313 m3/h was measured in Well W5, resulted in the following drawdowns:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">drawdowns[[<span class="st">"W5"</span>]]</code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">drawdowns[[<span class="st">"W5"</span>]]</a></code></pre></div>
 <pre><code>##    time.in.seconds   W5   W1   W2   W3   W4
 ## 1              600 0.73 0.00 0.00 0.01 0.04
 ## 2             1200 0.74 0.00 0.00 0.01 0.04
@@ -238,13 +241,13 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 ## 14           90600 0.95 0.08 0.08 0.14 0.21
 ## 15          129600 0.96 0.09 0.09 0.15 0.23</code></pre>
 <p>It seems as if the drawdowns reach a steady-state after a certain time. This can be judged better by a diagram that can be produced in R by using the xyplot function from the R-package “lattice”:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lattice<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/lattice/topics/xyplot">xyplot</a></span>(W1 <span class="op">+</span><span class="st"> </span>W2 <span class="op">+</span><span class="st"> </span>W3 <span class="op">+</span><span class="st"> </span>W4 <span class="op">+</span><span class="st"> </span>W5 <span class="op">~</span><span class="st"> </span>time.in.seconds, 
-       <span class="dt">data =</span> drawdowns[[<span class="st">"W5"</span>]], 
-       <span class="dt">type =</span> <span class="kw">c</span>(<span class="st">"b"</span>, <span class="st">"g"</span>), <span class="co"># (b)oth, dots and lines, and a (g)rid</span>
-       <span class="dt">auto.key =</span> <span class="kw">list</span>(<span class="dt">columns =</span> <span class="dv">5</span>), <span class="co"># legend arranged in five columns</span>
-       <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="fl">0.1</span>),
-       <span class="dt">ylab=</span> <span class="st">"Drawdown (m)"</span>, <span class="co"># label of y-Axis</span>
-       <span class="dt">xlab=</span> <span class="st">"Time in seconds since start of pumping in W5 (s)"</span>) <span class="co"># label of y-Axis</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">lattice<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/lattice/topics/xyplot">xyplot</a></span>(W1 <span class="op">+</span><span class="st"> </span>W2 <span class="op">+</span><span class="st"> </span>W3 <span class="op">+</span><span class="st"> </span>W4 <span class="op">+</span><span class="st"> </span>W5 <span class="op">~</span><span class="st"> </span>time.in.seconds, </a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">       <span class="dt">data =</span> drawdowns[[<span class="st">"W5"</span>]], </a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">       <span class="dt">type =</span> <span class="kw">c</span>(<span class="st">"b"</span>, <span class="st">"g"</span>), <span class="co"># (b)oth, dots and lines, and a (g)rid</span></a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">       <span class="dt">auto.key =</span> <span class="kw">list</span>(<span class="dt">columns =</span> <span class="dv">5</span>), <span class="co"># legend arranged in five columns</span></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">       <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="op">-</span><span class="fl">0.1</span>),</a>
+<a class="sourceLine" id="cb11-6" data-line-number="6">       <span class="dt">ylab=</span> <span class="st">"Drawdown (m)"</span>, <span class="co"># label of y-Axis</span></a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">       <span class="dt">xlab=</span> <span class="st">"Time in seconds since start of pumping in W5 (s)"</span>) <span class="co"># label of y-Axis</span></a></code></pre></div>
 <p><img src="kwbwtaq_Tutorial_files/figure-html/unnamed-chunk-10-1.png" width="700"></p>
 </div>
 <div id="model-parameterisation" class="section level3">
@@ -256,103 +259,103 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <li><p><code><a href="../reference/wtReadInputFile.html">wtReadInputFile()</a></code>: importing of WTAQ configuration from existing WTAQ input text file into R</p></li>
 </ul>
 <p>The WTAQ input file can be directly defined in R using the function <code><a href="../reference/wtConfigure.html">wtConfigure()</a></code> and saved in the R object <code>wtaqConfiguration</code> (for a full description of all the parameters that are accepted by the configuration functions, see: <a href="kwbwtaq_ParameterTable.html">Parameter tables</a>).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">generalConfiguration &lt;-<span class="st"> </span><span class="kw"><a href="../reference/wtConfigureGeneral.html">wtConfigureGeneral</a></span>(
-  ### title of the project (max. length 70 characters)
-  <span class="dt">title=</span><span class="st">"Example well field, long-term pumping test of well 5"</span>
-  )
-
-aquiferConfiguration &lt;-<span class="st"> </span><span class="kw"><a href="../reference/wtConfigureAquifer.html">wtConfigureAquifer</a></span>(    
-  <span class="dt">aqtype =</span> <span class="st">"WATER TABLE"</span>, <span class="co"># aquifer type</span>
-  <span class="dt">bb =</span> <span class="dv">10</span>,                <span class="co"># saturated aquifer thickness</span>
-  <span class="dt">hkr =</span> <span class="fl">1E-03</span>,            <span class="co"># horizontal hydraulic conductivity</span>
-  <span class="dt">hkz =</span> <span class="fl">3.5E-05</span>,          <span class="co"># vertical hydraulic conductivity</span>
-  <span class="dt">ss =</span> <span class="fl">1E-05</span>,             <span class="co"># specific storage</span>
-  <span class="dt">sy =</span> <span class="fl">0.05</span>               <span class="co"># specific yield</span>
-)
-
-drainageConfiguration &lt;-<span class="st"> </span><span class="kw"><a href="../reference/wtConfigureDrainage.html">wtConfigureDrainage</a></span>(
-  <span class="dt">idra =</span> <span class="dv">0</span> <span class="co"># = instantaneous drainage in unsaturated zone</span>
-)
-
-timesConfiguration &lt;-<span class="st"> </span><span class="kw"><a href="../reference/wtConfigureTimes.html">wtConfigureTimes</a></span>(
-  <span class="dt">its =</span> <span class="dv">1</span> <span class="co"># = user-specified time-steps</span>
-)</code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">generalConfiguration &lt;-<span class="st"> </span><span class="kw"><a href="../reference/wtConfigureGeneral.html">wtConfigureGeneral</a></span>(</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">  ### title of the project (max. length 70 characters)</a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">  <span class="dt">title=</span><span class="st">"Example well field, long-term pumping test of well 5"</span></a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">  )</a>
+<a class="sourceLine" id="cb12-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb12-6" data-line-number="6">aquiferConfiguration &lt;-<span class="st"> </span><span class="kw"><a href="../reference/wtConfigureAquifer.html">wtConfigureAquifer</a></span>(    </a>
+<a class="sourceLine" id="cb12-7" data-line-number="7">  <span class="dt">aqtype =</span> <span class="st">"WATER TABLE"</span>, <span class="co"># aquifer type</span></a>
+<a class="sourceLine" id="cb12-8" data-line-number="8">  <span class="dt">bb =</span> <span class="dv">10</span>,                <span class="co"># saturated aquifer thickness</span></a>
+<a class="sourceLine" id="cb12-9" data-line-number="9">  <span class="dt">hkr =</span> <span class="fl">1E-03</span>,            <span class="co"># horizontal hydraulic conductivity</span></a>
+<a class="sourceLine" id="cb12-10" data-line-number="10">  <span class="dt">hkz =</span> <span class="fl">3.5E-05</span>,          <span class="co"># vertical hydraulic conductivity</span></a>
+<a class="sourceLine" id="cb12-11" data-line-number="11">  <span class="dt">ss =</span> <span class="fl">1E-05</span>,             <span class="co"># specific storage</span></a>
+<a class="sourceLine" id="cb12-12" data-line-number="12">  <span class="dt">sy =</span> <span class="fl">0.05</span>               <span class="co"># specific yield</span></a>
+<a class="sourceLine" id="cb12-13" data-line-number="13">)</a>
+<a class="sourceLine" id="cb12-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb12-15" data-line-number="15">drainageConfiguration &lt;-<span class="st"> </span><span class="kw"><a href="../reference/wtConfigureDrainage.html">wtConfigureDrainage</a></span>(</a>
+<a class="sourceLine" id="cb12-16" data-line-number="16">  <span class="dt">idra =</span> <span class="dv">0</span> <span class="co"># = instantaneous drainage in unsaturated zone</span></a>
+<a class="sourceLine" id="cb12-17" data-line-number="17">)</a>
+<a class="sourceLine" id="cb12-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb12-19" data-line-number="19">timesConfiguration &lt;-<span class="st"> </span><span class="kw"><a href="../reference/wtConfigureTimes.html">wtConfigureTimes</a></span>(</a>
+<a class="sourceLine" id="cb12-20" data-line-number="20">  <span class="dt">its =</span> <span class="dv">1</span> <span class="co"># = user-specified time-steps</span></a>
+<a class="sourceLine" id="cb12-21" data-line-number="21">)</a></code></pre></div>
 <p>In the following we will configure one pumping well and two observation wells (for simplifying the tutorial we restrict ourselves to two instead of four observation wells four which drawdown time series are available).</p>
 <p>Since WTAQ allows to define time-series of measured drawdowns for each well, the corresponding functions <code><a href="../reference/wtConfigurePumpwell.html">wtConfigurePumpwell()</a></code> and <code><a href="../reference/wtConfigureObservationWell.html">wtConfigureObservationWell()</a></code>, that are described in the following, also allow to specify these measured drawdown values. For this example, we want to use the drawdowns of the fourth pumping test, provided in the example dataset <code>drawdowns</code>. We store it in a separate variable <code>drawdowns5</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">drawdowns5 &lt;-<span class="st"> </span>drawdowns[[<span class="st">"W5"</span>]]</code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">drawdowns5 &lt;-<span class="st"> </span>drawdowns[[<span class="st">"W5"</span>]]</a></code></pre></div>
 <p>Now we prepare some data frames (a table-like structure in R, defined by rows and columns, see <code>?data.frame</code>) representing three drawdown time series, which are measured at :</p>
 <ul>
 <li><p>the pumping well “PW” and</p></li>
 <li><p>two different observation wells “OW1” and “OW4”.</p></li>
 </ul>
 <p>By doing this we simplify the programmig code that is used later on:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the times of observations are the same for all wells:</span>
-times &lt;-<span class="st"> </span>drawdowns5<span class="op">$</span>time.in.seconds
-
-<span class="co"># observed drawdowns at the pumping well</span>
-observed.PW  &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">t =</span> times, <span class="dt">dd =</span> drawdowns5<span class="op">$</span>W5)
-
-<span class="co"># observed drawdowns at the observation wells</span>
-observed.OW1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">t =</span> times, <span class="dt">dd =</span> drawdowns5<span class="op">$</span>W1)
-observed.OW4 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">t =</span> times, <span class="dt">dd =</span> drawdowns5<span class="op">$</span>W4)</code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="co"># the times of observations are the same for all wells:</span></a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">times &lt;-<span class="st"> </span>drawdowns5<span class="op">$</span>time.in.seconds</a>
+<a class="sourceLine" id="cb14-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="co"># observed drawdowns at the pumping well</span></a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">observed.PW  &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">t =</span> times, <span class="dt">dd =</span> drawdowns5<span class="op">$</span>W5)</a>
+<a class="sourceLine" id="cb14-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb14-7" data-line-number="7"><span class="co"># observed drawdowns at the observation wells</span></a>
+<a class="sourceLine" id="cb14-8" data-line-number="8">observed.OW1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">t =</span> times, <span class="dt">dd =</span> drawdowns5<span class="op">$</span>W1)</a>
+<a class="sourceLine" id="cb14-9" data-line-number="9">observed.OW4 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">t =</span> times, <span class="dt">dd =</span> drawdowns5<span class="op">$</span>W4)</a></code></pre></div>
 <p>Let’s start with the configuration of the pumping well:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pumpwellConfiguration &lt;-<span class="st"> </span><span class="kw"><a href="../reference/wtConfigurePumpwell.html">wtConfigurePumpwell</a></span>(
-  ### partially penetrating pumped well
-  <span class="dt">ipws =</span> <span class="dv">0</span>,
-  ### finite diameter well
-  <span class="dt">ipwd =</span> <span class="dv">1</span>, 
-  ### pumping rate of production well in (here: m3/s)
-  <span class="dt">qq =</span> <span class="fl">0.0869</span>, 
-  ### radius of pumped well-screen (here: meter) 
-  <span class="dt">rw =</span> <span class="fl">1.5</span>, 
-  ### top of filter screen below initial water table (here: meter)
-  <span class="dt">zpd =</span> <span class="fl">0.4</span>, 
-  ### bottom of filter screen below initial water table (here: meter)
-  <span class="dt">zpl =</span> <span class="fl">7.8</span>, 
-  ### well-bore skin parameter (dimensionless)
-  <span class="dt">sw =</span> <span class="dv">0</span>, 
-  ### data.frame with times and measured drawdown data in pumping well
-  <span class="dt">tspw =</span> observed.PW 
-)</code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">pumpwellConfiguration &lt;-<span class="st"> </span><span class="kw"><a href="../reference/wtConfigurePumpwell.html">wtConfigurePumpwell</a></span>(</a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">  ### partially penetrating pumped well</a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">  <span class="dt">ipws =</span> <span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb15-4" data-line-number="4">  ### finite diameter well</a>
+<a class="sourceLine" id="cb15-5" data-line-number="5">  <span class="dt">ipwd =</span> <span class="dv">1</span>, </a>
+<a class="sourceLine" id="cb15-6" data-line-number="6">  ### pumping rate of production well in (here: m3/s)</a>
+<a class="sourceLine" id="cb15-7" data-line-number="7">  <span class="dt">qq =</span> <span class="fl">0.0869</span>, </a>
+<a class="sourceLine" id="cb15-8" data-line-number="8">  ### radius of pumped well-screen (here: meter) </a>
+<a class="sourceLine" id="cb15-9" data-line-number="9">  <span class="dt">rw =</span> <span class="fl">1.5</span>, </a>
+<a class="sourceLine" id="cb15-10" data-line-number="10">  ### top of filter screen below initial water table (here: meter)</a>
+<a class="sourceLine" id="cb15-11" data-line-number="11">  <span class="dt">zpd =</span> <span class="fl">0.4</span>, </a>
+<a class="sourceLine" id="cb15-12" data-line-number="12">  ### bottom of filter screen below initial water table (here: meter)</a>
+<a class="sourceLine" id="cb15-13" data-line-number="13">  <span class="dt">zpl =</span> <span class="fl">7.8</span>, </a>
+<a class="sourceLine" id="cb15-14" data-line-number="14">  ### well-bore skin parameter (dimensionless)</a>
+<a class="sourceLine" id="cb15-15" data-line-number="15">  <span class="dt">sw =</span> <span class="dv">0</span>, </a>
+<a class="sourceLine" id="cb15-16" data-line-number="16">  ### data.frame with times and measured drawdown data in pumping well</a>
+<a class="sourceLine" id="cb15-17" data-line-number="17">  <span class="dt">tspw =</span> observed.PW </a>
+<a class="sourceLine" id="cb15-18" data-line-number="18">)</a></code></pre></div>
 <p>Now, let’s define our first observation well:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">observationWell1 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/wtConfigureObservationWell.html">wtConfigureObservationWell</a></span>(
-  ### name of observation well
-  <span class="dt">obname =</span> <span class="st">"OW1"</span>, 
-  ### distance from pumping well (here: meters)
-  <span class="dt">r =</span> <span class="fl">309.5</span>, 
-  ### partially penetrating observation well
-  <span class="dt">iows =</span> <span class="dv">0</span>, 
-  ### delayed response
-  <span class="dt">idpr =</span> <span class="dv">1</span>, 
-  ### top of filter screen below initial water table (here: meters)
-  <span class="dt">z1 =</span> <span class="fl">1.8</span>, 
-  ### bottom of filter screen below initial water table (here: meters)
-  <span class="dt">z2 =</span> <span class="fl">7.5</span>, 
-  ### inside radius of the observation well (here: meters)
-  <span class="dt">rp =</span> <span class="fl">1.5</span>, 
-  ### data.frame with times and measured drawdown data in OW1
-  <span class="dt">tsobs=</span> observed.OW1 
-)</code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">observationWell1 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/wtConfigureObservationWell.html">wtConfigureObservationWell</a></span>(</a>
+<a class="sourceLine" id="cb16-2" data-line-number="2">  ### name of observation well</a>
+<a class="sourceLine" id="cb16-3" data-line-number="3">  <span class="dt">obname =</span> <span class="st">"OW1"</span>, </a>
+<a class="sourceLine" id="cb16-4" data-line-number="4">  ### distance from pumping well (here: meters)</a>
+<a class="sourceLine" id="cb16-5" data-line-number="5">  <span class="dt">r =</span> <span class="fl">309.5</span>, </a>
+<a class="sourceLine" id="cb16-6" data-line-number="6">  ### partially penetrating observation well</a>
+<a class="sourceLine" id="cb16-7" data-line-number="7">  <span class="dt">iows =</span> <span class="dv">0</span>, </a>
+<a class="sourceLine" id="cb16-8" data-line-number="8">  ### delayed response</a>
+<a class="sourceLine" id="cb16-9" data-line-number="9">  <span class="dt">idpr =</span> <span class="dv">1</span>, </a>
+<a class="sourceLine" id="cb16-10" data-line-number="10">  ### top of filter screen below initial water table (here: meters)</a>
+<a class="sourceLine" id="cb16-11" data-line-number="11">  <span class="dt">z1 =</span> <span class="fl">1.8</span>, </a>
+<a class="sourceLine" id="cb16-12" data-line-number="12">  ### bottom of filter screen below initial water table (here: meters)</a>
+<a class="sourceLine" id="cb16-13" data-line-number="13">  <span class="dt">z2 =</span> <span class="fl">7.5</span>, </a>
+<a class="sourceLine" id="cb16-14" data-line-number="14">  ### inside radius of the observation well (here: meters)</a>
+<a class="sourceLine" id="cb16-15" data-line-number="15">  <span class="dt">rp =</span> <span class="fl">1.5</span>, </a>
+<a class="sourceLine" id="cb16-16" data-line-number="16">  ### data.frame with times and measured drawdown data in OW1</a>
+<a class="sourceLine" id="cb16-17" data-line-number="17">  <span class="dt">tsobs=</span> observed.OW1 </a>
+<a class="sourceLine" id="cb16-18" data-line-number="18">)</a></code></pre></div>
 <p>In the same way, we define a second observation well “OW4” (in a formally more compact way to save some space here):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">observationWell4 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/wtConfigureObservationWell.html">wtConfigureObservationWell</a></span>(<span class="dt">obname =</span> <span class="st">"OW4"</span>, <span class="dt">r =</span> <span class="fl">86.6</span>,
-  <span class="dt">iows =</span> <span class="dv">0</span>, <span class="dt">idpr =</span> <span class="dv">1</span>, <span class="dt">z1 =</span> <span class="fl">1.8</span>, <span class="dt">z2 =</span> <span class="fl">7.5</span>, <span class="dt">rp =</span> <span class="fl">1.5</span>, <span class="dt">tsobs =</span> observed.OW4)</code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">observationWell4 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/wtConfigureObservationWell.html">wtConfigureObservationWell</a></span>(<span class="dt">obname =</span> <span class="st">"OW4"</span>, <span class="dt">r =</span> <span class="fl">86.6</span>,</a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">  <span class="dt">iows =</span> <span class="dv">0</span>, <span class="dt">idpr =</span> <span class="dv">1</span>, <span class="dt">z1 =</span> <span class="fl">1.8</span>, <span class="dt">z2 =</span> <span class="fl">7.5</span>, <span class="dt">rp =</span> <span class="fl">1.5</span>, <span class="dt">tsobs =</span> observed.OW4)</a></code></pre></div>
 <p>Out of these parts of configuration we can build one complete configuration by using the function <code><a href="../reference/wtConfigure.html">wtConfigure()</a></code>. It returns a R list structure that represents a model configuration containing all the necessary information that WTAQ requires to perform a model run. This information is saved in the R object <code>wtaqConfiguration</code> and will be used for the following chapters of this tutorial.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">wtaqConfiguration &lt;-<span class="st"> </span><span class="kw"><a href="../reference/wtConfigure.html">wtConfigure</a></span>(
-  <span class="dt">general =</span> generalConfiguration,
-  <span class="dt">aquifer =</span> aquiferConfiguration, 
-  <span class="dt">drainage =</span> drainageConfiguration, 
-  <span class="dt">times =</span> timesConfiguration, 
-  <span class="dt">solution =</span> <span class="kw"><a href="../reference/wtConfigureSolution.html">wtConfigureSolution</a></span>(),
-  <span class="dt">pumpwell =</span> pumpwellConfiguration,
-  <span class="dt">obswells =</span> <span class="kw">list</span>(observationWell4, 
-                  observationWell1)
-)</code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">wtaqConfiguration &lt;-<span class="st"> </span><span class="kw"><a href="../reference/wtConfigure.html">wtConfigure</a></span>(</a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">  <span class="dt">general =</span> generalConfiguration,</a>
+<a class="sourceLine" id="cb18-3" data-line-number="3">  <span class="dt">aquifer =</span> aquiferConfiguration, </a>
+<a class="sourceLine" id="cb18-4" data-line-number="4">  <span class="dt">drainage =</span> drainageConfiguration, </a>
+<a class="sourceLine" id="cb18-5" data-line-number="5">  <span class="dt">times =</span> timesConfiguration, </a>
+<a class="sourceLine" id="cb18-6" data-line-number="6">  <span class="dt">solution =</span> <span class="kw"><a href="../reference/wtConfigureSolution.html">wtConfigureSolution</a></span>(),</a>
+<a class="sourceLine" id="cb18-7" data-line-number="7">  <span class="dt">pumpwell =</span> pumpwellConfiguration,</a>
+<a class="sourceLine" id="cb18-8" data-line-number="8">  <span class="dt">obswells =</span> <span class="kw">list</span>(observationWell4, </a>
+<a class="sourceLine" id="cb18-9" data-line-number="9">                  observationWell1)</a>
+<a class="sourceLine" id="cb18-10" data-line-number="10">)</a></code></pre></div>
 <p><strong>Note:</strong> <em>Alternatively it is possible to load WTAQ input text files diretly into R with the function <code><a href="../reference/wtReadInputFile.html">wtReadInputFile()</a></code> from an already existing WTAQ input text file, e.g.:</em></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">inputFile &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/system.file">system.file</a></span>(<span class="st">"extdata"</span>, <span class="st">"example1.inp"</span>, <span class="dt">package =</span> <span class="st">"kwb.wtaq"</span>)
-wtaqConfiguration2 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/wtReadInputFile.html">wtReadInputFile</a></span>(inputFile)</code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1">inputFile &lt;-<span class="st"> </span><span class="kw">system.file</span>(<span class="st">"extdata"</span>, <span class="st">"example1.inp"</span>, <span class="dt">package =</span> <span class="st">"kwb.wtaq"</span>)</a>
+<a class="sourceLine" id="cb19-2" data-line-number="2">wtaqConfiguration2 &lt;-<span class="st"> </span><span class="kw"><a href="../reference/wtReadInputFile.html">wtReadInputFile</a></span>(inputFile)</a></code></pre></div>
 <p><em>However, in this tutorial we just focus on the example that is stored in the R object <code>wtaqConfiguration</code>.</em></p>
 <p>For checking this model parameterisation it can be printed:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">wtaqConfiguration</code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">wtaqConfiguration</a></code></pre></div>
 <pre><code>## General
 ## - Title:  Example well field, long-term pumping test of well 5 
 ## - Format: DIMENSIONAL 
@@ -458,20 +461,20 @@ wtaqConfiguration2 &lt;-<span class="st"> </span><span class="kw"><a href="../re
 ## 14  90600 0.08
 ## 15 129600 0.09</code></pre>
 <p>and also graphically visualised with the function <code><a href="../reference/wtPlotConfiguration.html">wtPlotConfiguration()</a></code>, e.g.:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/wtPlotConfiguration.html">wtPlotConfiguration</a></span>(wtaqConfiguration, <span class="dt">asp =</span> <span class="ot">NA</span>)</code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw"><a href="../reference/wtPlotConfiguration.html">wtPlotConfiguration</a></span>(wtaqConfiguration, <span class="dt">asp =</span> <span class="ot">NA</span>)</a></code></pre></div>
 <p><img src="kwbwtaq_Tutorial_files/figure-html/unnamed-chunk-20-1.png" width="700"></p>
 </div>
 <div id="model-run" class="section level3">
 <h3 class="hasAnchor">
 <a href="#model-run" class="anchor"></a>Model run</h3>
 <p>For running WTAQ and saving the results in the R object <code>result</code> we just have do use the function <code><a href="../reference/wtRunConfiguration.html">wtRunConfiguration()</a></code> with our above defined model parameterisation <code>wtaqConfiguration</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result &lt;-<span class="st"> </span><span class="kw"><a href="../reference/wtRunConfiguration.html">wtRunConfiguration</a></span>(wtaqConfiguration)</code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1">result &lt;-<span class="st"> </span><span class="kw"><a href="../reference/wtRunConfiguration.html">wtRunConfiguration</a></span>(wtaqConfiguration)</a></code></pre></div>
 </div>
 <div id="analysing-results" class="section level3">
 <h3 class="hasAnchor">
 <a href="#analysing-results" class="anchor"></a>Analysing results</h3>
 <p>To print the results of the model run, that are stored in the object <code>result</code> in the <strong>RStudio</strong> console we simply need to enter:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">result</code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1">result</a></code></pre></div>
 <pre><code>##    WELL   TIME MEASDD    CALCDD  RELERR
 ## 3    PW    600   0.73 3.808e+00 -421.60
 ## 4    PW   1200   0.74 4.731e+00 -539.40
@@ -519,15 +522,15 @@ wtaqConfiguration2 &lt;-<span class="st"> </span><span class="kw"><a href="../re
 ## 50  OW1  90600   0.08 9.924e-02  -24.05
 ## 51  OW1 129600   0.09 1.775e-01  -97.28</code></pre>
 <p>For plotting the results we can either use the function <code><a href="../reference/wtPlotResult.html">wtPlotResult()</a></code> with the parameter <code>plottype = "w"</code> to plot for each well measured (MEASDD) and calculated (CALCDD) drawdowns in one plot:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/wtPlotResult.html">wtPlotResult</a></span>(result, 
-             <span class="dt">plottype =</span> <span class="st">"w"</span>, 
-             <span class="dt">main=</span><span class="st">"Pumping test W5: model results without calibration"</span>)</code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw"><a href="../reference/wtPlotResult.html">wtPlotResult</a></span>(result, </a>
+<a class="sourceLine" id="cb26-2" data-line-number="2">             <span class="dt">plottype =</span> <span class="st">"w"</span>, </a>
+<a class="sourceLine" id="cb26-3" data-line-number="3">             <span class="dt">main=</span><span class="st">"Pumping test W5: model results without calibration"</span>)</a></code></pre></div>
 <pre><code>## Removing column 'RELERR' from 'wtaqResult'.</code></pre>
 <p><img src="kwbwtaq_Tutorial_files/figure-html/unnamed-chunk-23-1.png" width="700"></p>
 <p>or produce a plot that contains measured and calculated drawdowns for all wells in two separate plots by setting the parameter <code>plottype = "s"</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/wtPlotResult.html">wtPlotResult</a></span>(result, 
-             <span class="dt">plottype =</span> <span class="st">"s"</span>,
-             <span class="dt">main=</span><span class="st">"Pumping test W5: model results without calibration"</span>)</code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="kw"><a href="../reference/wtPlotResult.html">wtPlotResult</a></span>(result, </a>
+<a class="sourceLine" id="cb28-2" data-line-number="2">             <span class="dt">plottype =</span> <span class="st">"s"</span>,</a>
+<a class="sourceLine" id="cb28-3" data-line-number="3">             <span class="dt">main=</span><span class="st">"Pumping test W5: model results without calibration"</span>)</a></code></pre></div>
 <p><img src="kwbwtaq_Tutorial_files/figure-html/unnamed-chunk-24-1.png" width="700"></p>
 </div>
 <div id="model-calibration" class="section level3">
@@ -552,118 +555,120 @@ wtaqConfiguration2 &lt;-<span class="st"> </span><span class="kw"><a href="../re
 <li><p><code>parameterRange</code>: allowed value range for calibration parameter (e.g. <code>c(0.0001, 0.1)</code> for parameter <code>hkr</code>)</p></li>
 </ul>
 <p>Firstly this function - and its three dependent helper functions <code><a href="../reference/modelFitness.html">modelFitness()</a></code>, <code>modelFitnessAggregated</code> and <code>fitnessAdaptedModelConfiguration()</code> - need to be loaded in R by running the following code:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">### Package for gof function
-<span class="kw">library</span>(hydroGOF)</code></pre></div>
-<pre><code>## Lade nötiges Paket: zoo</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1">### Package for gof function</a>
+<a class="sourceLine" id="cb29-2" data-line-number="2"><span class="kw">library</span>(hydroGOF)</a></code></pre></div>
+<pre><code>## Warning: package 'hydroGOF' was built under R version 3.5.1</code></pre>
+<pre><code>## Loading required package: zoo</code></pre>
+<pre><code>## Warning: package 'zoo' was built under R version 3.5.1</code></pre>
 <pre><code>## 
-## Attache Paket: 'zoo'</code></pre>
+## Attaching package: 'zoo'</code></pre>
 <pre><code>## The following objects are masked from 'package:base':
 ## 
 ##     as.Date, as.Date.numeric</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># modelFitness(): called by function modelFitnessAggregated()</span>
-modelFitness &lt;-<span class="st"> </span><span class="cf">function</span>
-(
-  wtaqResult, 
-  wellPattern
-  )
-  {
-  subResult &lt;-<span class="st"> </span>wtaqResult[<span class="kw">grep</span>(<span class="dt">pattern =</span> wellPattern, wtaqResult<span class="op">$</span>WELL),]
-  
-  
-  fitness &lt;-<span class="st"> </span><span class="kw">t</span>(hydroGOF<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/hydroGOF/topics/gof">gof</a></span>(<span class="dt">sim =</span> subResult<span class="op">$</span>MEASDD, <span class="dt">obs =</span> subResult<span class="op">$</span>CALCDD, <span class="dt">digits =</span> <span class="dv">3</span>))
-  
-  <span class="kw">colnames</span>(fitness) &lt;-<span class="st"> </span><span class="kw">sub</span>(<span class="st">" %"</span>, <span class="st">""</span>, <span class="kw">colnames</span>(fitness))
-  
-  ### data.frame with plenty of performance indicators: e.g. RMSE, NSE, R2
-  <span class="kw">as.data.frame</span>(fitness)
-  }
-
-<span class="co"># modelFitnessAggregated: called by function fitnessAdaptedModelConfiguration()</span>
-modelFitnessAggregated &lt;-<span class="st"> </span><span class="cf">function</span> 
-(
-  wtaqResult, 
-  wellPattern
-  )
-  {
-  fitness &lt;-<span class="st"> </span><span class="kw"><a href="../reference/modelFitness.html">modelFitness</a></span>(wtaqResult, wellPattern)
-  
-  ### Objective function for the performance criteria that is minimised, here:
-  fitness<span class="op">$</span>RMSE 
-  }
-
-<span class="co"># fitnessAdaptedModelConfiguration: called by function calibrateModel()</span>
-fitnessAdaptedModelConfiguration &lt;-<span class="st"> </span><span class="cf">function</span> 
-(
-  parameterValue, parameterName, configuration, wellPattern 
-  ) 
-  {
-  configuration &lt;-<span class="st"> </span><span class="kw"><a href="../reference/wtSetParameter.html">wtSetParameter</a></span>(configuration, parameterName, parameterValue)
-  
-  wtaqResult &lt;-<span class="st"> </span><span class="kw"><a href="../reference/wtRunConfiguration.html">wtRunConfiguration</a></span>(configuration)
-  
-  <span class="kw"><a href="../reference/modelFitnessAggregated.html">modelFitnessAggregated</a></span>(wtaqResult, wellPattern)
-  }
-
-<span class="co">#calibrateModel()</span>
-calibrateModel &lt;-<span class="st"> </span><span class="cf">function</span> (
-    ### WTAQ parameterisation, e.g. as retrieved by wtConfigure()
-    configuration,
-    ### regular expression or name of well(s) to be used for calibration: e.g. "OW4"
-    wellPattern,
-    ### name of ONE WTAQ parameter to be calibrated: e.g. `hkr`, `sw`
-    parameterName,
-    ### min/max range of possible calibration parameter values 
-    parameterRange 
-    ) 
-    {
-    optResults &lt;-<span class="st"> </span><span class="kw">optimise</span>(
-      <span class="dt">f =</span> fitnessAdaptedModelConfiguration, 
-      <span class="dt">interval =</span> parameterRange,
-      <span class="dt">parameterName =</span> parameterName, 
-      <span class="dt">configuration =</span> configuration, 
-      <span class="dt">wellPattern =</span> wellPattern )
-    
-    ### Save calibrated WTAQ configuration: 
-    wtaqConfigurationCalibrated &lt;-<span class="st"> </span><span class="kw"><a href="../reference/wtSetParameter.html">wtSetParameter</a></span>(
-      <span class="dt">configuration =</span> configuration, 
-      <span class="dt">parameterName =</span> parameterName, 
-      <span class="dt">parameterValue =</span> optResults<span class="op">$</span>minimum)
-    
-    ### Save optimisation results in list
-    <span class="kw">list</span>(<span class="dt">parameterName=</span>parameterName, 
-         <span class="dt">wellPattern=</span>wellPattern,
-         <span class="dt">optimalParameterValue=</span>optResults<span class="op">$</span>minimum, 
-         <span class="dt">minimalPerformanceValue=</span>optResults<span class="op">$</span>objective,
-         <span class="dt">wtaqConfig=</span>wtaqConfigurationCalibrated
-         )
-    
-    }</code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1"><span class="co"># modelFitness(): called by function modelFitnessAggregated()</span></a>
+<a class="sourceLine" id="cb35-2" data-line-number="2">modelFitness &lt;-<span class="st"> </span><span class="cf">function</span></a>
+<a class="sourceLine" id="cb35-3" data-line-number="3">(</a>
+<a class="sourceLine" id="cb35-4" data-line-number="4">  wtaqResult, </a>
+<a class="sourceLine" id="cb35-5" data-line-number="5">  wellPattern</a>
+<a class="sourceLine" id="cb35-6" data-line-number="6">  )</a>
+<a class="sourceLine" id="cb35-7" data-line-number="7">  {</a>
+<a class="sourceLine" id="cb35-8" data-line-number="8">  subResult &lt;-<span class="st"> </span>wtaqResult[<span class="kw">grep</span>(<span class="dt">pattern =</span> wellPattern, wtaqResult<span class="op">$</span>WELL),]</a>
+<a class="sourceLine" id="cb35-9" data-line-number="9">  </a>
+<a class="sourceLine" id="cb35-10" data-line-number="10">  </a>
+<a class="sourceLine" id="cb35-11" data-line-number="11">  fitness &lt;-<span class="st"> </span><span class="kw">t</span>(hydroGOF<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/hydroGOF/topics/gof">gof</a></span>(<span class="dt">sim =</span> subResult<span class="op">$</span>MEASDD, <span class="dt">obs =</span> subResult<span class="op">$</span>CALCDD, <span class="dt">digits =</span> <span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb35-12" data-line-number="12">  </a>
+<a class="sourceLine" id="cb35-13" data-line-number="13">  <span class="kw">colnames</span>(fitness) &lt;-<span class="st"> </span><span class="kw">sub</span>(<span class="st">" %"</span>, <span class="st">""</span>, <span class="kw">colnames</span>(fitness))</a>
+<a class="sourceLine" id="cb35-14" data-line-number="14">  </a>
+<a class="sourceLine" id="cb35-15" data-line-number="15">  ### data.frame with plenty of performance indicators: e.g. RMSE, NSE, R2</a>
+<a class="sourceLine" id="cb35-16" data-line-number="16">  <span class="kw">as.data.frame</span>(fitness)</a>
+<a class="sourceLine" id="cb35-17" data-line-number="17">  }</a>
+<a class="sourceLine" id="cb35-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb35-19" data-line-number="19"><span class="co"># modelFitnessAggregated: called by function fitnessAdaptedModelConfiguration()</span></a>
+<a class="sourceLine" id="cb35-20" data-line-number="20">modelFitnessAggregated &lt;-<span class="st"> </span><span class="cf">function</span> </a>
+<a class="sourceLine" id="cb35-21" data-line-number="21">(</a>
+<a class="sourceLine" id="cb35-22" data-line-number="22">  wtaqResult, </a>
+<a class="sourceLine" id="cb35-23" data-line-number="23">  wellPattern</a>
+<a class="sourceLine" id="cb35-24" data-line-number="24">  )</a>
+<a class="sourceLine" id="cb35-25" data-line-number="25">  {</a>
+<a class="sourceLine" id="cb35-26" data-line-number="26">  fitness &lt;-<span class="st"> </span><span class="kw"><a href="../reference/modelFitness.html">modelFitness</a></span>(wtaqResult, wellPattern)</a>
+<a class="sourceLine" id="cb35-27" data-line-number="27">  </a>
+<a class="sourceLine" id="cb35-28" data-line-number="28">  ### Objective function for the performance criteria that is minimised, here:</a>
+<a class="sourceLine" id="cb35-29" data-line-number="29">  fitness<span class="op">$</span>RMSE </a>
+<a class="sourceLine" id="cb35-30" data-line-number="30">  }</a>
+<a class="sourceLine" id="cb35-31" data-line-number="31"></a>
+<a class="sourceLine" id="cb35-32" data-line-number="32"><span class="co"># fitnessAdaptedModelConfiguration: called by function calibrateModel()</span></a>
+<a class="sourceLine" id="cb35-33" data-line-number="33">fitnessAdaptedModelConfiguration &lt;-<span class="st"> </span><span class="cf">function</span> </a>
+<a class="sourceLine" id="cb35-34" data-line-number="34">(</a>
+<a class="sourceLine" id="cb35-35" data-line-number="35">  parameterValue, parameterName, configuration, wellPattern </a>
+<a class="sourceLine" id="cb35-36" data-line-number="36">  ) </a>
+<a class="sourceLine" id="cb35-37" data-line-number="37">  {</a>
+<a class="sourceLine" id="cb35-38" data-line-number="38">  configuration &lt;-<span class="st"> </span><span class="kw"><a href="../reference/wtSetParameter.html">wtSetParameter</a></span>(configuration, parameterName, parameterValue)</a>
+<a class="sourceLine" id="cb35-39" data-line-number="39">  </a>
+<a class="sourceLine" id="cb35-40" data-line-number="40">  wtaqResult &lt;-<span class="st"> </span><span class="kw"><a href="../reference/wtRunConfiguration.html">wtRunConfiguration</a></span>(configuration)</a>
+<a class="sourceLine" id="cb35-41" data-line-number="41">  </a>
+<a class="sourceLine" id="cb35-42" data-line-number="42">  <span class="kw"><a href="../reference/modelFitnessAggregated.html">modelFitnessAggregated</a></span>(wtaqResult, wellPattern)</a>
+<a class="sourceLine" id="cb35-43" data-line-number="43">  }</a>
+<a class="sourceLine" id="cb35-44" data-line-number="44"></a>
+<a class="sourceLine" id="cb35-45" data-line-number="45"><span class="co">#calibrateModel()</span></a>
+<a class="sourceLine" id="cb35-46" data-line-number="46">calibrateModel &lt;-<span class="st"> </span><span class="cf">function</span> (</a>
+<a class="sourceLine" id="cb35-47" data-line-number="47">    ### WTAQ parameterisation, e.g. as retrieved by wtConfigure()</a>
+<a class="sourceLine" id="cb35-48" data-line-number="48">    configuration,</a>
+<a class="sourceLine" id="cb35-49" data-line-number="49">    ### regular expression or name of well(s) to be used for calibration: e.g. "OW4"</a>
+<a class="sourceLine" id="cb35-50" data-line-number="50">    wellPattern,</a>
+<a class="sourceLine" id="cb35-51" data-line-number="51">    ### name of ONE WTAQ parameter to be calibrated: e.g. `hkr`, `sw`</a>
+<a class="sourceLine" id="cb35-52" data-line-number="52">    parameterName,</a>
+<a class="sourceLine" id="cb35-53" data-line-number="53">    ### min/max range of possible calibration parameter values </a>
+<a class="sourceLine" id="cb35-54" data-line-number="54">    parameterRange </a>
+<a class="sourceLine" id="cb35-55" data-line-number="55">    ) </a>
+<a class="sourceLine" id="cb35-56" data-line-number="56">    {</a>
+<a class="sourceLine" id="cb35-57" data-line-number="57">    optResults &lt;-<span class="st"> </span><span class="kw">optimise</span>(</a>
+<a class="sourceLine" id="cb35-58" data-line-number="58">      <span class="dt">f =</span> fitnessAdaptedModelConfiguration, </a>
+<a class="sourceLine" id="cb35-59" data-line-number="59">      <span class="dt">interval =</span> parameterRange,</a>
+<a class="sourceLine" id="cb35-60" data-line-number="60">      <span class="dt">parameterName =</span> parameterName, </a>
+<a class="sourceLine" id="cb35-61" data-line-number="61">      <span class="dt">configuration =</span> configuration, </a>
+<a class="sourceLine" id="cb35-62" data-line-number="62">      <span class="dt">wellPattern =</span> wellPattern )</a>
+<a class="sourceLine" id="cb35-63" data-line-number="63">    </a>
+<a class="sourceLine" id="cb35-64" data-line-number="64">    ### Save calibrated WTAQ configuration: </a>
+<a class="sourceLine" id="cb35-65" data-line-number="65">    wtaqConfigurationCalibrated &lt;-<span class="st"> </span><span class="kw"><a href="../reference/wtSetParameter.html">wtSetParameter</a></span>(</a>
+<a class="sourceLine" id="cb35-66" data-line-number="66">      <span class="dt">configuration =</span> configuration, </a>
+<a class="sourceLine" id="cb35-67" data-line-number="67">      <span class="dt">parameterName =</span> parameterName, </a>
+<a class="sourceLine" id="cb35-68" data-line-number="68">      <span class="dt">parameterValue =</span> optResults<span class="op">$</span>minimum)</a>
+<a class="sourceLine" id="cb35-69" data-line-number="69">    </a>
+<a class="sourceLine" id="cb35-70" data-line-number="70">    ### Save optimisation results in list</a>
+<a class="sourceLine" id="cb35-71" data-line-number="71">    <span class="kw">list</span>(<span class="dt">parameterName=</span>parameterName, </a>
+<a class="sourceLine" id="cb35-72" data-line-number="72">         <span class="dt">wellPattern=</span>wellPattern,</a>
+<a class="sourceLine" id="cb35-73" data-line-number="73">         <span class="dt">optimalParameterValue=</span>optResults<span class="op">$</span>minimum, </a>
+<a class="sourceLine" id="cb35-74" data-line-number="74">         <span class="dt">minimalPerformanceValue=</span>optResults<span class="op">$</span>objective,</a>
+<a class="sourceLine" id="cb35-75" data-line-number="75">         <span class="dt">wtaqConfig=</span>wtaqConfigurationCalibrated</a>
+<a class="sourceLine" id="cb35-76" data-line-number="76">         )</a>
+<a class="sourceLine" id="cb35-77" data-line-number="77">    </a>
+<a class="sourceLine" id="cb35-78" data-line-number="78">    }</a></code></pre></div>
 <div id="aquifer-characteristics-horizontal-hydraulic-conductivity-step-1" class="section level4">
 <h4 class="hasAnchor">
 <a href="#aquifer-characteristics-horizontal-hydraulic-conductivity-step-1" class="anchor"></a>Aquifer characteristics: horizontal hydraulic conductivity (Step 1)</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 1.Step: Calibrate aquifer characteristics 'hkr' for OW4-------------------------------</span>
-
-calibratedAquifer &lt;-<span class="st"> </span><span class="kw">calibrateModel</span>(
-  ### reference wtaq configuration
-  <span class="dt">configuration =</span> wtaqConfiguration, 
-  ### calibrate hydraulic aquifer conductivity
-  <span class="dt">parameterName =</span> <span class="st">"hkr"</span>,  
-  ### 'hkr' is within 0.0001 - 0.1 m/s
-  <span class="dt">parameterRange =</span> <span class="kw">c</span>(<span class="fl">0.0001</span>, <span class="fl">0.1</span>), 
-  ### only use drawdown time-series of OW4 for calibration 
-  <span class="dt">wellPattern =</span> <span class="st">"OW4"</span> 
-  )
-
-
-### Plot the drawdowns with calibrated aquifer characteristics:
-<span class="kw"><a href="../reference/wtPlotResult.html">wtPlotResult</a></span>(<span class="dt">wtaqResult =</span> <span class="kw"><a href="../reference/wtRunConfiguration.html">wtRunConfiguration</a></span>(
-  <span class="dt">configuration =</span> calibratedAquifer<span class="op">$</span>wtaqConfig),
-  
-  <span class="dt">main =</span> <span class="kw">sprintf</span>(<span class="st">"Optimal value of parameter '%s' for %s: %0.4f m/s"</span>, 
-                 calibratedAquifer<span class="op">$</span>parameterName, 
-                 calibratedAquifer<span class="op">$</span>wellPattern, 
-                 calibratedAquifer<span class="op">$</span>optimalParameterValue),
-  <span class="dt">plottype =</span> <span class="st">"w"</span>)</code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="co"># 1.Step: Calibrate aquifer characteristics 'hkr' for OW4-------------------------------</span></a>
+<a class="sourceLine" id="cb36-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb36-3" data-line-number="3">calibratedAquifer &lt;-<span class="st"> </span><span class="kw">calibrateModel</span>(</a>
+<a class="sourceLine" id="cb36-4" data-line-number="4">  ### reference wtaq configuration</a>
+<a class="sourceLine" id="cb36-5" data-line-number="5">  <span class="dt">configuration =</span> wtaqConfiguration, </a>
+<a class="sourceLine" id="cb36-6" data-line-number="6">  ### calibrate hydraulic aquifer conductivity</a>
+<a class="sourceLine" id="cb36-7" data-line-number="7">  <span class="dt">parameterName =</span> <span class="st">"hkr"</span>,  </a>
+<a class="sourceLine" id="cb36-8" data-line-number="8">  ### 'hkr' is within 0.0001 - 0.1 m/s</a>
+<a class="sourceLine" id="cb36-9" data-line-number="9">  <span class="dt">parameterRange =</span> <span class="kw">c</span>(<span class="fl">0.0001</span>, <span class="fl">0.1</span>), </a>
+<a class="sourceLine" id="cb36-10" data-line-number="10">  ### only use drawdown time-series of OW4 for calibration </a>
+<a class="sourceLine" id="cb36-11" data-line-number="11">  <span class="dt">wellPattern =</span> <span class="st">"OW4"</span> </a>
+<a class="sourceLine" id="cb36-12" data-line-number="12">  )</a>
+<a class="sourceLine" id="cb36-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb36-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb36-15" data-line-number="15">### Plot the drawdowns with calibrated aquifer characteristics:</a>
+<a class="sourceLine" id="cb36-16" data-line-number="16"><span class="kw"><a href="../reference/wtPlotResult.html">wtPlotResult</a></span>(<span class="dt">wtaqResult =</span> <span class="kw"><a href="../reference/wtRunConfiguration.html">wtRunConfiguration</a></span>(</a>
+<a class="sourceLine" id="cb36-17" data-line-number="17">  <span class="dt">configuration =</span> calibratedAquifer<span class="op">$</span>wtaqConfig),</a>
+<a class="sourceLine" id="cb36-18" data-line-number="18">  </a>
+<a class="sourceLine" id="cb36-19" data-line-number="19">  <span class="dt">main =</span> <span class="kw">sprintf</span>(<span class="st">"Optimal value of parameter '%s' for %s: %0.4f m/s"</span>, </a>
+<a class="sourceLine" id="cb36-20" data-line-number="20">                 calibratedAquifer<span class="op">$</span>parameterName, </a>
+<a class="sourceLine" id="cb36-21" data-line-number="21">                 calibratedAquifer<span class="op">$</span>wellPattern, </a>
+<a class="sourceLine" id="cb36-22" data-line-number="22">                 calibratedAquifer<span class="op">$</span>optimalParameterValue),</a>
+<a class="sourceLine" id="cb36-23" data-line-number="23">  <span class="dt">plottype =</span> <span class="st">"w"</span>)</a></code></pre></div>
 <pre><code>## Removing column 'RELERR' from 'wtaqResult'.</code></pre>
 <p><img src="kwbwtaq_Tutorial_files/figure-html/unnamed-chunk-26-1.png" width="700"> After this step observed and measured drawdowns fit nearly perfectly for the calibrated observation well “OW4” only by setting the <strong>hkr</strong> to <strong>0.0148366</strong> (m/s) , but still the drawdown in the production well “PW” is underestimated (because it is still assumed that here are no “well losses”).</p>
 <p>Thus the production well characteristics (i.e. the well-skin parameter <code>sw</code>) need to be calibrated in a next step.</p>
@@ -671,28 +676,28 @@ calibratedAquifer &lt;-<span class="st"> </span><span class="kw">calibrateModel<
 <div id="well-characteristics-well-bore-skin-parameter-of-production-well-step-2" class="section level4">
 <h4 class="hasAnchor">
 <a href="#well-characteristics-well-bore-skin-parameter-of-production-well-step-2" class="anchor"></a>Well characteristics: well-bore skin parameter of production well (Step 2)</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#2.Step: Calibrate well-bore skin parameter 'sw' for PW-------------------------------</span>
-calibratedAquiferAndWellSkin &lt;-<span class="st"> </span><span class="kw">calibrateModel</span>(
-  #### WTAQ configuration with calibrated aquifer (Step1)
-  <span class="dt">configuration =</span> calibratedAquifer<span class="op">$</span>wtaqConfig,
-  ### calibrate well-bore skin parameter
-  <span class="dt">parameterName =</span> <span class="st">"sw"</span>, 
-  ### 'sw' within 0 - 100 (dimensionless)
-  <span class="dt">parameterRange =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>), 
-  ### only use drawdown time-series of PW for calibration 
-  <span class="dt">wellPattern =</span> <span class="st">"PW"</span>  
-  )
-
-### Plot the drawdowns with calibrated aquifer &amp; well-bore skin characteristics:
-<span class="kw"><a href="../reference/wtPlotResult.html">wtPlotResult</a></span>(<span class="dt">wtaqResult =</span> <span class="kw"><a href="../reference/wtRunConfiguration.html">wtRunConfiguration</a></span>(
-  <span class="dt">configuration =</span> calibratedAquiferAndWellSkin<span class="op">$</span>wtaqConfig,
-  ),
-  
-  <span class="dt">main =</span> <span class="kw">sprintf</span>(<span class="st">"Optimal value of parameter '%s' for %s: %2.4f (dimensionless)"</span>, 
-                 calibratedAquiferAndWellSkin<span class="op">$</span>parameterName, 
-                 calibratedAquiferAndWellSkin<span class="op">$</span>wellPattern, 
-                 calibratedAquiferAndWellSkin<span class="op">$</span>optimalParameterValue),
-  <span class="dt">plottype =</span> <span class="st">"w"</span>)</code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="co">#2.Step: Calibrate well-bore skin parameter 'sw' for PW-------------------------------</span></a>
+<a class="sourceLine" id="cb38-2" data-line-number="2">calibratedAquiferAndWellSkin &lt;-<span class="st"> </span><span class="kw">calibrateModel</span>(</a>
+<a class="sourceLine" id="cb38-3" data-line-number="3">  #### WTAQ configuration with calibrated aquifer (Step1)</a>
+<a class="sourceLine" id="cb38-4" data-line-number="4">  <span class="dt">configuration =</span> calibratedAquifer<span class="op">$</span>wtaqConfig,</a>
+<a class="sourceLine" id="cb38-5" data-line-number="5">  ### calibrate well-bore skin parameter</a>
+<a class="sourceLine" id="cb38-6" data-line-number="6">  <span class="dt">parameterName =</span> <span class="st">"sw"</span>, </a>
+<a class="sourceLine" id="cb38-7" data-line-number="7">  ### 'sw' within 0 - 100 (dimensionless)</a>
+<a class="sourceLine" id="cb38-8" data-line-number="8">  <span class="dt">parameterRange =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>), </a>
+<a class="sourceLine" id="cb38-9" data-line-number="9">  ### only use drawdown time-series of PW for calibration </a>
+<a class="sourceLine" id="cb38-10" data-line-number="10">  <span class="dt">wellPattern =</span> <span class="st">"PW"</span>  </a>
+<a class="sourceLine" id="cb38-11" data-line-number="11">  )</a>
+<a class="sourceLine" id="cb38-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb38-13" data-line-number="13">### Plot the drawdowns with calibrated aquifer &amp; well-bore skin characteristics:</a>
+<a class="sourceLine" id="cb38-14" data-line-number="14"><span class="kw"><a href="../reference/wtPlotResult.html">wtPlotResult</a></span>(<span class="dt">wtaqResult =</span> <span class="kw"><a href="../reference/wtRunConfiguration.html">wtRunConfiguration</a></span>(</a>
+<a class="sourceLine" id="cb38-15" data-line-number="15">  <span class="dt">configuration =</span> calibratedAquiferAndWellSkin<span class="op">$</span>wtaqConfig,</a>
+<a class="sourceLine" id="cb38-16" data-line-number="16">  ),</a>
+<a class="sourceLine" id="cb38-17" data-line-number="17">  </a>
+<a class="sourceLine" id="cb38-18" data-line-number="18">  <span class="dt">main =</span> <span class="kw">sprintf</span>(<span class="st">"Optimal value of parameter '%s' for %s: %2.4f (dimensionless)"</span>, </a>
+<a class="sourceLine" id="cb38-19" data-line-number="19">                 calibratedAquiferAndWellSkin<span class="op">$</span>parameterName, </a>
+<a class="sourceLine" id="cb38-20" data-line-number="20">                 calibratedAquiferAndWellSkin<span class="op">$</span>wellPattern, </a>
+<a class="sourceLine" id="cb38-21" data-line-number="21">                 calibratedAquiferAndWellSkin<span class="op">$</span>optimalParameterValue),</a>
+<a class="sourceLine" id="cb38-22" data-line-number="22">  <span class="dt">plottype =</span> <span class="st">"w"</span>)</a></code></pre></div>
 <pre><code>## Removing column 'RELERR' from 'wtaqResult'.</code></pre>
 <p><img src="kwbwtaq_Tutorial_files/figure-html/unnamed-chunk-27-1.png" width="700"></p>
 <p>By calibrating the well-skin parameter <strong>sw</strong> to <strong>2.0150393</strong> the drawdown in the production well “PW” now also fits nearly perfectly the observed drawdown values, without impacting the fit for the observation wells.</p>
@@ -725,32 +730,32 @@ calibratedAquiferAndWellSkin &lt;-<span class="st"> </span><span class="kw">cali
 <li><p>Well-skin parameter <code>sw</code></p></li>
 </ul>
 <p>For <strong>all</strong> production wells the well-skin parameter <code>sw</code> is set to <code>wellSkin</code>, because this value achieved the best-model fit during <a href="#well-characteristics-well-bore-skin-parameter-of-production-well-step-2">calibration for W5</a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">### Well-skin parameter from calibration of W5 for all wells of the well field 
-wellSkin &lt;-<span class="st"> </span>calibratedAquiferAndWellSkin<span class="op">$</span>optimalParameterValue
-<span class="kw">sprintf</span>(<span class="st">"Well-skin parameter value: %2.6f (dimensionless)"</span>, wellSkin)</code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1">### Well-skin parameter from calibration of W5 for all wells of the well field </a>
+<a class="sourceLine" id="cb40-2" data-line-number="2">wellSkin &lt;-<span class="st"> </span>calibratedAquiferAndWellSkin<span class="op">$</span>optimalParameterValue</a>
+<a class="sourceLine" id="cb40-3" data-line-number="3"><span class="kw">sprintf</span>(<span class="st">"Well-skin parameter value: %2.6f (dimensionless)"</span>, wellSkin)</a></code></pre></div>
 <pre><code>## [1] "Well-skin parameter value: 2.015039 (dimensionless)"</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Example well field configuration with 5 wells</span>
-owWellfieldConf &lt;-<span class="st"> </span><span class="kw">rbind</span>(  
-  
-  <span class="kw"><a href="../reference/owConfigureWell.html">owConfigureWell</a></span>(
-    <span class="dt">wellName =</span> <span class="st">"W1"</span>, <span class="dt">x =</span> <span class="fl">807679.64</span>, <span class="dt">y =</span> <span class="fl">2091015.29</span>, 
-    <span class="dt">r =</span> <span class="fl">1.5</span>, <span class="dt">z1 =</span> <span class="dv">2</span>, <span class="dt">z2 =</span> <span class="dv">4</span>, <span class="dt">sw =</span> wellSkin),  
-  
-  <span class="kw"><a href="../reference/owConfigureWell.html">owConfigureWell</a></span>(
-    <span class="dt">wellName =</span> <span class="st">"W2"</span>, <span class="dt">x =</span> <span class="fl">807608.66</span>, <span class="dt">y =</span> <span class="fl">2091018.51</span>, 
-    <span class="dt">r =</span> <span class="fl">1.7</span>, <span class="dt">z1 =</span> <span class="fl">4.2</span>, <span class="dt">z2 =</span> <span class="dv">7</span>, <span class="dt">sw =</span> wellSkin),
-  
-  <span class="kw"><a href="../reference/owConfigureWell.html">owConfigureWell</a></span>(
-    <span class="dt">wellName =</span> <span class="st">"W3"</span>, <span class="dt">x =</span> <span class="fl">807558.27</span>, <span class="dt">y =</span> <span class="fl">2091090.30</span>, 
-    <span class="dt">r =</span> <span class="fl">1.5</span>, <span class="dt">z1 =</span> <span class="fl">1.8</span>, <span class="dt">z2 =</span> <span class="dv">8</span>, <span class="dt">sw =</span> wellSkin),
-  
-  <span class="kw"><a href="../reference/owConfigureWell.html">owConfigureWell</a></span>(
-    <span class="dt">wellName =</span> <span class="st">"W4"</span>, <span class="dt">x =</span> <span class="fl">807509.29</span>, <span class="dt">y =</span>  <span class="fl">2091161.80</span>, 
-    <span class="dt">r =</span> <span class="fl">1.5</span>, <span class="dt">z1 =</span> <span class="fl">1.8</span>, <span class="dt">z2 =</span> <span class="fl">7.5</span>, <span class="dt">sw =</span> wellSkin),
-  
-  <span class="kw"><a href="../reference/owConfigureWell.html">owConfigureWell</a></span>(
-    <span class="dt">wellName =</span> <span class="st">"W5"</span>, <span class="dt">x =</span> <span class="fl">807458.95</span>, <span class="dt">y =</span>  <span class="fl">2091232.26</span>, 
-    <span class="dt">r =</span> <span class="fl">1.5</span>, <span class="dt">z1 =</span> <span class="fl">0.4</span>, <span class="dt">z2 =</span> <span class="fl">7.8</span>, <span class="dt">sw =</span> wellSkin))</code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="co"># Example well field configuration with 5 wells</span></a>
+<a class="sourceLine" id="cb42-2" data-line-number="2">owWellfieldConf &lt;-<span class="st"> </span><span class="kw">rbind</span>(  </a>
+<a class="sourceLine" id="cb42-3" data-line-number="3">  </a>
+<a class="sourceLine" id="cb42-4" data-line-number="4">  <span class="kw"><a href="../reference/owConfigureWell.html">owConfigureWell</a></span>(</a>
+<a class="sourceLine" id="cb42-5" data-line-number="5">    <span class="dt">wellName =</span> <span class="st">"W1"</span>, <span class="dt">x =</span> <span class="fl">807679.64</span>, <span class="dt">y =</span> <span class="fl">2091015.29</span>, </a>
+<a class="sourceLine" id="cb42-6" data-line-number="6">    <span class="dt">r =</span> <span class="fl">1.5</span>, <span class="dt">z1 =</span> <span class="dv">2</span>, <span class="dt">z2 =</span> <span class="dv">4</span>, <span class="dt">sw =</span> wellSkin),  </a>
+<a class="sourceLine" id="cb42-7" data-line-number="7">  </a>
+<a class="sourceLine" id="cb42-8" data-line-number="8">  <span class="kw"><a href="../reference/owConfigureWell.html">owConfigureWell</a></span>(</a>
+<a class="sourceLine" id="cb42-9" data-line-number="9">    <span class="dt">wellName =</span> <span class="st">"W2"</span>, <span class="dt">x =</span> <span class="fl">807608.66</span>, <span class="dt">y =</span> <span class="fl">2091018.51</span>, </a>
+<a class="sourceLine" id="cb42-10" data-line-number="10">    <span class="dt">r =</span> <span class="fl">1.7</span>, <span class="dt">z1 =</span> <span class="fl">4.2</span>, <span class="dt">z2 =</span> <span class="dv">7</span>, <span class="dt">sw =</span> wellSkin),</a>
+<a class="sourceLine" id="cb42-11" data-line-number="11">  </a>
+<a class="sourceLine" id="cb42-12" data-line-number="12">  <span class="kw"><a href="../reference/owConfigureWell.html">owConfigureWell</a></span>(</a>
+<a class="sourceLine" id="cb42-13" data-line-number="13">    <span class="dt">wellName =</span> <span class="st">"W3"</span>, <span class="dt">x =</span> <span class="fl">807558.27</span>, <span class="dt">y =</span> <span class="fl">2091090.30</span>, </a>
+<a class="sourceLine" id="cb42-14" data-line-number="14">    <span class="dt">r =</span> <span class="fl">1.5</span>, <span class="dt">z1 =</span> <span class="fl">1.8</span>, <span class="dt">z2 =</span> <span class="dv">8</span>, <span class="dt">sw =</span> wellSkin),</a>
+<a class="sourceLine" id="cb42-15" data-line-number="15">  </a>
+<a class="sourceLine" id="cb42-16" data-line-number="16">  <span class="kw"><a href="../reference/owConfigureWell.html">owConfigureWell</a></span>(</a>
+<a class="sourceLine" id="cb42-17" data-line-number="17">    <span class="dt">wellName =</span> <span class="st">"W4"</span>, <span class="dt">x =</span> <span class="fl">807509.29</span>, <span class="dt">y =</span>  <span class="fl">2091161.80</span>, </a>
+<a class="sourceLine" id="cb42-18" data-line-number="18">    <span class="dt">r =</span> <span class="fl">1.5</span>, <span class="dt">z1 =</span> <span class="fl">1.8</span>, <span class="dt">z2 =</span> <span class="fl">7.5</span>, <span class="dt">sw =</span> wellSkin),</a>
+<a class="sourceLine" id="cb42-19" data-line-number="19">  </a>
+<a class="sourceLine" id="cb42-20" data-line-number="20">  <span class="kw"><a href="../reference/owConfigureWell.html">owConfigureWell</a></span>(</a>
+<a class="sourceLine" id="cb42-21" data-line-number="21">    <span class="dt">wellName =</span> <span class="st">"W5"</span>, <span class="dt">x =</span> <span class="fl">807458.95</span>, <span class="dt">y =</span>  <span class="fl">2091232.26</span>, </a>
+<a class="sourceLine" id="cb42-22" data-line-number="22">    <span class="dt">r =</span> <span class="fl">1.5</span>, <span class="dt">z1 =</span> <span class="fl">0.4</span>, <span class="dt">z2 =</span> <span class="fl">7.8</span>, <span class="dt">sw =</span> wellSkin))</a></code></pre></div>
 <p><strong>Note:</strong><br><em>On the <strong>Level 2</strong> function level it is now not necessary to define well distances (this was required in the <a href="#model-parameterisation">Level 1: one pumping well example</a>. The well distances will be set later automatically for each model run based on both, the <code>x</code> <code>y</code> coordinates:</em></p>
 <pre><code>## Well distance matrix table:</code></pre>
 <pre><code>##       W1    W2    W3    W4    W5
@@ -765,13 +770,13 @@ owWellfieldConf &lt;-<span class="st"> </span><span class="kw">rbind</span>(
 <h4 class="hasAnchor">
 <a href="#basic-model-parameterisation" class="anchor"></a>Basic model parameterisation</h4>
 <p>In a next step we define we use the <strong>Level 2</strong> function <code><a href="../reference/owConfigure.html">owConfigure()</a></code> to prepare the constant parts of the WTAQ configuration parameterisation (<code>wellfield</code>, <code>aquifer</code> and <code>drainage</code>) and store them in the object <code>owConf</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create constant components of WTAQ configuration</span>
-owConf &lt;-<span class="st"> </span><span class="kw"><a href="../reference/owConfigure.html">owConfigure</a></span>(<span class="dt">wellfield =</span> owWellfieldConf,
-                      <span class="dt">aquifer =</span> calibratedAquiferAndWellSkin<span class="op">$</span>wtaqConfig<span class="op">$</span>aquifer,
-                      <span class="dt">drainage =</span> <span class="kw"><a href="../reference/wtConfigureDrainage.html">wtConfigureDrainage</a></span>(<span class="dt">idra =</span> <span class="dv">0</span>)
-                     )</code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="co"># Create constant components of WTAQ configuration</span></a>
+<a class="sourceLine" id="cb45-2" data-line-number="2">owConf &lt;-<span class="st"> </span><span class="kw"><a href="../reference/owConfigure.html">owConfigure</a></span>(<span class="dt">wellfield =</span> owWellfieldConf,</a>
+<a class="sourceLine" id="cb45-3" data-line-number="3">                      <span class="dt">aquifer =</span> calibratedAquiferAndWellSkin<span class="op">$</span>wtaqConfig<span class="op">$</span>aquifer,</a>
+<a class="sourceLine" id="cb45-4" data-line-number="4">                      <span class="dt">drainage =</span> <span class="kw"><a href="../reference/wtConfigureDrainage.html">wtConfigureDrainage</a></span>(<span class="dt">idra =</span> <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb45-5" data-line-number="5">                     )</a></code></pre></div>
 <p><strong>Note:</strong> <em>For the parameter <code>aquifer</code> we simply use the calibrated parameter setting, that we obtained after the <a href="#model-calibration">Level 1 model calibration</a>, which is stored in the R object:</em></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">calibratedAquiferAndWellSkin<span class="op">$</span>wtaqConfig<span class="op">$</span>aquifer</code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1">calibratedAquiferAndWellSkin<span class="op">$</span>wtaqConfig<span class="op">$</span>aquifer</a></code></pre></div>
 <pre><code>## $aqtype
 ## [1] "WATER TABLE"
 ## 
@@ -790,7 +795,7 @@ owConf &lt;-<span class="st"> </span><span class="kw"><a href="../reference/owCo
 ## $sy
 ## [1] 0.05</code></pre>
 <p>The well field configuration can be plotted with the function <code><a href="../reference/owPlotConfiguration.html">owPlotConfiguration()</a></code> (top view &amp; side view). By setting the parameter <code>referenceWell=1</code> the Well 1 is selected as reference well for plotting:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/owPlotConfiguration.html">owPlotConfiguration</a></span>(owConf,  <span class="dt">referenceWell =</span> <span class="dv">1</span>)</code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="kw"><a href="../reference/owPlotConfiguration.html">owPlotConfiguration</a></span>(owConf,  <span class="dt">referenceWell =</span> <span class="dv">1</span>)</a></code></pre></div>
 <p><img src="kwbwtaq_Tutorial_files/figure-html/unnamed-chunk-32-1.png" width="960"></p>
 </div>
 <div id="time-varying-model-parameteristion" class="section level4">
@@ -802,12 +807,12 @@ owConf &lt;-<span class="st"> </span><span class="kw"><a href="../reference/owCo
 <li><p>the times for which the drawdowns should be calculated (<code>timesForDDcalculation</code>)</p></li>
 </ul>
 <p>These are defined in the following code:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># pumping rates of well W1 to W5</span>
-pumpingRates &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.069</span>, <span class="fl">0.089</span>, <span class="fl">0.088</span>, <span class="fl">0.087</span>, <span class="fl">0.086</span>) 
-
-### user-specified times
-timesForDDcalculation &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">10</span>,<span class="dv">30</span>,<span class="dv">60</span>,<span class="dv">600</span>,<span class="dv">1200</span>, <span class="dv">2400</span>,<span class="dv">3600</span>, 
-                           <span class="dv">10000</span>, <span class="dv">50000</span>, <span class="dv">100000</span>, <span class="dv">300000</span>) </code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1"><span class="co"># pumping rates of well W1 to W5</span></a>
+<a class="sourceLine" id="cb49-2" data-line-number="2">pumpingRates &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.069</span>, <span class="fl">0.089</span>, <span class="fl">0.088</span>, <span class="fl">0.087</span>, <span class="fl">0.086</span>) </a>
+<a class="sourceLine" id="cb49-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb49-4" data-line-number="4">### user-specified times</a>
+<a class="sourceLine" id="cb49-5" data-line-number="5">timesForDDcalculation &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">10</span>,<span class="dv">30</span>,<span class="dv">60</span>,<span class="dv">600</span>,<span class="dv">1200</span>, <span class="dv">2400</span>,<span class="dv">3600</span>, </a>
+<a class="sourceLine" id="cb49-6" data-line-number="6">                           <span class="dv">10000</span>, <span class="dv">50000</span>, <span class="dv">100000</span>, <span class="dv">300000</span>) </a></code></pre></div>
 </div>
 </div>
 <div id="model-run-1" class="section level3">
@@ -815,35 +820,35 @@ timesForDDcalculation &lt;-<span class="st"> </span><span class="kw">c</span>(<s
 <a href="#model-run-1" class="anchor"></a>Model run</h3>
 <p>Now we have all parts for parameterising WTAQ and calulating the drawdowns easily on the well field scale (i.e. running WTAQ multiple times in the background).</p>
 <p>For this we use the function <code><a href="../reference/owGetDrawdowns.html">owGetDrawdowns()</a></code> with the following parameters:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ddlist &lt;-<span class="st"> </span><span class="kw"><a href="../reference/owGetDrawdowns.html">owGetDrawdowns</a></span>(
-  <span class="dt">owConf=</span>owConf, 
-  <span class="dt">Q =</span> pumpingRates, 
-  <span class="dt">times =</span> timesForDDcalculation,
-  ### required for using the function wtPlotResults()
-  <span class="dt">to.matrix=</span><span class="ot">FALSE</span> 
-  )
-
-ddmatrix&lt;-<span class="st"> </span><span class="kw"><a href="../reference/owGetDrawdowns.html">owGetDrawdowns</a></span>(
-  <span class="dt">owConf=</span>owConf, 
-  <span class="dt">Q =</span> pumpingRates, 
-  <span class="dt">times =</span> timesForDDcalculation,
-  ### saves results in "matrix" format: required for function owSuperposeDrawdowns()
-  <span class="dt">to.matrix=</span><span class="ot">TRUE</span> 
-  )</code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1">ddlist &lt;-<span class="st"> </span><span class="kw"><a href="../reference/owGetDrawdowns.html">owGetDrawdowns</a></span>(</a>
+<a class="sourceLine" id="cb50-2" data-line-number="2">  <span class="dt">owConf=</span>owConf, </a>
+<a class="sourceLine" id="cb50-3" data-line-number="3">  <span class="dt">Q =</span> pumpingRates, </a>
+<a class="sourceLine" id="cb50-4" data-line-number="4">  <span class="dt">times =</span> timesForDDcalculation,</a>
+<a class="sourceLine" id="cb50-5" data-line-number="5">  ### required for using the function wtPlotResults()</a>
+<a class="sourceLine" id="cb50-6" data-line-number="6">  <span class="dt">to.matrix=</span><span class="ot">FALSE</span> </a>
+<a class="sourceLine" id="cb50-7" data-line-number="7">  )</a>
+<a class="sourceLine" id="cb50-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb50-9" data-line-number="9">ddmatrix&lt;-<span class="st"> </span><span class="kw"><a href="../reference/owGetDrawdowns.html">owGetDrawdowns</a></span>(</a>
+<a class="sourceLine" id="cb50-10" data-line-number="10">  <span class="dt">owConf=</span>owConf, </a>
+<a class="sourceLine" id="cb50-11" data-line-number="11">  <span class="dt">Q =</span> pumpingRates, </a>
+<a class="sourceLine" id="cb50-12" data-line-number="12">  <span class="dt">times =</span> timesForDDcalculation,</a>
+<a class="sourceLine" id="cb50-13" data-line-number="13">  ### saves results in "matrix" format: required for function owSuperposeDrawdowns()</a>
+<a class="sourceLine" id="cb50-14" data-line-number="14">  <span class="dt">to.matrix=</span><span class="ot">TRUE</span> </a>
+<a class="sourceLine" id="cb50-15" data-line-number="15">  )</a></code></pre></div>
 <p>The switch <code>to.matrix=TRUE</code> is required in case one would like to calculate the total drawdown in each well including well interference with the function <code><a href="../reference/owSuperposeDrawdowns.html">owSuperposeDrawdowns()</a></code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">drawdownsWithWellInterference &lt;-<span class="st"> </span><span class="kw"><a href="../reference/owSuperposeDrawdowns.html">owSuperposeDrawdowns</a></span>(<span class="dt">drawdownList =</span> ddmatrix)</code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1">drawdownsWithWellInterference &lt;-<span class="st"> </span><span class="kw"><a href="../reference/owSuperposeDrawdowns.html">owSuperposeDrawdowns</a></span>(<span class="dt">drawdownList =</span> ddmatrix)</a></code></pre></div>
 </div>
 <div id="analysing-results-1" class="section level3">
 <h3 class="hasAnchor">
 <a href="#analysing-results-1" class="anchor"></a>Analysing results</h3>
 <p><strong>Quantifying the impact of well interference</strong></p>
 <p>Finally the modelling results can be analysed. For example it is possible to quantify the additional drawdown due to well interference, e.g. for “W1”:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myWell &lt;-<span class="st"> "W1"</span>
-DD_inProductionWell_withInterference &lt;-<span class="st"> </span>drawdownsWithWellInterference[,myWell] 
-DD_inProductionWell_withoutInterference &lt;-<span class="st"> </span>ddmatrix[[myWell]][,myWell]
-diffDrawdown &lt;-<span class="st"> </span>DD_inProductionWell_withInterference<span class="op">-</span>DD_inProductionWell_withoutInterference
-<span class="kw">data.frame</span>(<span class="dt">time.in.seconds=</span>drawdownsWithWellInterference[,<span class="dv">1</span>],
-      <span class="dt">additionalDrawdown.due.to.wellInterference.in.meter=</span>diffDrawdown)</code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1">myWell &lt;-<span class="st"> "W1"</span></a>
+<a class="sourceLine" id="cb52-2" data-line-number="2">DD_inProductionWell_withInterference &lt;-<span class="st"> </span>drawdownsWithWellInterference[,myWell] </a>
+<a class="sourceLine" id="cb52-3" data-line-number="3">DD_inProductionWell_withoutInterference &lt;-<span class="st"> </span>ddmatrix[[myWell]][,myWell]</a>
+<a class="sourceLine" id="cb52-4" data-line-number="4">diffDrawdown &lt;-<span class="st"> </span>DD_inProductionWell_withInterference<span class="op">-</span>DD_inProductionWell_withoutInterference</a>
+<a class="sourceLine" id="cb52-5" data-line-number="5"><span class="kw">data.frame</span>(<span class="dt">time.in.seconds=</span>drawdownsWithWellInterference[,<span class="dv">1</span>],</a>
+<a class="sourceLine" id="cb52-6" data-line-number="6">      <span class="dt">additionalDrawdown.due.to.wellInterference.in.meter=</span>diffDrawdown)</a></code></pre></div>
 <pre><code>##    time.in.seconds additionalDrawdown.due.to.wellInterference.in.meter
 ## 1                1                                         0.000000000
 ## 2                5                                         0.000016160
@@ -859,56 +864,56 @@ diffDrawdown &lt;-<span class="st"> </span>DD_inProductionWell_withInterference<
 ## 12          100000                                         0.607290000
 ## 13          300000                                         0.810100000</code></pre>
 <p><strong>Plotting of well drawdowns (without well interference):</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span> (wellName <span class="cf">in</span> owWellfieldConf<span class="op">$</span>wellName)
-{
-  index &lt;-<span class="st"> </span><span class="kw">which</span>(owWellfieldConf<span class="op">$</span>wellName<span class="op">==</span>wellName)
- wellQ &lt;-<span class="st"> </span>pumpingRates[index]
- <span class="cf">if</span> (wellQ <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)
- {
-  <span class="kw"><a href="../reference/wtPlotResult.html">wtPlotResult</a></span>(<span class="dt">wtaqResult =</span> ddlist[[wellName]], 
-               <span class="dt">plottype =</span> <span class="st">"s"</span>, 
-               <span class="dt">ylab =</span> <span class="st">"Drawdown (m)"</span>,
-               <span class="dt">xlab =</span> <span class="st">"Time in seconds since start of pumping (s)"</span>,
-               <span class="dt">main =</span> <span class="kw">sprintf</span>(<span class="st">"Pumping well: %s (Q: %3.1f m3/h)"</span>, 
-                              wellName,                                   
-                              wellQ<span class="op">*</span><span class="dv">3600</span>))
- }
-}</code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1"><span class="cf">for</span> (wellName <span class="cf">in</span> owWellfieldConf<span class="op">$</span>wellName)</a>
+<a class="sourceLine" id="cb54-2" data-line-number="2">{</a>
+<a class="sourceLine" id="cb54-3" data-line-number="3">  index &lt;-<span class="st"> </span><span class="kw">which</span>(owWellfieldConf<span class="op">$</span>wellName<span class="op">==</span>wellName)</a>
+<a class="sourceLine" id="cb54-4" data-line-number="4"> wellQ &lt;-<span class="st"> </span>pumpingRates[index]</a>
+<a class="sourceLine" id="cb54-5" data-line-number="5"> <span class="cf">if</span> (wellQ <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb54-6" data-line-number="6"> {</a>
+<a class="sourceLine" id="cb54-7" data-line-number="7">  <span class="kw"><a href="../reference/wtPlotResult.html">wtPlotResult</a></span>(<span class="dt">wtaqResult =</span> ddlist[[wellName]], </a>
+<a class="sourceLine" id="cb54-8" data-line-number="8">               <span class="dt">plottype =</span> <span class="st">"s"</span>, </a>
+<a class="sourceLine" id="cb54-9" data-line-number="9">               <span class="dt">ylab =</span> <span class="st">"Drawdown (m)"</span>,</a>
+<a class="sourceLine" id="cb54-10" data-line-number="10">               <span class="dt">xlab =</span> <span class="st">"Time in seconds since start of pumping (s)"</span>,</a>
+<a class="sourceLine" id="cb54-11" data-line-number="11">               <span class="dt">main =</span> <span class="kw">sprintf</span>(<span class="st">"Pumping well: %s (Q: %3.1f m3/h)"</span>, </a>
+<a class="sourceLine" id="cb54-12" data-line-number="12">                              wellName,                                   </a>
+<a class="sourceLine" id="cb54-13" data-line-number="13">                              wellQ<span class="op">*</span><span class="dv">3600</span>))</a>
+<a class="sourceLine" id="cb54-14" data-line-number="14"> }</a>
+<a class="sourceLine" id="cb54-15" data-line-number="15">}</a></code></pre></div>
 <p><img src="kwbwtaq_Tutorial_files/figure-html/unnamed-chunk-37-1.png" width="700"><img src="kwbwtaq_Tutorial_files/figure-html/unnamed-chunk-37-2.png" width="700"><img src="kwbwtaq_Tutorial_files/figure-html/unnamed-chunk-37-3.png" width="700"><img src="kwbwtaq_Tutorial_files/figure-html/unnamed-chunk-37-4.png" width="700"><img src="kwbwtaq_Tutorial_files/figure-html/unnamed-chunk-37-5.png" width="700"></p>
 <p><strong>Plotting of well drawdowns (with well interference):</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plotWellInterference &lt;-<span class="st"> </span><span class="cf">function</span>(wellName, <span class="dt">Q=</span><span class="ot">NULL</span>)
-{
-  <span class="cf">if</span> (<span class="kw">is.null</span>(Q)) {
-    label &lt;-<span class="st"> </span><span class="kw">sprintf</span>(<span class="st">"%s "</span>,wellName)
-    } <span class="cf">else</span> {
-      label &lt;-<span class="st"> </span><span class="kw">sprintf</span>(<span class="st">"%s (%3.1f m3/h) "</span>,wellName, Q<span class="op">*</span><span class="dv">3600</span>)
-    }
-  
-  drawdown &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">SCENARIO=</span><span class="st">"no well interference"</span>, 
-                         <span class="dt">TIME=</span>ddmatrix[[wellName]][,<span class="st">"TIME"</span>], 
-                         <span class="dt">CALCDD=</span>ddmatrix[[wellName]][,wellName])
-  drawdownWithInterference &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">"SCENARIO"</span>=<span class="st">"with well interference"</span>, 
-                         <span class="dt">TIME=</span>drawdownsWithWellInterference[,<span class="st">"TIME"</span>], 
-                         <span class="dt">CALCDD=</span>drawdownsWithWellInterference[,wellName])
-  
-  res &lt;-<span class="st"> </span><span class="kw">rbind</span>(drawdown, drawdownWithInterference)
-  <span class="kw">print</span>(lattice<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/lattice/topics/xyplot">xyplot</a></span>(CALCDD <span class="op">~</span><span class="st"> </span>TIME, 
-                        <span class="dt">groups =</span>  SCENARIO, 
-                        <span class="dt">ylim=</span><span class="kw">rev</span>(<span class="kw">extendrange</span>(res<span class="op">$</span>CALCDD)),
-                        <span class="dt">ylab =</span> <span class="st">"Drawdown (m)"</span>,
-                        <span class="dt">xlab =</span> <span class="st">"Time in seconds since start of pumping (s)"</span>,
-                        <span class="dt">type=</span><span class="st">"b"</span>, 
-                        <span class="dt">auto.key =</span> <span class="kw">list</span>(<span class="dt">columns=</span><span class="dv">2</span>), 
-                        <span class="dt">data=</span>res, 
-                        <span class="dt">main =</span> label))
-}
-
-<span class="cf">for</span> (wellName <span class="cf">in</span> owWellfieldConf<span class="op">$</span>wellName)
-{
-  index &lt;-<span class="st"> </span><span class="kw">which</span>(owWellfieldConf<span class="op">$</span>wellName<span class="op">==</span>wellName)
- wellQ &lt;-<span class="st"> </span>pumpingRates[index]
- <span class="kw">plotWellInterference</span>(<span class="dt">wellName =</span> wellName, <span class="dt">Q =</span> wellQ)
-}</code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1">plotWellInterference &lt;-<span class="st"> </span><span class="cf">function</span>(wellName, <span class="dt">Q=</span><span class="ot">NULL</span>)</a>
+<a class="sourceLine" id="cb55-2" data-line-number="2">{</a>
+<a class="sourceLine" id="cb55-3" data-line-number="3">  <span class="cf">if</span> (<span class="kw">is.null</span>(Q)) {</a>
+<a class="sourceLine" id="cb55-4" data-line-number="4">    label &lt;-<span class="st"> </span><span class="kw">sprintf</span>(<span class="st">"%s "</span>,wellName)</a>
+<a class="sourceLine" id="cb55-5" data-line-number="5">    } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb55-6" data-line-number="6">      label &lt;-<span class="st"> </span><span class="kw">sprintf</span>(<span class="st">"%s (%3.1f m3/h) "</span>,wellName, Q<span class="op">*</span><span class="dv">3600</span>)</a>
+<a class="sourceLine" id="cb55-7" data-line-number="7">    }</a>
+<a class="sourceLine" id="cb55-8" data-line-number="8">  </a>
+<a class="sourceLine" id="cb55-9" data-line-number="9">  drawdown &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">SCENARIO=</span><span class="st">"no well interference"</span>, </a>
+<a class="sourceLine" id="cb55-10" data-line-number="10">                         <span class="dt">TIME=</span>ddmatrix[[wellName]][,<span class="st">"TIME"</span>], </a>
+<a class="sourceLine" id="cb55-11" data-line-number="11">                         <span class="dt">CALCDD=</span>ddmatrix[[wellName]][,wellName])</a>
+<a class="sourceLine" id="cb55-12" data-line-number="12">  drawdownWithInterference &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">"SCENARIO"</span>=<span class="st">"with well interference"</span>, </a>
+<a class="sourceLine" id="cb55-13" data-line-number="13">                         <span class="dt">TIME=</span>drawdownsWithWellInterference[,<span class="st">"TIME"</span>], </a>
+<a class="sourceLine" id="cb55-14" data-line-number="14">                         <span class="dt">CALCDD=</span>drawdownsWithWellInterference[,wellName])</a>
+<a class="sourceLine" id="cb55-15" data-line-number="15">  </a>
+<a class="sourceLine" id="cb55-16" data-line-number="16">  res &lt;-<span class="st"> </span><span class="kw">rbind</span>(drawdown, drawdownWithInterference)</a>
+<a class="sourceLine" id="cb55-17" data-line-number="17">  <span class="kw">print</span>(lattice<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/lattice/topics/xyplot">xyplot</a></span>(CALCDD <span class="op">~</span><span class="st"> </span>TIME, </a>
+<a class="sourceLine" id="cb55-18" data-line-number="18">                        <span class="dt">groups =</span>  SCENARIO, </a>
+<a class="sourceLine" id="cb55-19" data-line-number="19">                        <span class="dt">ylim=</span><span class="kw">rev</span>(<span class="kw">extendrange</span>(res<span class="op">$</span>CALCDD)),</a>
+<a class="sourceLine" id="cb55-20" data-line-number="20">                        <span class="dt">ylab =</span> <span class="st">"Drawdown (m)"</span>,</a>
+<a class="sourceLine" id="cb55-21" data-line-number="21">                        <span class="dt">xlab =</span> <span class="st">"Time in seconds since start of pumping (s)"</span>,</a>
+<a class="sourceLine" id="cb55-22" data-line-number="22">                        <span class="dt">type=</span><span class="st">"b"</span>, </a>
+<a class="sourceLine" id="cb55-23" data-line-number="23">                        <span class="dt">auto.key =</span> <span class="kw">list</span>(<span class="dt">columns=</span><span class="dv">2</span>), </a>
+<a class="sourceLine" id="cb55-24" data-line-number="24">                        <span class="dt">data=</span>res, </a>
+<a class="sourceLine" id="cb55-25" data-line-number="25">                        <span class="dt">main =</span> label))</a>
+<a class="sourceLine" id="cb55-26" data-line-number="26">}</a>
+<a class="sourceLine" id="cb55-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb55-28" data-line-number="28"><span class="cf">for</span> (wellName <span class="cf">in</span> owWellfieldConf<span class="op">$</span>wellName)</a>
+<a class="sourceLine" id="cb55-29" data-line-number="29">{</a>
+<a class="sourceLine" id="cb55-30" data-line-number="30">  index &lt;-<span class="st"> </span><span class="kw">which</span>(owWellfieldConf<span class="op">$</span>wellName<span class="op">==</span>wellName)</a>
+<a class="sourceLine" id="cb55-31" data-line-number="31"> wellQ &lt;-<span class="st"> </span>pumpingRates[index]</a>
+<a class="sourceLine" id="cb55-32" data-line-number="32"> <span class="kw">plotWellInterference</span>(<span class="dt">wellName =</span> wellName, <span class="dt">Q =</span> wellQ)</a>
+<a class="sourceLine" id="cb55-33" data-line-number="33">}</a></code></pre></div>
 <p><img src="kwbwtaq_Tutorial_files/figure-html/unnamed-chunk-38-1.png" width="700"><img src="kwbwtaq_Tutorial_files/figure-html/unnamed-chunk-38-2.png" width="700"><img src="kwbwtaq_Tutorial_files/figure-html/unnamed-chunk-38-3.png" width="700"><img src="kwbwtaq_Tutorial_files/figure-html/unnamed-chunk-38-4.png" width="700"><img src="kwbwtaq_Tutorial_files/figure-html/unnamed-chunk-38-5.png" width="700"></p>
 </div>
 </div>

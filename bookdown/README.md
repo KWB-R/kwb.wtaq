@@ -1,3 +1,20 @@
-This is a minimal example of a book based on R Markdown and **bookdown** (https://github.com/rstudio/bookdown). Please see the page "Get Started" at https://bookdown.org/ for how to compile this example.
+### How to build bookdown tutorial and copy to "../docs/tutorial" 
 
-You can find the preview of this example at https://bookdown.org/yihui/bookdown-demo/
+You need to set the "bookdown" directory as working directory in order to 
+build the book. Then run the following code
+
+```
+fs::dir_delete("../docs/tutorial")
+rmarkdown::render_site(encoding = 'UTF-8')
+fs::dir_copy(path = "tutorial",new_path = "../docs/tutorial")
+fs::dir_delete(path = "tutorial")
+
+```
+
+Subsequently reset the working directory to the root of this repo and 
+run: 
+
+```
+pkgdown::build_site()
+
+```

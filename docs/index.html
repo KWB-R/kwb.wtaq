@@ -6,10 +6,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Interface to WTAQ Drawdown Model (http://water.usgs.gov/ogw/wtaq/) • kwb.wtaq</title>
-<!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="jquery.sticky-kit.min.js"></script><script src="pkgdown.js"></script><meta property="og:title" content="Interface to WTAQ Drawdown Model (http://water.usgs.gov/ogw/wtaq/)">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
+<script src="pkgdown.js"></script><meta property="og:title" content="Interface to WTAQ Drawdown Model (http://water.usgs.gov/ogw/wtaq/)">
 <meta property="og:description" content="Functions enabling the writing of WTAQ input files, running of WTAQ
     and reading of WTAQ output files.">
 <meta name="twitter:card" content="summary">
@@ -19,7 +19,7 @@
 <![endif]-->
 </head>
 <body>
-    <div class="container template-home">
+    <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -37,13 +37,10 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="index.html">
-    <span class="fa fa-home fa-lg"></span>
-     
-  </a>
+  <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="reference/index.html">Reference</a>
+  <a href="tutorial/index.html">Workflow</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -53,12 +50,18 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="articles/kwbwtaq_ParameterTable.html">Parameters of configuration functions in kwb.wtaq</a>
+      <a href="articles/kwbwtaq_Tutorial.html">Workflow Short</a>
     </li>
     <li>
-      <a href="articles/kwbwtaq_Tutorial.html">Tutorial for R package kwb.wtaq</a>
+      <a href="articles/kwbwtaq_ParameterTable.html">Parameter Table</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="reference/index.html">Reference</a>
+</li>
+<li>
+  <a href="news/index.html">News</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right"></ul>
@@ -71,23 +74,26 @@
 
       
       </header><div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     
-<p><img src="kwb_wtaq.png" alt="kwb.wtaq"></p>
-<p><a href="https://ci.appveyor.com/project/KWB-R/kwb-wtaq/branch/master"><img src="https://ci.appveyor.com/api/projects/status/7pkw4r01xttq2h6h/branch/master?svg=true" alt="Appveyor build status"></a> <a href="https://travis-ci.org/KWB-R/kwb.wtaq"><img src="https://travis-ci.org/KWB-R/kwb.wtaq.svg?branch=master" alt="Build Status"></a> <a href="https://codecov.io/github/KWB-R/kwb.wtaq"><img src="https://codecov.io/github/KWB-R/kwb.wtaq/branch/master/graphs/badge.svg" alt="codecov"></a> <a href="https://www.tidyverse.org/lifecycle/#stable"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="lifecycle"></a> <a href="http://cran.r-project.org/package=kwb.wtaq"><embed src="http://www.r-pkg.org/badges/version/kwb.wtaq"></embed></a> <a href="https://mybinder.org/v2/gh/kwb-r/kwb.wtaq/binder?urlpath=rstudio">[<img src="http://mybinder.org/badge.svg" alt="Binder">]</a></p>
-<p><strong>Cite as:</strong> <a href="https://zenodo.org/badge/latestdoi/23293/KWB-R/kwb.wtaq"><img src="https://zenodo.org/badge/23293/KWB-R/kwb.wtaq.svg" alt="DOI"></a></p>
-<p><strong>Launch tutorial in cloud RStudio session</strong> (and install kwb.wtaq from master branch): <a href="https://mybinder.org/v2/gh/kwb-r/kwb.wtaq/binder?urlpath=rstudio">[<img src="http://mybinder.org/badge.svg" alt="Binder">]</a></p>
+
+    
+    
+
 <p>The R package <strong>kwb.wtaq</strong> provides a programmatic interface to the well drawdown model <a href="https://water.usgs.gov/ogw/wtaq/">WTAQ version 2.1</a> (developed by the U.S. Geological Survey). The WTAQ 2.1 model engine is included in the package, but also available for download as <a href="https://water.usgs.gov/ogw/wtaq/WTAQ_2.1.exe%5D">self-extracting win-zip file from the USGS</a> .</p>
+<p><strong>Launch tutorial in cloud RStudio session</strong> (and install kwb.wtaq from master branch): <a href="https://mybinder.org/v2/gh/kwb-r/kwb.wtaq/binder?urlpath=rstudio"><img src="http://mybinder.org/badge.svg" alt="Binder"></a></p>
 <div id="install-from-github" class="section level2">
 <h2 class="hasAnchor">
 <a href="#install-from-github" class="anchor"></a>1. Install from GitHub</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(<span class="st">"devtools"</span>)) { <span class="kw">install.packages</span>(<span class="st">"devtools"</span>) }
-devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="dt">repo =</span> <span class="st">"KWB-R/kwb.wtaq"</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(<span class="st">"devtools"</span>)) { <span class="kw">install.packages</span>(<span class="st">"devtools"</span>) }</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="dt">repo =</span> <span class="st">"KWB-R/kwb.wtaq"</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 </div>
-<div id="tutorial-website" class="section level2">
+<div id="tutorials" class="section level2">
 <h2 class="hasAnchor">
-<a href="#tutorial-website" class="anchor"></a><a href="http://kwb-r.github.io/kwb.wtaq/">2. Tutorial website</a>
-</h2>
+<a href="#tutorials" class="anchor"></a>Tutorials</h2>
+<p><a href="tutorial/index.html">Extended workflow</a></p>
+<p><a href="articles/kwbwtaq_Tutorial.html">Short workflow</a></p>
+<p><a href="articles/kwbwtaq_ParameterTable.html">Parameter configuration table</a></p>
 </div>
 <div id="known-issues" class="section level2">
 <h2 class="hasAnchor">
@@ -98,23 +104,22 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <li><p><em>“Warning: Named COMMON block ‘par6’ at (1) shall be of the same size”</em> (<strong>unfixed</strong> <em>help in solving this is highly appreciated!</em>)</p></li>
 </ul>
 <p>However, at least these issues do not cause calculation problems for the test carried out under windows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">### Load/install required packages
-<span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(<span class="st">"testthat"</span>)) { <span class="kw">install.packages</span>(<span class="st">"testthat"</span>) }
-<span class="kw">library</span>(kwb.wtaq)
-<span class="kw">library</span>(testthat)
-
-### Download test file from Github
-test_url &lt;-<span class="st"> "https://raw.githubusercontent.com/KWB-R/kwb.wtaq/master/tests/testthat/test_windowsCompilation.R"</span>
-test_path &lt;-<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(),<span class="st">"test_windowsCompilation.R"</span>)
-<span class="kw">download.file</span>(test_url,<span class="dt">destfile =</span> test_path)
-
-### Run test (only working on windows!)
-testthat<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/testthat/topics/test_file">test_file</a></span>(test_path)</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">### Load/install required packages</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(<span class="st">"testthat"</span>)) { <span class="kw">install.packages</span>(<span class="st">"testthat"</span>) }</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">library</span>(kwb.wtaq)</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw">library</span>(testthat)</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">### Download test file from Github</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">test_url &lt;-<span class="st"> "https://raw.githubusercontent.com/KWB-R/kwb.wtaq/master/tests/testthat/test_windowsCompilation.R"</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">test_path &lt;-<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(),<span class="st">"test_windowsCompilation.R"</span>)</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="kw">download.file</span>(test_url,<span class="dt">destfile =</span> test_path)</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11">### Run test (only working on windows!)</a>
+<a class="sourceLine" id="cb2-12" data-line-number="12">testthat<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/testthat/topics/test_file">test_file</a></span>(test_path)</a></code></pre></div>
 </div>
-
   </div>
 
-  <div class="col-md-3" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
@@ -138,7 +143,20 @@ testthat<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 </ul>
 </div>
 
-  </div>
+      <div class="dev-status">
+<h2>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://ci.appveyor.com/project/KWB-R/kwb-wtaq/branch/master"><img src="https://ci.appveyor.com/api/projects/status/7pkw4r01xttq2h6h/branch/master?svg=true" alt="Appveyor build status"></a></li>
+<li><a href="https://travis-ci.org/KWB-R/kwb.wtaq"><img src="https://travis-ci.org/KWB-R/kwb.wtaq.svg?branch=master" alt="Build Status"></a></li>
+<li><a href="https://codecov.io/github/KWB-R/kwb.wtaq"><img src="https://codecov.io/github/KWB-R/kwb.wtaq/branch/master/graphs/badge.svg" alt="codecov"></a></li>
+<li><a href="https://www.tidyverse.org/lifecycle/#stable"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="lifecycle"></a></li>
+<li><a href="http://cran.r-project.org/package=kwb.wtaq"><embed src="http://www.r-pkg.org/badges/version/kwb.wtaq"></embed></a></li>
+<li><a href="https://zenodo.org/badge/latestdoi/23293/KWB-R/kwb.wtaq"><img src="https://zenodo.org/badge/23293/KWB-R/kwb.wtaq.svg" alt="DOI"></a></li>
+<li><a href="https://mybinder.org/v2/gh/kwb-r/kwb.wtaq/binder?urlpath=rstudio"><img src="http://mybinder.org/badge.svg" alt="Binder"></a></li>
+</ul>
+</div>
+</div>
+
 </div>
 
 

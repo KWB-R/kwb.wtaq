@@ -1,0 +1,35 @@
+authors:
+  Hauke Sonnenberg:
+    href: ~
+  Michael Rustler:
+    href: http://mrustl.de
+  
+  Kompetenzzentrum Wasser Berlin gGmbH:
+    href: https://www.kompetenz-wasser.de
+    html: <img src="http://www.kompetenz-wasser.de/wp-content/uploads/2017/08/cropped-logo-kwb_klein-new.png" height="24" />
+
+template:
+  params:
+    bootswatch: cerulean
+
+development:
+  mode: auto
+
+navbar:
+  title: ~
+  type: default
+  left:
+  - text: Home
+    href: index.html
+  - text: Workflow
+    href: tutorial/index.html
+  - text: Articles
+    menu:
+    - text: Workflow Short
+      href: articles/kwbwtaq_Tutorial.html
+    - text: Parameter Table
+      href: articles/kwbwtaq_ParameterTable.html
+  - text: Reference
+    href: reference/index.html
+  - text: News
+    href: news/index.html

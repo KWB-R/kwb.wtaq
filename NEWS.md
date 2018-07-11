@@ -16,7 +16,7 @@ Developed within project
 ### UCODE related
 * Bug fix in ucPlotPng
 
-# kwb.wtaq 0.1.2
+# kwb.wtaq 0.1.2 <small> Unreleased</small>
 
 ### WTAQ related
 

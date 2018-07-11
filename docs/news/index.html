@@ -116,36 +116,41 @@
       <small>Source: <a href='https://github.com/KWB-R/kwb.wtaq/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="kwb-wtaq-0-2-1" class="section level1">
+    <div id="kwb-wtaq-0-2-1-2016-09-06" class="section level1">
 <h1 class="page-header">
-<a href="#kwb-wtaq-0-2-1" class="anchor"></a><a href="https://github.com/KWB-R/kwb.wtaq/releases/tag/v.0.2.1">kwb.wtaq 0.2.1</a>
+<a href="#kwb-wtaq-0-2-1-2016-09-06" class="anchor"></a><a href="https://github.com/KWB-R/kwb.wtaq/releases/tag/v0.2.1">kwb.wtaq 0.2.1</a> <small>2016-09-06</small>
 </h1>
+<p><strong>First Github release:</strong></p>
 <ul>
-<li>First Github release</li>
 <li>added /src files for WTAQ-2 from</li>
 <li>added test for WTAQ2 calculation results on Windows</li>
 </ul>
 </div>
-    <div id="kwb-wtaq-0-2-0" class="section level1">
+    <div id="kwb-wtaq-0-2-0-unreleased" class="section level1">
 <h1 class="page-header">
-<a href="#kwb-wtaq-0-2-0" class="anchor"></a>kwb.wtaq 0.2.0</h1>
-<ul>
-<li>developed within project OPTIWELLS-2 (internal SVN repo rev1268)</li>
-</ul>
+<a href="#kwb-wtaq-0-2-0-unreleased" class="anchor"></a>kwb.wtaq 0.2.0 <small> Unreleased</small>
+</h1>
+<p>Developed within project <a href="https://www.kompetenz-wasser.de/en/project/optiwells-2-betriebsoptimierung-von-trinkwasserbrunnen/">OPTIWELLS-2</a> (internal SVN repo rev1268)</p>
 </div>
-    <div id="kwb-wtaq-0-1-3" class="section level1">
+    <div id="kwb-wtaq-0-1-3-unreleased" class="section level1">
 <h1 class="page-header">
-<a href="#kwb-wtaq-0-1-3" class="anchor"></a>kwb.wtaq 0.1.3</h1>
+<a href="#kwb-wtaq-0-1-3-unreleased" class="anchor"></a>kwb.wtaq 0.1.3 <small> Unreleased</small>
+</h1>
+<div id="ucode-related" class="section level3">
+<h3 class="hasAnchor">
+<a href="#ucode-related" class="anchor"></a>UCODE related</h3>
 <ul>
-<li>UCODE related:</li>
 <li>Bug fix in ucPlotPng</li>
 </ul>
+</div>
 </div>
     <div id="kwb-wtaq-0-1-2" class="section level1">
 <h1 class="page-header">
 <a href="#kwb-wtaq-0-1-2" class="anchor"></a>kwb.wtaq 0.1.2</h1>
+<div id="wtaq-related" class="section level3">
+<h3 class="hasAnchor">
+<a href="#wtaq-related" class="anchor"></a>WTAQ related</h3>
 <ul>
-<li>WTAQ related:</li>
 <li>new: print.wtaqConf, wtPlotResult,</li>
 <li>removed: wtPlotPWell, wtPlotOWell,</li>
 <li>renamed: wtPlotProfile -&gt; wtPlotConf</li>
@@ -154,51 +159,65 @@
 <li>wtReadInpFile: bug fix</li>
 <li>wtConf: returns object of class “wtaqConf”</li>
 <li>wtInpFileLines: new arg “dbg”, float formats 9.3f/9.2f,</li>
-<li><p>wtConfEx2, wtConfEx3: return object of class “wtaqConf”, examples</p></li>
-<li>UCODE related:</li>
-<li>new: ucPlot, ucReadSummary, ucPlotSummary</li>
-<li><p>ucPlotPng: arg “data” renamed -&gt; “wtaqResult”</p></li>
+<li>wtConfEx2, wtConfEx3: return object of class “wtaqConf”, examples</li>
 </ul>
 </div>
-    <div id="kwb-wtaq-0-1-1" class="section level1">
-<h1 class="page-header">
-<a href="#kwb-wtaq-0-1-1" class="anchor"></a>kwb.wtaq 0.1.1</h1>
+<div id="ucode-related-1" class="section level3">
+<h3 class="hasAnchor">
+<a href="#ucode-related-1" class="anchor"></a>UCODE related</h3>
 <ul>
-<li>WTAQ related:</li>
+<li>new: ucPlot, ucReadSummary, ucPlotSummary</li>
+<li>ucPlotPng: arg “data” renamed -&gt; “wtaqResult”</li>
+</ul>
+</div>
+</div>
+    <div id="kwb-wtaq-0-1-1-unreleased" class="section level1">
+<h1 class="page-header">
+<a href="#kwb-wtaq-0-1-1-unreleased" class="anchor"></a>kwb.wtaq 0.1.1 <small> Unreleased</small>
+</h1>
+<div id="wtaq-related-1" class="section level3">
+<h3 class="hasAnchor">
+<a href="#wtaq-related-1" class="anchor"></a>WTAQ related</h3>
+<ul>
 <li>new functions: wtReadInpFile, wtCheckConf</li>
 <li>wtConfDrainage, wtConfTimes, wtConfSolution, wtConfPumpwell: numeric defaults</li>
 <li>wtInpFileLines: arg “pvals” renamed “conf”, format consideration</li>
-<li><p>wtConf: argument check</p></li>
-<li>UCODE related:</li>
+<li>wtConf: argument check</li>
+</ul>
+</div>
+<div id="ucode-related-2" class="section level3">
+<h3 class="hasAnchor">
+<a href="#ucode-related-2" class="anchor"></a>UCODE related</h3>
+<ul>
 <li>support of “serial” and “parallel” running of UCODE/WTAQ</li>
 <li>names of UCODE-files modified</li>
 <li>ucRunParallel: generation of HTML- and png-files for calibration progress visualisation</li>
 <li>new functions: ucPlot, ucPlotPng, htmlMain, htmlCurrent, htmlHistory</li>
-<li><p>change in arguments: ucPrepCalib, ucWriteBatchUcode, ucWriteMainInput, ucConf_Model_Command_Lines, ucInpFileLines</p></li>
+<li>change in arguments: ucPrepCalib, ucWriteBatchUcode, ucWriteMainInput, ucConf_Model_Command_Lines, ucInpFileLines</li>
 </ul>
 </div>
-    <div id="kwb-wtaq-0-1-0" class="section level1">
+</div>
+    <div id="kwb-wtaq-0-1-0-unreleased" class="section level1">
 <h1 class="page-header">
-<a href="#kwb-wtaq-0-1-0" class="anchor"></a>kwb.wtaq 0.1.0</h1>
+<a href="#kwb-wtaq-0-1-0-unreleased" class="anchor"></a>kwb.wtaq 0.1.0 <small> Unreleased</small>
+</h1>
 <ul>
-<li>depends on package hydroGOF</li>
+<li><p>depends on package hydroGOF</p></li>
 <li>Functions have been renamed: wtGeneral -&gt; wtConfGeneral, wtAquifer -&gt; wtConfAquifer, wtDrainage -&gt; wtConfDrainage, wtTimes -&gt; wtConfTimes, wtSolution -&gt; wtConfSolution, wtPumpwell -&gt; wtConfPumpwell, wtObswell -&gt; wtConfObswell, wtParSetting -&gt; wtConf, wtParSettingEx3 -&gt; wtConfEx3</li>
 <li>New functions: wtReadPlot, wtConfWellnames, wtDefaultConf functions related to UCODE, starting with “uc”</li>
-<li>Changes: wtRun: default for wtaq</li>
+<li><p>Changes: wtRun: default for wtaq</p></li>
 </ul>
 </div>
-    <div id="kwb-wtaq-0-0-1" class="section level1">
+    <div id="kwb-wtaq-0-0-1-unreleased" class="section level1">
 <h1 class="page-header">
-<a href="#kwb-wtaq-0-0-1" class="anchor"></a>kwb.wtaq 0.0.1</h1>
-<ul>
-<li>First creation of the package containing:
+<a href="#kwb-wtaq-0-0-1-unreleased" class="anchor"></a>kwb.wtaq 0.0.1 <small> Unreleased</small>
+</h1>
+<p><strong>First creation of the package containing:</strong></p>
 <ul>
 <li>wtReadPlotLst()</li>
 <li>wtReadPlotMtx()</li>
 <li>wtSetPars()</li>
 <li>wtRunScenarios()</li>
-</ul>
-</li>
 </ul>
 </div>
   </div>
@@ -207,13 +226,13 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="#kwb-wtaq-0-2-1">0.2.1</a></li>
-        <li><a href="#kwb-wtaq-0-2-0">0.2.0</a></li>
-        <li><a href="#kwb-wtaq-0-1-3">0.1.3</a></li>
+        <li><a href="#kwb-wtaq-0-2-1-2016-09-06">0.2.1</a></li>
+        <li><a href="#kwb-wtaq-0-2-0-unreleased">0.2.0</a></li>
+        <li><a href="#kwb-wtaq-0-1-3-unreleased">0.1.3</a></li>
         <li><a href="#kwb-wtaq-0-1-2">0.1.2</a></li>
-        <li><a href="#kwb-wtaq-0-1-1">0.1.1</a></li>
-        <li><a href="#kwb-wtaq-0-1-0">0.1.0</a></li>
-        <li><a href="#kwb-wtaq-0-0-1">0.0.1</a></li>
+        <li><a href="#kwb-wtaq-0-1-1-unreleased">0.1.1</a></li>
+        <li><a href="#kwb-wtaq-0-1-0-unreleased">0.1.0</a></li>
+        <li><a href="#kwb-wtaq-0-0-1-unreleased">0.0.1</a></li>
       </ul>
     </div>
   </div>

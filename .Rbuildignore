@@ -13,5 +13,6 @@ WTAQ2_Summary.txt
 appveyor.yml
 codecov.yml
 ^docs\.*
-README.Rmd
+index.Rmd
 ^.gitlab-ci\.yml$
+_pkgdown.yaml

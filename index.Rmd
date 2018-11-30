@@ -17,8 +17,8 @@ branch): [![Binder](http://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/k
 ## 1. Install from GitHub 
 
 ```r
-if(!require("devtools")) { install.packages("devtools") }
-devtools::install_github(repo = "KWB-R/kwb.wtaq", dependencies = TRUE)
+if(!require("remotes")) { install.packages("remotes") }
+remotes::install_github(repo = "KWB-R/kwb.wtaq", dependencies = TRUE)
 ```
 
 ## Tutorials

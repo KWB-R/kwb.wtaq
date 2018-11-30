@@ -18,8 +18,8 @@ engine is included in the package, but also available for download as [self-extr
 ## 1. Install from GitHub 
 
 ```r
-if(!require("devtools")) { install.packages("devtools") }
-devtools::install_github(repo = "KWB-R/kwb.wtaq", dependencies = TRUE)
+if(!require("remotes")) { install.packages("remotes") }
+remotes::install_github(repo = "KWB-R/kwb.wtaq", dependencies = TRUE)
 ```
 
 ## 2. Documentation

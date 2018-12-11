@@ -11,6 +11,9 @@ authors:
 template:
   params:
     bootswatch: cerulean
+    docsearch:
+      api_key: 90c7003e99a08c7c2db10f5bb0d17a79
+      index_name: kwb_wtaq
 
 development:
   mode: auto

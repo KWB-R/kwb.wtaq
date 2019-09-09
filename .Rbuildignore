@@ -1,4 +1,4 @@
-.travis.yml
+^\.travis\.yml$
 README.md
 kwb_wtaq.png
 kwb_wtaq.xcf
@@ -13,6 +13,6 @@ WTAQ2_Summary.txt
 appveyor.yml
 codecov.yml
 ^docs\.*
-index.Rmd
+^index\.md$
 ^.gitlab-ci\.yml$
 _pkgdown.yaml

@@ -18,7 +18,19 @@ engine is included in the package, but also available for download as [self-extr
 ## 1. Install from GitHub 
 
 ```r
-if(!require("remotes")) { install.packages("remotes") }
+### Optionally: specify GitHub Personal Access Token (GITHUB_PAT)
+### See here why this might be important for you:
+### https://kwb-r.github.io/kwb.pkgbuild/articles/install.html#set-your-github_pat
+
+# Sys.setenv(GITHUB_PAT = "mysecret_access_token")
+
+# Install package "remotes" from CRAN
+if (! require("remotes")) {
+  install.packages("remotes", repos = "https://cloud.r-project.org")
+}
+
+# Install KWB package 'kwb.wtaq' from GitHub
+
 remotes::install_github(repo = "KWB-R/kwb.wtaq", dependencies = TRUE)
 ```
 

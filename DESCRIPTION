@@ -1,35 +1,43 @@
 Package: kwb.wtaq
-Title: Interface to WTAQ Drawdown Model (http://water.usgs.gov/ogw/wtaq/)
+Title: Interface to WTAQ Drawdown Model
+    (http://water.usgs.gov/ogw/wtaq/)
 Version: 0.2.1
-Authors@R: c(
-    person("Hauke", "Sonnenberg", role = c("aut", "cre"),
-           email = "hauke.sonnenberg@kompetenz-wasser.de",
-           comment = c(ORCID = "0000-0001-9134-2871")),
-    person("Michael", "Rustler", role = "ctb", 
-           email = "michael.rustler@kompetenz-wasser.de",
-           comment = c(ORCID = "0000-0003-0647-7726")),
-    person(given = "Kompetenzzentrum Wasser Berlin gGmbH (KWB)",
+Authors@R: 
+    c(person(given = "Hauke",
+             family = "Sonnenberg",
+             role = c("aut", "cre"),
+             email = "hauke.sonnenberg@kompetenz-wasser.de",
+             comment = c(ORCID = "0000-0001-9134-2871")),
+      person(given = "Michael",
+             family = "Rustler",
+             role = "ctb",
+             email = "michael.rustler@kompetenz-wasser.de",
+             comment = c(ORCID = "0000-0003-0647-7726")),
+      person(given = "Kompetenzzentrum Wasser Berlin gGmbH (KWB)",
              role = "cph"))
-Description: Functions enabling the writing of WTAQ input files, running of WTAQ
-    and reading of WTAQ output files.
-Depends: R (>= 3.0.0)
-Imports:
-	kwb.utils,
-	lattice,
-	hydroGOF,
-	plotrix,
-  reshape
-Suggests:
-	rmarkdown,
-	knitr,
-  testthat
-Encoding: UTF-8
-Remotes: github::KWB-R/kwb.utils
-Biarch: TRUE
-BinaryFiles: extdata/wtaq.2.1.exe
+Description: Functions enabling the writing of WTAQ input files,
+    running of WTAQ and reading of WTAQ output files.
 License: MIT + file LICENSE
-RoxygenNote: 6.1.0
-VignetteBuilder: knitr
-LazyLoad: yes
 URL: https://github.com/KWB-R/kwb.wtaq
 BugReports: https://github.com/KWB-R/kwb.wtaq/issues
+Depends: 
+    R (>= 3.0.0)
+Imports:
+    kwb.utils,
+    lattice,
+    hydroGOF,
+    plotrix,
+    reshape
+Suggests:
+    rmarkdown,
+    knitr,
+    testthat
+VignetteBuilder: 
+    knitr
+Remotes: 
+    github::KWB-R/kwb.utils
+Biarch: TRUE
+BinaryFiles: extdata/wtaq.2.1.exe
+Encoding: UTF-8
+LazyLoad: yes
+RoxygenNote: 6.1.1

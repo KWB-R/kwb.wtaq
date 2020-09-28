@@ -16,3 +16,5 @@ codecov.yml
 ^index\.md$
 ^.gitlab-ci\.yml$
 _pkgdown.yaml
+^tic\.R$
+_deploy-bookdown\.sh$

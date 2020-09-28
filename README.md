@@ -36,9 +36,9 @@ remotes::install_github(repo = "KWB-R/kwb.wtaq", dependencies = TRUE)
 
 ## 2. Documentation
 
-Release: [https://kwb-r.github.io/kwb.wtaq)](https://kwb-r.github.io/kwb.wtaq)
+Release: [https://kwb-r.github.io/kwb.wtaq](https://kwb-r.github.io/kwb.wtaq)
 
-Development: [https://kwb-r.github.io/kwb.wtaq)/dev](https://kwb-r.github.io/kwb.wtaq/dev)
+Development: [https://kwb-r.github.io/kwb.wtaq/dev](https://kwb-r.github.io/kwb.wtaq/dev)
 
 ## 3. Known issues
 

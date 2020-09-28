@@ -27,7 +27,7 @@ matrix:
       before_script:
         - chmod +x ./_deploy-bookdown.sh
       script: >-
-        Rscript -e 'withr::with_dir(new = "bookdown", rmarkdown::render_site()' &&
+        Rscript -e 'withr::with_dir(new = "bookdown", rmarkdown::render_site())' &&
         ./_deploy-bookdown.sh &&
         Rscript -e 'pkgdown::deploy_site_github(verbose = TRUE)'
       skip_cleanup: 'true'

@@ -24,9 +24,9 @@ matrix:
     - Rscript -e 'remotes::install_github("kwb-r/kwb.wtaq")'
     deploy:
       provider: script
-      script: 
-      - Rscript -e 'withr::with_dir(new = "bookdown", rmarkdown::render_site())'
-      - Rscript -e 'pkgdown::deploy_site_github(verbose = TRUE)'
+      script: >-
+        Rscript -e 'withr::with_dir(new = "bookdown", rmarkdown::render_site())' &&
+        Rscript -e 'pkgdown::deploy_site_github(verbose = TRUE)'
       skip_cleanup: 'true'
       on:
         branch: 

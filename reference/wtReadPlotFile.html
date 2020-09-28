@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -35,7 +39,7 @@
 
 <!-- docsearch -->
 <script src="../docsearch.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/docsearch.js/2.6.1/docsearch.min.css" integrity="sha256-QOSRU/ra9ActyXkIBbiIB144aDBdtvXBcNc3OTNuX/Q=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/docsearch.js/2.6.3/docsearch.min.css" integrity="sha256-QOSRU/ra9ActyXkIBbiIB144aDBdtvXBcNc3OTNuX/Q=" crossorigin="anonymous" />
 <link href="../docsearch.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
 
@@ -43,7 +47,6 @@
 
 <meta property="og:title" content="Read WTAQ plot file — wtReadPlotFile" />
 <meta property="og:description" content="Read WTAQ plot file" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -61,7 +64,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -111,7 +114,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/KWB-R/kwb.wtaq">
+  <a href="https://github.com/KWB-R/kwb.wtaq/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -144,10 +147,10 @@
     <p>Read WTAQ plot file</p>
     </div>
 
-    <pre class="usage"><span class='fu'>wtReadPlotFile</span>(<span class='no'>plotfile</span>, <span class='kw'>logtimes</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>toListView</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+    <pre class="usage"><span class='fu'>wtReadPlotFile</span><span class='op'>(</span><span class='va'>plotfile</span>, logtimes <span class='op'>=</span> <span class='cn'>NULL</span>, toListView <span class='op'>=</span> <span class='cn'>FALSE</span>, 
 
 
-    <span class='kw'>dbg</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    dbg <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -194,6 +197,9 @@
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Hauke Sonnenberg</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
@@ -204,20 +210,23 @@
 <span class='co'>### installation files</span>
 
 
-<span class='no'>pfile</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"extdata"</span>, <span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span>(<span class='st'>"plt.sp%d"</span>, <span class='fl'>1</span>:<span class='fl'>3</span>),
+<span class='va'>pfile</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='fu'><a href='https://rdrr.io/r/base/sprintf.html'>sprintf</a></span><span class='op'>(</span><span class='st'>"plt.sp%d"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span><span class='op'>)</span>, 
 
 
-                     <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"kwb.wtaq"</span>)
+                     package <span class='op'>=</span> <span class='st'>"kwb.wtaq"</span><span class='op'>)</span>
 
 
 
 
 
-<span class='no'>dat1</span> <span class='kw'>&lt;-</span> <span class='fu'>wtReadPlotFile</span>(<span class='no'>pfile</span>[<span class='fl'>1</span>])</div><div class='output co'>#&gt; Timesteps in plot file are expected to be: logarithmic.</div><div class='input'>
+<span class='va'>dat1</span> <span class='op'>&lt;-</span> <span class='fu'>wtReadPlotFile</span><span class='op'>(</span><span class='va'>pfile</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span>  
+</div><div class='output co'>#&gt; Timesteps in plot file are expected to be: logarithmic.</div><div class='input'>
 
-<span class='no'>dat2</span> <span class='kw'>&lt;-</span> <span class='fu'>wtReadPlotFile</span>(<span class='no'>pfile</span>[<span class='fl'>2</span>])</div><div class='output co'>#&gt; Timesteps in plot file are expected to be: user-specified.</div><div class='input'>
+<span class='va'>dat2</span> <span class='op'>&lt;-</span> <span class='fu'>wtReadPlotFile</span><span class='op'>(</span><span class='va'>pfile</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Timesteps in plot file are expected to be: user-specified.</div><div class='input'>
 
-<span class='no'>dat3</span> <span class='kw'>&lt;-</span> <span class='fu'>wtReadPlotFile</span>(<span class='no'>pfile</span>[<span class='fl'>3</span>])</div><div class='output co'>#&gt; Timesteps in plot file are expected to be: user-specified.</div><div class='input'>
+<span class='va'>dat3</span> <span class='op'>&lt;-</span> <span class='fu'>wtReadPlotFile</span><span class='op'>(</span><span class='va'>pfile</span><span class='op'>[</span><span class='fl'>3</span><span class='op'>]</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Timesteps in plot file are expected to be: user-specified.</div><div class='input'>
 
 
 
@@ -225,13 +234,13 @@
 <span class='co'>### Plot HDPW + HDOB1 + HDOB2 + HDOB3 + HDOB4 over dimensionless time (TDRDSQ)</span>
 
 
-<span class='no'>tr1</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lattice</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/lattice/man/xyplot.html'>xyplot</a></span>(<span class='no'>PW</span> + <span class='no'>OB1</span> + <span class='no'>OB2</span> + <span class='no'>OB3</span> + <span class='no'>OB4</span> ~ <span class='no'>TDRDSQ</span>,
+<span class='va'>tr1</span> <span class='op'>&lt;-</span> <span class='fu'>lattice</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/lattice/man/xyplot.html'>xyplot</a></span><span class='op'>(</span><span class='va'>PW</span> <span class='op'>+</span> <span class='va'>OB1</span> <span class='op'>+</span> <span class='va'>OB2</span> <span class='op'>+</span> <span class='va'>OB3</span> <span class='op'>+</span> <span class='va'>OB4</span> <span class='op'>~</span> <span class='va'>TDRDSQ</span>, 
 
 
-              <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>dat1</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"l"</span>, <span class='kw'>auto.key</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>columns</span> <span class='kw'>=</span> <span class='fl'>5</span>),
+              data <span class='op'>=</span> <span class='va'>dat1</span>, type <span class='op'>=</span> <span class='st'>"l"</span>, auto.key <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>columns <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span>, 
 
 
-              <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>"Example 1"</span>)
+              main <span class='op'>=</span> <span class='st'>"Example 1"</span><span class='op'>)</span>    
 
 
 
@@ -240,55 +249,53 @@
 <span class='co'>### Plot CALCDD over TIME</span>
 
 
-<span class='no'>tr2</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lattice</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/lattice/man/xyplot.html'>xyplot</a></span>(<span class='no'>CALCDD</span> ~ <span class='no'>TIME</span>, <span class='kw'>groups</span> <span class='kw'>=</span> <span class='no'>WELL</span>,
+<span class='va'>tr2</span> <span class='op'>&lt;-</span> <span class='fu'>lattice</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/lattice/man/xyplot.html'>xyplot</a></span><span class='op'>(</span><span class='va'>CALCDD</span> <span class='op'>~</span> <span class='va'>TIME</span>, groups <span class='op'>=</span> <span class='va'>WELL</span>, 
 
 
-              <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>dat2</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"l"</span>, <span class='kw'>auto.key</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>columns</span> <span class='kw'>=</span> <span class='fl'>5</span>),
+              data <span class='op'>=</span> <span class='va'>dat2</span>, type <span class='op'>=</span> <span class='st'>"l"</span>, auto.key <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>columns <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span>,
 
 
-              <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>"Example 2"</span>)
+              main <span class='op'>=</span> <span class='st'>"Example 2"</span><span class='op'>)</span>
 
 
 
 
 
-<span class='no'>tr3</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lattice</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/lattice/man/xyplot.html'>xyplot</a></span>(<span class='no'>CALCDD</span> ~ <span class='no'>TIME</span>, <span class='kw'>groups</span> <span class='kw'>=</span> <span class='no'>WELL</span>,
+<span class='va'>tr3</span> <span class='op'>&lt;-</span> <span class='fu'>lattice</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/lattice/man/xyplot.html'>xyplot</a></span><span class='op'>(</span><span class='va'>CALCDD</span> <span class='op'>~</span> <span class='va'>TIME</span>, groups <span class='op'>=</span> <span class='va'>WELL</span>, 
 
 
-              <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>dat3</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"l"</span>, <span class='kw'>auto.key</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>columns</span> <span class='kw'>=</span> <span class='fl'>5</span>),
+              data <span class='op'>=</span> <span class='va'>dat3</span>, type <span class='op'>=</span> <span class='st'>"l"</span>, auto.key <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>columns <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span>,
 
 
-              <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>"Example 3"</span>)
+              main <span class='op'>=</span> <span class='st'>"Example 3"</span><span class='op'>)</span>
 
 
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>tr1</span>)</div><div class='img'><img src='wtReadPlotFile-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>tr1</span><span class='op'>)</span>
+</div><div class='img'><img src='wtReadPlotFile-1.png' alt='' width='700' height='433' /></div><div class='input'>
 
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>tr2</span>)</div><div class='img'><img src='wtReadPlotFile-2.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>tr2</span><span class='op'>)</span>
+</div><div class='img'><img src='wtReadPlotFile-2.png' alt='' width='700' height='433' /></div><div class='input'>
 
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>tr3</span>)</div><div class='img'><img src='wtReadPlotFile-3.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>tr3</span><span class='op'>)</span>  
+</div><div class='img'><img src='wtReadPlotFile-3.png' alt='' width='700' height='433' /></div><div class='input'>
 
 </div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
-    <h2>Author</h2>
-    <p>Hauke Sonnenberg</p>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
 
       <footer>
       <div class="copyright">
-  <p>Developed by Hauke Sonnenberg.</p>
+  <p>Developed by <a href='https://github.com/hsonne'>Hauke Sonnenberg</a>, <a href='https://www.kompetenz-wasser.de/en/project/optiwells-2/'><img src='https://www.kompetenz-wasser.de/wp-content/uploads/2017/05/e89945cb18.png' height='24' /></a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

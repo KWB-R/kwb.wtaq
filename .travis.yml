@@ -20,7 +20,7 @@ matrix:
     after_success:
     - Rscript -e 'covr::codecov()'
     before_deploy:
-    - Rscript -e 'remotes::install_cran("bookdown", "pkgdown", "withr")'
+    - Rscript -e 'remotes::install_cran(c("bookdown", "pkgdown", "withr"))'
     deploy:
       provider: script
       script: 

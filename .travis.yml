@@ -21,6 +21,7 @@ matrix:
     - Rscript -e 'covr::codecov()'
     before_deploy:
     - Rscript -e 'remotes::install_cran(c("bookdown", "pkgdown", "withr"))'
+    - Rscript -e 'remotes::install_github("kwb-r/kwb.wtaq")'
     deploy:
       provider: script
       script: 

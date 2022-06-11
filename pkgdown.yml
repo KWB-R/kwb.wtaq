@@ -1,8 +1,8 @@
-pandoc: '2.2'
-pkgdown: 1.6.1
+pandoc: 2.7.3
+pkgdown: 2.0.3
 pkgdown_sha: ~
 articles:
   kwbwtaq_ParameterTable: kwbwtaq_ParameterTable.html
   kwbwtaq_Tutorial: kwbwtaq_Tutorial.html
-last_built: 2020-09-28T14:47Z
+last_built: 2022-06-11T13:47Z
 

@@ -7,14 +7,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Interface to WTAQ Drawdown Model
     (http://water.usgs.gov/ogw/wtaq/) • kwb.wtaq</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><!-- docsearch --><script src="docsearch.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/docsearch.js/2.6.3/docsearch.min.css" integrity="sha256-QOSRU/ra9ActyXkIBbiIB144aDBdtvXBcNc3OTNuX/Q=" crossorigin="anonymous">
-<link href="docsearch.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script><meta property="og:title" content="Interface to WTAQ Drawdown Model
+<script src="pkgdown.js"></script><meta property="og:title" content="Interface to WTAQ Drawdown Model
     (http://water.usgs.gov/ogw/wtaq/)">
 <meta property="og:description" content="Functions enabling the writing of WTAQ input files,
     running of WTAQ and reading of WTAQ output files.">
@@ -24,6 +22,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -36,55 +36,43 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">kwb.wtaq</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.3.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="index.html">Home</a>
-</li>
-<li>
-  <a href="tutorial/index.html">Workflow</a>
+  <a href="reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="articles/kwbwtaq_Tutorial.html">Workflow Short</a>
+      <a href="articles/kwbwtaq_ParameterTable.html">Parameters of configuration functions in kwb.wtaq</a>
     </li>
     <li>
-      <a href="articles/kwbwtaq_ParameterTable.html">Parameter Table</a>
+      <a href="articles/kwbwtaq_Tutorial.html">Tutorial for R package kwb.wtaq</a>
     </li>
   </ul>
 </li>
 <li>
-  <a href="reference/index.html">Reference</a>
-</li>
-<li>
-  <a href="news/index.html">News</a>
+  <a href="news/index.html">Changelog</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/KWB-R/kwb.wtaq/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+  <a href="https://github.com/KWB-R/kwb.wtaq/" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
       </ul>
-<form class="navbar-form navbar-right hidden-xs hidden-sm" role="search">
-        <div class="form-group">
-          <input type="search" class="form-control" name="search-input" id="search-input" placeholder="Search..." aria-label="Search for..." autocomplete="off">
 </div>
-      </form>
-      
-    </div>
 <!--/.nav-collapse -->
   </div>
 <!--/.container -->
@@ -97,129 +85,127 @@
   <div class="contents col-md-9">
 
 
-<p>The R package <strong>kwb.wtaq</strong> provides a programmatic interface to the well drawdown model <a href="https://water.usgs.gov/ogw/wtaq/">WTAQ version 2.1</a> (developed by the U.S. Geological Survey). The WTAQ 2.1 model engine is included in the package, but also available for download as <a href="https://water.usgs.gov/ogw/wtaq/WTAQ_2.1.exe%5D">self-extracting win-zip file from the USGS</a> .</p>
-<p><strong>Launch tutorial in cloud RStudio session</strong> (and install kwb.wtaq from master branch): <a href="https://mybinder.org/v2/gh/kwb-r/kwb.wtaq/binder?urlpath=rstudio"><img src="http://mybinder.org/badge.svg" alt="Binder"></a></p>
-<div id="install-from-github" class="section level2">
-<h2 class="hasAnchor">
-<a href="#install-from-github" class="anchor"></a>1. Install from GitHub</h2>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="co">### Optionally: specify GitHub Personal Access Token (GITHUB_PAT)</span>
-<span class="co">### See here why this might be important for you:</span>
-<span class="co">### https://kwb-r.github.io/kwb.pkgbuild/articles/install.html#set-your-github_pat</span>
+<p>The R package <strong>kwb.wtaq</strong> provides a programmatic interface to the well drawdown model <a href="https://water.usgs.gov/ogw/wtaq/" class="external-link">WTAQ version 2.1</a> (developed by the U.S. Geological Survey). The WTAQ 2.1 model engine is included in the package, but also available for download as <a href="https://water.usgs.gov/ogw/wtaq/WTAQ_2.1.exe%5D" class="external-link">self-extracting win-zip file from the USGS</a> .</p>
+<p><strong>Launch tutorial in cloud RStudio session</strong> (and install kwb.wtaq from master branch): <a href="https://mybinder.org/v2/gh/kwb-r/kwb.wtaq/binder?urlpath=rstudio" class="external-link"><img src="http://mybinder.org/badge.svg" alt="Binder"></a></p>
+<div class="section level2">
+<h2 id="1-install-from-r-universe">1. Install from R-Universe<a class="anchor" aria-label="anchor" href="#1-install-from-r-universe"></a>
+</h2>
+<p>For installing the latest release of this R package run the following code below:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Enable repository from kwb-r</span>
+<span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>
+  kwbr <span class="op">=</span> <span class="st">'https://kwb-r.r-universe.dev'</span>,
+  CRAN <span class="op">=</span> <span class="st">'https://cloud.r-project.org'</span><span class="op">)</span><span class="op">)</span>
 
-<span class="co"># Sys.setenv(GITHUB_PAT = "mysecret_access_token")</span>
+<span class="co"># Download and install kwb.wtaq in R</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'kwb.wtaq'</span><span class="op">)</span>
 
-<span class="co"># Install package "remotes" from CRAN</span>
-<span class="kw">if</span> <span class="op">(</span><span class="op">!</span> <span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="st"><a href="https://remotes.r-lib.org">"remotes"</a></span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span>, repos <span class="op">=</span> <span class="st">"https://cloud.r-project.org"</span><span class="op">)</span>
-<span class="op">}</span>
-
-<span class="co"># Install KWB package 'kwb.wtaq' from GitHub</span>
-
-<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span>repo <span class="op">=</span> <span class="st">"KWB-R/kwb.wtaq"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></pre></div>
+<span class="co"># Browse the kwb.wtaq manual pages</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/help.html" class="external-link">help</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">'kwb.wtaq'</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="tutorials" class="section level2">
-<h2 class="hasAnchor">
-<a href="#tutorials" class="anchor"></a>Tutorials</h2>
+<div class="section level2">
+<h2 id="tutorials">Tutorials<a class="anchor" aria-label="anchor" href="#tutorials"></a>
+</h2>
 <p><a href="tutorial/index.html">Extended workflow</a></p>
 <p><a href="articles/kwbwtaq_Tutorial.html">Short workflow</a></p>
 <p><a href="articles/kwbwtaq_ParameterTable.html">Parameter configuration table</a></p>
 </div>
-<div id="known-issues" class="section level2">
-<h2 class="hasAnchor">
-<a href="#known-issues" class="anchor"></a>3. Known issues</h2>
+<div class="section level2">
+<h2 id="3-known-issues">3. Known issues<a class="anchor" aria-label="anchor" href="#3-known-issues"></a>
+</h2>
 <p>Compilation of the WTAQ-2.1 source code (/src) throws the following <strong>messages</strong>:</p>
 <ul>
 <li><p><em>“Error: Arithmetic overflow converting INTEGER(16) to INTEGER(4) at (1)”</em> (<strong>fixed</strong> in /src/Makevars with PKG_FFLAGS = -fno-range-check)</p></li>
 <li><p><em>“Warning: Named COMMON block ‘par6’ at (1) shall be of the same size”</em> (<strong>unfixed</strong> <em>help in solving this is highly appreciated!</em>)</p></li>
 </ul>
 <p>However, at least these issues do not cause calculation problems for the test carried out under windows:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="co">### Load/install required packages</span>
-<span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="st"><a href="http://testthat.r-lib.org">"testthat"</a></span><span class="op">)</span><span class="op">)</span> <span class="op">{</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"testthat"</span><span class="op">)</span> <span class="op">}</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/KWB-R/kwb.wtaq">kwb.wtaq</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://testthat.r-lib.org">testthat</a></span><span class="op">)</span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">### Load/install required packages</span>
+<span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="st"><a href="https://testthat.r-lib.org" class="external-link">"testthat"</a></span><span class="op">)</span><span class="op">)</span> <span class="op">{</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"testthat"</span><span class="op">)</span> <span class="op">}</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/KWB-R/kwb.wtaq" class="external-link">kwb.wtaq</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://testthat.r-lib.org" class="external-link">testthat</a></span><span class="op">)</span>
 
 <span class="co">### Download test file from Github</span>
 <span class="va">test_url</span> <span class="op">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/KWB-R/kwb.wtaq/master/tests/testthat/test_windowsCompilation.R"</span>
-<span class="va">test_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span><span class="op">(</span><span class="op">)</span>,<span class="st">"test_windowsCompilation.R"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span><span class="op">(</span><span class="va">test_url</span>,destfile <span class="op">=</span> <span class="va">test_path</span><span class="op">)</span>
+<span class="va">test_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>,<span class="st">"test_windowsCompilation.R"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="va">test_url</span>,destfile <span class="op">=</span> <span class="va">test_path</span><span class="op">)</span>
 
 <span class="co">### Run test (only working on windows!)</span>
-<span class="fu">testthat</span><span class="fu">::</span><span class="fu"><a href="https://testthat.r-lib.org/reference/test_file.html">test_file</a></span><span class="op">(</span><span class="va">test_path</span><span class="op">)</span></pre></div>
+<span class="fu">testthat</span><span class="fu">::</span><span class="fu"><a href="https://testthat.r-lib.org/reference/test_file.html" class="external-link">test_file</a></span><span class="op">(</span><span class="va">test_path</span><span class="op">)</span></code></pre></div>
 </div>
 
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/KWB-R/kwb.wtaq/">https://​github.com/​KWB-R/​kwb.wtaq/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/KWB-R/kwb.wtaq/issues">https://​github.com/​KWB-R/​kwb.wtaq/​issues</a>
-</li>
-</ul>
-</div>
-<div class="license">
-<h2>License</h2>
-<ul class="list-unstyled">
-<li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
-</ul>
-</div>
-<div class="developers">
-<h2>Developers</h2>
-<ul class="list-unstyled">
-<li>
-<a href="https://github.com/hsonne">Hauke Sonnenberg</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-9134-2871" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>
-<a href="https://www.kompetenz-wasser.de/en/project/optiwells-2/"><img src="https://www.kompetenz-wasser.de/wp-content/uploads/2017/05/e89945cb18.png" height="24"></a> <br><small class="roles"> Funder </small>  </li>
-<li><a href="authors.html">All authors...</a></li>
+<li><a href="https://github.com/KWB-R/kwb.wtaq/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/KWB-R/kwb.wtaq/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="license">
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li><a href="https://ci.appveyor.com/project/KWB-R/kwb-wtaq/branch/master"><img src="https://ci.appveyor.com/api/projects/status/7pkw4r01xttq2h6h/branch/master?svg=true" alt="Appveyor build status"></a></li>
-<li><a href="https://travis-ci.org/KWB-R/kwb.wtaq"><img src="https://travis-ci.org/KWB-R/kwb.wtaq.svg?branch=master" alt="Build Status"></a></li>
-<li><a href="https://codecov.io/github/KWB-R/kwb.wtaq"><img src="https://codecov.io/github/KWB-R/kwb.wtaq/branch/master/graphs/badge.svg" alt="codecov"></a></li>
-<li><a href="https://www.tidyverse.org/lifecycle/#stable"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="lifecycle"></a></li>
-<li><a href="https://zenodo.org/badge/latestdoi/23293/KWB-R/kwb.wtaq"><img src="https://zenodo.org/badge/23293/KWB-R/kwb.wtaq.svg" alt="DOI"></a></li>
-<li><a href="https://mybinder.org/v2/gh/kwb-r/kwb.wtaq/binder?urlpath=rstudio"><img src="http://mybinder.org/badge.svg" alt="Binder"></a></li>
+<li><a href="LICENSE.html">Full license</a></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing kwb.wtaq</a></li>
+</ul>
 </div>
+
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
+<ul class="list-unstyled">
+<li>Hauke Sonnenberg <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-9134-2871" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>FAKIN <br><small class="roles"> Funder </small>  </li>
+<li>OPTIWELLS-2 <br><small class="roles"> Funder </small>  </li>
+<li><a href="authors.html">More about authors...</a></li>
+</ul>
+</div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://ci.appveyor.com/project/KWB-R/kwb-wtaq/branch/master" class="external-link"><img src="https://ci.appveyor.com/api/projects/status/7pkw4r01xttq2h6h/branch/master?svg=true" alt="Appveyor build status"></a></li>
+<li><a href="https://travis-ci.org/KWB-R/kwb.wtaq" class="external-link"><img src="https://travis-ci.org/KWB-R/kwb.wtaq.svg?branch=master" alt="Build Status"></a></li>
+<li><a href="https://codecov.io/github/KWB-R/kwb.wtaq" class="external-link"><img src="https://codecov.io/github/KWB-R/kwb.wtaq/branch/master/graphs/badge.svg" alt="codecov"></a></li>
+<li><a href="https://www.tidyverse.org/lifecycle/#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="lifecycle"></a></li>
+<li><a href="http://cran.r-project.org/package=kwb.wtaq" class="external-link"><img src="http://www.r-pkg.org/badges/version/kwb.wtaq" alt="CRAN_Status_Badge"></a></li>
+<li><a href="https://kwb-r.r-universe.dev/" class="external-link"><img src="https://kwb-r.r-universe.dev/badges/kwb.wtaq" alt="R-Universe_Status_Badge"></a></li>
+<li><a href="https://zenodo.org/badge/latestdoi/23293/KWB-R/kwb.wtaq" class="external-link"><img src="https://zenodo.org/badge/23293/KWB-R/kwb.wtaq.svg" alt="DOI"></a></li>
+<li><a href="https://mybinder.org/v2/gh/kwb-r/kwb.wtaq/binder?urlpath=rstudio" class="external-link"><img src="http://mybinder.org/badge.svg" alt="Binder"></a></li>
+</ul>
+</div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="https://github.com/hsonne">Hauke Sonnenberg</a>, <a href="https://www.kompetenz-wasser.de/en/project/optiwells-2/"><img src="https://www.kompetenz-wasser.de/wp-content/uploads/2017/05/e89945cb18.png" height="24"></a>.</p>
+  <p></p>
+<p>Developed by Hauke Sonnenberg, FAKIN, OPTIWELLS-2.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
       </footer>
 </div>
 
   
-<script src="https://cdnjs.cloudflare.com/ajax/libs/docsearch.js/2.6.1/docsearch.min.js" integrity="sha256-GKvGqXDznoRYHCwKXGnuchvKSwmx9SRMrZOTh2g4Sb0=" crossorigin="anonymous"></script><script>
-  docsearch({
-    
-    
-    apiKey: '90c7003e99a08c7c2db10f5bb0d17a79',
-    indexName: 'kwb_wtaq',
-    inputSelector: 'input#search-input.form-control',
-    transformData: function(hits) {
-      return hits.map(function (hit) {
-        hit.url = updateHitURL(hit);
-        return hit;
-      });
-    }
-  });
-</script>
-</body>
+
+
+  
+
+  </body>
 </html>

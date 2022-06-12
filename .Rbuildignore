@@ -18,3 +18,4 @@ codecov.yml
 _pkgdown.yaml
 ^tic\.R$
 _deploy-bookdown\.sh$
+^\.github$

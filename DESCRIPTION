@@ -1,22 +1,16 @@
 Package: kwb.wtaq
 Title: Interface to WTAQ Drawdown Model
     (http://water.usgs.gov/ogw/wtaq/)
-Version: 0.2.1
-Authors@R: 
-    c(person(given = "Hauke",
-             family = "Sonnenberg",
-             role = c("aut", "cre"),
-             email = "hauke.sonnenberg@kompetenz-wasser.de",
-             comment = c(ORCID = "0000-0001-9134-2871")),
-      person(given = "Michael",
-             family = "Rustler",
-             role = "ctb",
-             email = "michael.rustler@kompetenz-wasser.de",
-             comment = c(ORCID = "0000-0003-0647-7726")),
-      person(given = "OPTIWELLS-2",
-             role = "fnd"),
-      person(given = "Kompetenzzentrum Wasser Berlin gGmbH (KWB)",
-             role = "cph"))
+Version: 0.3.0
+Authors@R: c(
+    person("Hauke", "Sonnenberg", , "hauke.sonnenberg@kompetenz-wasser.de", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-9134-2871")),
+    person("Michael", "Rustler", , "michael.rustler@kompetenz-wasser.de", role = "ctb",
+           comment = c(ORCID = "0000-0003-0647-7726")),
+    person("FAKIN", role = "fnd"),
+    person("OPTIWELLS-2", role = "fnd"),
+    person("Kompetenzzentrum Wasser Berlin gGmbH (KWB)", role = "cph")
+  )
 Description: Functions enabling the writing of WTAQ input files,
     running of WTAQ and reading of WTAQ output files.
 License: MIT + file LICENSE
@@ -42,4 +36,4 @@ Biarch: TRUE
 BinaryFiles: extdata/wtaq.2.1.exe
 Encoding: UTF-8
 LazyLoad: yes
-RoxygenNote: 6.1.1
+RoxygenNote: 7.2.0

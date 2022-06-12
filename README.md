@@ -4,7 +4,8 @@
 [![Build Status](https://travis-ci.org/KWB-R/kwb.wtaq.svg?branch=master)](https://travis-ci.org/KWB-R/kwb.wtaq)
 [![codecov](https://codecov.io/github/KWB-R/kwb.wtaq/branch/master/graphs/badge.svg)](https://codecov.io/github/KWB-R/kwb.wtaq)
 [![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/kwb.wtaq)](http://cran.r-project.org/package=kwb.wtaq)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/kwb.wtaq)](http://cran.r-project.org/package=kwb.wtaq
+[![R-Universe_Status_Badge](https://kwb-r.r-universe.dev/badges/kwb.wtaq)](https://kwb-r.r-universe.dev/)
 [![Binder](http://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/kwb-r/kwb.wtaq/binder?urlpath=rstudio)
 
 **Cite as:** [![DOI](https://zenodo.org/badge/23293/KWB-R/kwb.wtaq.svg)](https://zenodo.org/badge/latestdoi/23293/KWB-R/kwb.wtaq)

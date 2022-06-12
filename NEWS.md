@@ -1,3 +1,7 @@
+# [kwb.wtaq 0.3.0](https://github.com/KWB-R/kwb.wtaq/releases/tag/v0.3.0) <small>2022-06-11</small>
+
+* Harmonise with [kwb.pkgbuild](https://kwb-r.github.io/kwb.pkgbuild) 
+
 # [kwb.wtaq 0.2.1](https://github.com/KWB-R/kwb.wtaq/releases/tag/v0.2.1) <small>2016-09-06</small>
 
 **First Github release:**

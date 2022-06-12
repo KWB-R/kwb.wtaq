@@ -3,9 +3,9 @@
 [![codecov](https://codecov.io/github/KWB-R/kwb.wtaq/branch/master/graphs/badge.svg)](https://codecov.io/github/KWB-R/kwb.wtaq)
 [![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/kwb.wtaq)](http://cran.r-project.org/package=kwb.wtaq)
+[![R-Universe_Status_Badge](https://kwb-r.r-universe.dev/badges/kwb.wtaq)](https://kwb-r.r-universe.dev/)
 [![DOI](https://zenodo.org/badge/23293/KWB-R/kwb.wtaq.svg)](https://zenodo.org/badge/latestdoi/23293/KWB-R/kwb.wtaq)
 [![Binder](http://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/kwb-r/kwb.wtaq/binder?urlpath=rstudio)
-
 
 
 The R package **kwb.wtaq** provides a programmatic interface to the well drawdown model [WTAQ version 2.1](https://water.usgs.gov/ogw/wtaq/) (developed by the U.S. Geological Survey). The WTAQ 2.1 model 
@@ -14,23 +14,22 @@ engine is included in the package, but also available for download as [self-extr
 **Launch tutorial in cloud RStudio session** (and install kwb.wtaq from master 
 branch): [![Binder](http://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/kwb-r/kwb.wtaq/binder?urlpath=rstudio)
 
-## 1. Install from GitHub 
+## 1. Install from R-Universe
+
+For installing the latest release of this R package run the following code below:
 
 ```r
-### Optionally: specify GitHub Personal Access Token (GITHUB_PAT)
-### See here why this might be important for you:
-### https://kwb-r.github.io/kwb.pkgbuild/articles/install.html#set-your-github_pat
+# Enable repository from kwb-r
+options(repos = c(
+  kwbr = 'https://kwb-r.r-universe.dev',
+  CRAN = 'https://cloud.r-project.org'))
 
-# Sys.setenv(GITHUB_PAT = "mysecret_access_token")
+# Download and install kwb.wtaq in R
+install.packages('kwb.wtaq')
 
-# Install package "remotes" from CRAN
-if (! require("remotes")) {
-  install.packages("remotes", repos = "https://cloud.r-project.org")
-}
+# Browse the kwb.wtaq manual pages
+help(package = 'kwb.wtaq')
 
-# Install KWB package 'kwb.wtaq' from GitHub
-
-remotes::install_github(repo = "KWB-R/kwb.wtaq", dependencies = TRUE)
 ```
 
 ## Tutorials

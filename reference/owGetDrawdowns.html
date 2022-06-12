@@ -74,25 +74,31 @@
     <h2>Arguments</h2>
     <dl><dt>owConfiguration</dt>
 <dd><p>Optiwells configuration as e.g. retrieved by <code><a href="owRandomConfiguration.html">owRandomConfiguration</a></code>.</p></dd>
-<dt>Q</dt>
+
+  <dt>Q</dt>
 <dd><p>vector of discharges at the wells in the order of wells in 
 owConfiguration$wellfield</p></dd>
-<dt>times</dt>
+
+  <dt>times</dt>
 <dd><p>vector of times for which drawdowns are to be calculated</p></dd>
-<dt>solution</dt>
+
+  <dt>solution</dt>
 <dd><p>List of solution parameters as retrieved by 
 <code><a href="wtConfigureSolution.html">wtConfigureSolution</a></code>. If not specified, a default 
 configuration, as retrieved by <code><a href="wtDefaultConfigurationSolution.html">wtDefaultConfigurationSolution</a></code> 
 is used.</p></dd>
-<dt>to.matrix</dt>
+
+  <dt>to.matrix</dt>
 <dd><p>if TRUE, the results returned by <code><a href="wtRunConfiguration.html">wtRunConfiguration</a></code> that 
 come in "long" form (the drawdowns for each well appear in blocks one
 below each other with a column "WELL" indicating the well name) are
 converted to "matrix" (= wide) form in which the calculated drawdowns
 appear in columns one beside the other.</p></dd>
-<dt>...</dt>
+
+  <dt>...</dt>
 <dd><p>additional arguments passed to <code><a href="wtRunConfiguration.html">wtRunConfiguration</a></code>, such as
 <em>show.results</em> or <em>dbg</em>, see there.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
@@ -125,7 +131,7 @@ This list can then be used to calculate the superposition of drawdowns.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
       </footer></div>

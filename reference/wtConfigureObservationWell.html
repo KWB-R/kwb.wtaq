@@ -77,50 +77,61 @@
     <h2>Arguments</h2>
     <dl><dt>obname</dt>
 <dd><p>Name of observation well or piezometer; up to 10 characters in length.</p></dd>
-<dt>r</dt>
+
+  <dt>r</dt>
 <dd><p>Radial distance from axis of pumped well to observation well or 
 piezometer, in units of length.</p></dd>
-<dt>iows</dt>
+
+  <dt>iows</dt>
 <dd><p>Type of observation well or piezometer:
 IOWS = 0: Partially penetrating observation well.
 IOWS = 1: Fully penetrating observation well.
 IOWS = 2: Observation piezometer. Default: 0</p></dd>
-<dt>idpr</dt>
+
+  <dt>idpr</dt>
 <dd><p>Options for delayed response of observation well.
 IDPR = 0: No delayed response. 
 IDPR = 1: Delayed response. Default: 0</p></dd>
-<dt>rp</dt>
+
+  <dt>rp</dt>
 <dd><p>Inside radius of the observation well (or piezometer) standpipe in the 
 interval over which water levels are changing during pumping, in units of 
 length. Enter 0 if IDPR = 0. Default: 0.1, but 0 if idpr = 0.</p></dd>
-<dt>z1</dt>
+
+  <dt>z1</dt>
 <dd><p>Depth below top of aquifer or initial water table to the top of screened 
 interval of observation well, in units of length. Use for IOWS = 0 or 1. 
 Enter 0 if IOWS = 2. Default: 5.0, but 0 if iows = 2.</p></dd>
-<dt>z2</dt>
+
+  <dt>z2</dt>
 <dd><p>Depth below top of aquifer or initial water table to the bottom of 
 screened interval of observation well, in units of length. Use for 
 IOWS = 0 or 1. Enter 0 if IOWS = 2. Default: 10.0, but 0 if iows = 2.</p></dd>
-<dt>xll</dt>
+
+  <dt>xll</dt>
 <dd><p>Length of screened interval of observation well or piezometer, in units 
 of length. Must be 0 if IDPR = 0. Default: z2 - z1, but 0 if idpr = 0.</p></dd>
-<dt>zp</dt>
+
+  <dt>zp</dt>
 <dd><p>Depth below top of aquifer or initial water table to center of piezometer, 
 in units of length. Use for IOWS = 2. Enter 0.0 if IOWS = 0 or 1.
 Default: 3.0, but 0.0 if iows not equal to 2.</p></dd>
-<dt>tsobs</dt>
+
+  <dt>tsobs</dt>
 <dd><p>data.frame with column <em>t</em> containing the user-specified times for 
 which drawdown at the observation well or piezometer will be calculated.
 If the data.frame has no rows, no drawdowns are calculated for the 
 observation well or piezometer. The data.frame can (optionally) contain 
 the measured drawdown for the observation well or piezometer at the 
 corresponding times in an additional column <em>dd</em>.</p></dd>
-<dt>irun</dt>
+
+  <dt>irun</dt>
 <dd><p>Option to suppress drawdown calculations for the observation well or 
 piezometer. Allows user to specify time-drawdown data, but those data are 
 ignored during the simulation. Options are:
 IRUN = 0: Drawdowns not calculated.
 IRUN = 1: Drawdowns calculated.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
@@ -150,7 +161,7 @@ See description in Arguments section.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
       </footer></div>

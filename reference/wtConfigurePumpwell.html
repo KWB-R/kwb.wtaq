@@ -78,48 +78,60 @@
 <dd><p>Type of pumped well:
 IPWS = 0: Partially penetrating pumped well.
 IPWS = 1: Fully penetrating pumped well. Default: 0</p></dd>
-<dt>ipwd</dt>
+
+  <dt>ipwd</dt>
 <dd><p>Type of diameter of pumped well:
 IPWD = 0: Infinitesimal diameter (line-source theory).
 IPWD = 1: Finite diameter. Default: 1</p></dd>
-<dt>rw</dt>
+
+  <dt>rw</dt>
 <dd><p>Radius of pumped well screen, in units of length. Default: 1.0</p></dd>
-<dt>rc</dt>
+
+  <dt>rc</dt>
 <dd><p>Inside radius of pumped well in the interval where water levels are 
 changing during pumping, in units of length. Must be 0 if IPWD = 0.
 Default: value of rw, but 0 if ipwd = 0.</p></dd>
-<dt>zpd</dt>
+
+  <dt>zpd</dt>
 <dd><p>Depth below top of aquifer or initial water table to the top of the 
 screened interval of the pumped well, in units of length. Default: 5.0</p></dd>
-<dt>zpl</dt>
+
+  <dt>zpl</dt>
 <dd><p>Depth below top of aquifer or initial water table to the bottom of the 
 screened interval of the pumped well, in units of length. Default: 10.0</p></dd>
-<dt>sw</dt>
+
+  <dt>sw</dt>
 <dd><p>Well-bore skin parameter, dimensionless. Default: 0.0</p></dd>
-<dt>qq</dt>
+
+  <dt>qq</dt>
 <dd><p>Pumping rate of well, in units of cubic length per time. Default: 0.05</p></dd>
-<dt>tspw</dt>
+
+  <dt>tspw</dt>
 <dd><p>data.frame with column <em>t</em> containing the user-specified times for 
 which drawdown at the pumped well will be calculated. If the data.frame
 has no rows, no drawdowns are calculated for the pumped well. The 
 data.frame can (optionally) contain the drawdowns that have been measured
 for the pumped well at the corresponding times in an additional column 
 <em>dd</em>.</p></dd>
-<dt>pwname</dt>
+
+  <dt>pwname</dt>
 <dd><p>Name of pumping well. This parameter is not evaluated by WTAQ but will be 
 used in the result data frame returned by
 <code><a href="wtRunConfiguration.html">wtRunConfiguration</a></code>. We introduce it in order to be able to
 identify the well within a wellfield. Default: "PW"</p></dd>
-<dt>ipump</dt>
+
+  <dt>ipump</dt>
 <dd><p>Option to suppress calculations of drawdown at pumped well:
 IPUMP = 0: Drawdown is not calculated at pumped well.
 IPUMP = 1: Drawdown is calculated at pumped well.</p></dd>
-<dt>irun</dt>
+
+  <dt>irun</dt>
 <dd><p>Option to suppress drawdown calculations for the pumped well. Allows user 
 to specify time-drawdown data, but those data are ignored during the 
 simulation. Options are:
 IRUN = 0: Drawdowns not calculated.
 IRUN = 1: Drawdowns calculated.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
@@ -149,7 +161,7 @@ descriptions in Arguments section.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
       </footer></div>
